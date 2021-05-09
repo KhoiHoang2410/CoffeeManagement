@@ -15,7 +15,7 @@ public:
     Date(); // get current date
     Date(int, int, int);
     
-    void Day() const;
+    int Day() const;
     void Month() const;
     void Year() const;
 };

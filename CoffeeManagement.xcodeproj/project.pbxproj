@@ -13,7 +13,7 @@
 		FD4C9D062647FA1500193892 /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D042647FA1500193892 /* Item.cpp */; };
 		FD4C9D092647FB5200193892 /* MaterialRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D072647FB5200193892 /* MaterialRepository.cpp */; };
 		FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0A2647FC1800193892 /* Date.cpp */; };
-		FD4C9D0F2648013F00193892 /* Products.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0D2648013F00193892 /* Products.cpp */; };
+		FD4C9D0F2648013F00193892 /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0D2648013F00193892 /* Product.cpp */; };
 		FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D10264803DA00193892 /* Recipe.cpp */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,8 @@
 		FD4C9D082647FB5200193892 /* MaterialRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MaterialRepository.hpp; sourceTree = "<group>"; };
 		FD4C9D0A2647FC1800193892 /* Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Date.cpp; sourceTree = "<group>"; };
 		FD4C9D0B2647FC1800193892 /* Date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
-		FD4C9D0D2648013F00193892 /* Products.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Products.cpp; sourceTree = "<group>"; };
-		FD4C9D0E2648013F00193892 /* Products.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Products.hpp; sourceTree = "<group>"; };
+		FD4C9D0D2648013F00193892 /* Product.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Product.cpp; sourceTree = "<group>"; };
+		FD4C9D0E2648013F00193892 /* Product.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Product.hpp; sourceTree = "<group>"; };
 		FD4C9D10264803DA00193892 /* Recipe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Recipe.cpp; sourceTree = "<group>"; };
 		FD4C9D11264803DA00193892 /* Recipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipe.hpp; sourceTree = "<group>"; };
 		FD4C9D1D2648198D00193892 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			children = (
 				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
-				FD4C9D0D2648013F00193892 /* Products.cpp */,
+				FD4C9D0D2648013F00193892 /* Product.cpp */,
 				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
 				FD4C9D042647FA1500193892 /* Item.cpp */,
@@ -107,7 +107,7 @@
 				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
 				FD4C9D0B2647FC1800193892 /* Date.hpp */,
 				FD4C9D052647FA1500193892 /* Item.hpp */,
-				FD4C9D0E2648013F00193892 /* Products.hpp */,
+				FD4C9D0E2648013F00193892 /* Product.hpp */,
 				FD4C9D11264803DA00193892 /* Recipe.hpp */,
 			);
 			path = Include;
@@ -169,7 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4C9D0F2648013F00193892 /* Products.cpp in Sources */,
+				FD4C9D0F2648013F00193892 /* Product.cpp in Sources */,
 				FD4C9D062647FA1500193892 /* Item.cpp in Sources */,
 				FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */,
 				FD4C9CFE2647F8BD00193892 /* Materials.cpp in Sources */,

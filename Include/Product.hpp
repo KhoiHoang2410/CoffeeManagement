@@ -12,13 +12,21 @@
 #include "../Include/Recipe.hpp"
 
 #include <vector>
+#include <string>
+
+#include "../Include/Recipe.hpp"
 
 using namespace std;
 
-class Products {
+class Product {
 private:
-    vector <Item> products;
-    vector <Recipe> recipts;
+    int ID;
+    string name;
+    Recipe recipe;
+public:
+    Product(string name);
+    
+    void addMaterial(vector<string> materialNames, vector<string> numbers);
 };
 
 #endif /* Products_hpp */

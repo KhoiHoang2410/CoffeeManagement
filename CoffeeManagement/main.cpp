@@ -10,7 +10,6 @@
 using namespace std;
 
 int main() {
-    cout << "lon\n";
     
     return 0;
 }

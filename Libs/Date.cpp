@@ -10,3 +10,7 @@
 Date::Date() {
     
 }
+
+int Date::Day() const {
+    return this->dd;
+}

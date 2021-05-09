@@ -8,8 +8,20 @@
 #ifndef Recipt_hpp
 #define Recipt_hpp
 
+#include <vector>
+using namespace std;
+
 class Recipe {
+private:
+    int ID; // foreign key to Products.ID
+    vector <int> materialID;
+    vector <int> noMaterial;
+protected:
+    Recipe(int ID); // check ID is in Products
     
+    void clearData();
+    
+    void addMaterial(vector<string> materialNames, vector<string> numbers);
 };
 
 #endif /* Recipt_hpp */
