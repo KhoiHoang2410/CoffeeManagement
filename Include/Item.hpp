@@ -8,22 +8,22 @@
 #ifndef Item_hpp
 #define Item_hpp
 
-#include "../Include/Date.hpp"
 #include <string>
+
 using namespace std;
 
 class Item {
-private:
+protected:
     int ID;
     string name;
-    double price;
-    Date addDate;
 public:
-    Item(string, double);
-    bool checkDuplicate(string name);
-    string Name() const;
-    double Price() const;
-    Date AddDate() const;
+    Item();
+    Item(string);
+    
+    virtual bool CheckDuplicate(string);
+    virtual string Name() const;
+    
+    virtual void UpdateName(string);
 };
 
 #endif /* Item_hpp */

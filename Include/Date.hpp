@@ -8,6 +8,11 @@
 #ifndef Date_hpp
 #define Date_hpp
 
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
 class Date {
 private:
     int dd, mm, yy;
@@ -18,6 +23,10 @@ public:
     int Day() const;
     int Month() const;
     int Year() const;
+    
+    void Output(ostream&) const ;
 };
+
+ostream& operator <<(ostream&, const Date&);
 
 #endif /* Date_hpp */

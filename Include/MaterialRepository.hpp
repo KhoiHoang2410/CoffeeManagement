@@ -11,26 +11,27 @@
 #include <vector>
 #include <string>
 
-#include "../Include/Materials.hpp"
+#include "../Include/Material.hpp"
+#include "../Include/Date.hpp"
 
 using namespace std;
 
 class MaterialRepository {
 private:
     vector <int> IDs;
-    vector <Materials> materialRepo;
+    vector <Material> materialRepo;
     vector <int> stocks;
-    vector <double> importedPrice;
-    vector <Date> importedDate, expiredDate;
+    vector <double> importedPrices;
+    vector <Date> importedDates, expiredDates;
 public:
-    MaterialRepository();
+    MaterialRepository() = default;
     
     bool ClearData();
-    void RestructureData();
+    bool RestructureData();
     
-    bool Add(string materialName, int number = 1);
+    bool Add(string materialName, double price, int number = 1);
     bool ReadAllData(string fileName = "") const;
-    bool Update(string materialName, int number);
+    bool Update(string materialName, int noTaken);
 };
 
 #endif /* MaterialRepository_hpp */

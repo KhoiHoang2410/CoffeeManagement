@@ -16,7 +16,7 @@ private:
     int ID; // foreign key to Products.ID
     vector <int> materialID;
     vector <int> noMaterial;
-protected:
+public:
     Recipe(int ID); // check ID is in Products
     
     void clearData();

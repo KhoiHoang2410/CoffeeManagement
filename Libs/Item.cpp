@@ -7,29 +7,25 @@
 
 #include "../Include/Item.hpp"
 #include "../Include/ObjectManager.hpp"
+#include "../Include/Helper.hpp"
 
-Item::Item(string name, double price) {
-    this->name = name;
-    this->price = price;
+Item::Item() {
     this->ID = ObjectManager::GenerateNewID();
 }
 
-bool Item::checkDuplicate(string name) {
-    return 1;
+Item::Item(string name) {
+    this->ID = ObjectManager::GenerateNewID();
+    this->name = name;
 }
 
+bool Item::CheckDuplicate(string name) {
+    return Normalize(this->name) == Normalize(name);
+}
 
 string Item::Name() const {
     return this->name;
 }
 
-double Item::Price() const {
-    return this->price;
+void Item::UpdateName(string name) {
+    this->name = name;
 }
-
-Date Item::AddDate() const {
-    return this->addDate;
-}
-
-
-

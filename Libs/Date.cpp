@@ -33,3 +33,13 @@ int Date::Month() const {
 int Date::Year() const {
     return this->yy;
 }
+
+void Date::Output(ostream& out) const {
+    out << dd << " " << mm << " " << yy << endl;
+}
+
+ostream& operator <<(ostream& out, const Date& src) {
+    src.Output(out);
+    return out;
+}
+

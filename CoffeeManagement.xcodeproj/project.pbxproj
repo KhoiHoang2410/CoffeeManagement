@@ -16,6 +16,7 @@
 		FD4C9D0F2648013F00193892 /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0D2648013F00193892 /* Product.cpp */; };
 		FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D10264803DA00193892 /* Recipe.cpp */; };
 		FD4C9D212648273B00193892 /* Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D202648273B00193892 /* Helper.cpp */; };
+		FD4C9D25264833AC00193892 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D23264833AC00193892 /* Material.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +49,9 @@
 		FD4C9D11264803DA00193892 /* Recipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipe.hpp; sourceTree = "<group>"; };
 		FD4C9D1D2648198D00193892 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 		FD4C9D202648273B00193892 /* Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helper.cpp; sourceTree = "<group>"; };
+		FD4C9D222648329400193892 /* Helper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Helper.hpp; sourceTree = "<group>"; };
+		FD4C9D23264833AC00193892 /* Material.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		FD4C9D24264833AC00193892 /* Material.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,14 +94,15 @@
 		FD4C9CFF2647F8C900193892 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				FD4C9D202648273B00193892 /* Helper.cpp */,
-				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
+				FD4C9D202648273B00193892 /* Helper.cpp */,
+				FD4C9D042647FA1500193892 /* Item.cpp */,
+				FD4C9D23264833AC00193892 /* Material.cpp */,
+				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
+				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
+				FD4C9D012647F94C00193892 /* ObjectManager.cpp */,
 				FD4C9D0D2648013F00193892 /* Product.cpp */,
 				FD4C9D10264803DA00193892 /* Recipe.cpp */,
-				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
-				FD4C9D042647FA1500193892 /* Item.cpp */,
-				FD4C9D012647F94C00193892 /* ObjectManager.cpp */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -105,11 +110,13 @@
 		FD4C9D002647F8D200193892 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				FD4C9D1D2648198D00193892 /* ObjectManager.hpp */,
+				FD4C9D0B2647FC1800193892 /* Date.hpp */,
+				FD4C9D222648329400193892 /* Helper.hpp */,
+				FD4C9D052647FA1500193892 /* Item.hpp */,
+				FD4C9D24264833AC00193892 /* Material.hpp */,
 				FD4C9CFD2647F8BD00193892 /* Materials.hpp */,
 				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
-				FD4C9D0B2647FC1800193892 /* Date.hpp */,
-				FD4C9D052647FA1500193892 /* Item.hpp */,
+				FD4C9D1D2648198D00193892 /* ObjectManager.hpp */,
 				FD4C9D0E2648013F00193892 /* Product.hpp */,
 				FD4C9D11264803DA00193892 /* Recipe.hpp */,
 			);
@@ -180,6 +187,7 @@
 				FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */,
 				FD4C9CF62647F77200193892 /* main.cpp in Sources */,
 				FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */,
+				FD4C9D25264833AC00193892 /* Material.cpp in Sources */,
 				FD4C9D212648273B00193892 /* Helper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

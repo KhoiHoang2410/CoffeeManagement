@@ -1,7 +1,9 @@
-#include<string>
+#include <string>
 using namespace std;
 
-string normalize(string& source) {
+#include "../Include/Helper.hpp"
+
+string Normalize(string& source) {
     string res = "";
     for (int i=0; i<source.size(); ++i) {
         if ('a' <= source[i] && source[i] <= 'z') res += source[i];

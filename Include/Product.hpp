@@ -1,12 +1,12 @@
 //
-//  Products.hpp
+//  Product.hpp
 //  CoffeeManagement
 //
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#ifndef Products_hpp
-#define Products_hpp
+#ifndef Product_hpp
+#define Product_hpp
 
 #include "../Include/Item.hpp"
 #include "../Include/Recipe.hpp"
@@ -14,14 +14,10 @@
 #include <vector>
 #include <string>
 
-#include "../Include/Recipe.hpp"
-
 using namespace std;
 
-class Product {
+class Product : public Item {
 private:
-    int ID;
-    string name;
     Recipe recipe;
 public:
     Product(string name);
@@ -29,5 +25,5 @@ public:
     void addMaterial(vector<string> materialNames, vector<string> numbers);
 };
 
-#endif /* Products_hpp */
+#endif /* Product_hpp */
 
