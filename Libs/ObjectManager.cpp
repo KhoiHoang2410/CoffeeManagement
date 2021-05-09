@@ -5,7 +5,7 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include "ObjectManager.hpp"
+#include "../Include/ObjectManager.hpp"
 
 int ObjectManager::GenerateNewID() {
     return nextID++;

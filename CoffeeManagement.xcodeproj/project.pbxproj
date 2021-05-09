@@ -35,7 +35,6 @@
 		FD4C9CFC2647F8BD00193892 /* Materials.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Materials.cpp; path = Libs/Materials.cpp; sourceTree = SOURCE_ROOT; };
 		FD4C9CFD2647F8BD00193892 /* Materials.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Materials.hpp; path = Include/Materials.hpp; sourceTree = SOURCE_ROOT; };
 		FD4C9D012647F94C00193892 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectManager.cpp; path = Libs/ObjectManager.cpp; sourceTree = SOURCE_ROOT; };
-		FD4C9D022647F94C00193892 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = SOURCE_ROOT; };
 		FD4C9D042647FA1500193892 /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
 		FD4C9D052647FA1500193892 /* Item.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Item.hpp; sourceTree = "<group>"; };
 		FD4C9D072647FB5200193892 /* MaterialRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MaterialRepository.cpp; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		FD4C9D0E2648013F00193892 /* Products.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Products.hpp; sourceTree = "<group>"; };
 		FD4C9D10264803DA00193892 /* Recipe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Recipe.cpp; sourceTree = "<group>"; };
 		FD4C9D11264803DA00193892 /* Recipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipe.hpp; sourceTree = "<group>"; };
+		FD4C9D1D2648198D00193892 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 		FD4C9D002647F8D200193892 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				FD4C9D1D2648198D00193892 /* ObjectManager.hpp */,
 				FD4C9CFD2647F8BD00193892 /* Materials.hpp */,
 				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
 				FD4C9D0B2647FC1800193892 /* Date.hpp */,
-				FD4C9D022647F94C00193892 /* ObjectManager.hpp */,
 				FD4C9D052647FA1500193892 /* Item.hpp */,
 				FD4C9D0E2648013F00193892 /* Products.hpp */,
 				FD4C9D11264803DA00193892 /* Recipe.hpp */,
