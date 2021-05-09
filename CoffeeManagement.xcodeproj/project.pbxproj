@@ -15,6 +15,7 @@
 		FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0A2647FC1800193892 /* Date.cpp */; };
 		FD4C9D0F2648013F00193892 /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0D2648013F00193892 /* Product.cpp */; };
 		FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D10264803DA00193892 /* Recipe.cpp */; };
+		FD4C9D212648273B00193892 /* Helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D202648273B00193892 /* Helper.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		FD4C9D10264803DA00193892 /* Recipe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Recipe.cpp; sourceTree = "<group>"; };
 		FD4C9D11264803DA00193892 /* Recipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipe.hpp; sourceTree = "<group>"; };
 		FD4C9D1D2648198D00193892 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
+		FD4C9D202648273B00193892 /* Helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helper.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		FD4C9CFF2647F8C900193892 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				FD4C9D202648273B00193892 /* Helper.cpp */,
 				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
 				FD4C9D0D2648013F00193892 /* Product.cpp */,
@@ -177,6 +180,7 @@
 				FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */,
 				FD4C9CF62647F77200193892 /* main.cpp in Sources */,
 				FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */,
+				FD4C9D212648273B00193892 /* Helper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
