@@ -19,10 +19,10 @@ class Materials {
 private:
     static inline vector <Item> materials;
 public:
-    static void add(string name, double price);
-    static int getID(string name);
-    static bool update(string name, string newName, string newPrice);
-    static bool erase(string name);
+    static void Add(string name, double price);
+    static int GetID(string name);
+    static bool Update(string name, string newName, string newPrice);
+    static bool Erase(string name);
 };
 
 #endif /* Material_hpp */

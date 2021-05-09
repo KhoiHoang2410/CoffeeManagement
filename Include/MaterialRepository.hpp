@@ -25,12 +25,12 @@ private:
 public:
     MaterialRepository();
     
-    bool clearData();
-    void restructureData();
+    bool ClearData();
+    void RestructureData();
     
-    bool add(string materialName, int number = 1);
-    bool readAllData(string fileName = "") const;
-    bool update(string materialName, int number);
+    bool Add(string materialName, int number = 1);
+    bool ReadAllData(string fileName = "") const;
+    bool Update(string materialName, int number);
 };
 
 #endif /* MaterialRepository_hpp */

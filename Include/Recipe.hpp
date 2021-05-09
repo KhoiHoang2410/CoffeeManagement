@@ -8,8 +8,8 @@
 #ifndef Recipt_hpp
 #define Recipt_hpp
 
-class Recipt {
+class Recipe {
     
-}
+};
 
 #endif /* Recipt_hpp */

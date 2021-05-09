@@ -12,7 +12,7 @@ class ObjectManager {
 private:
     static int inline nextID = 1;
 public:
-    static int generateNewID();
+    static int GenerateNewID();
 };
 
 #endif /* ObjectManager_hpp */

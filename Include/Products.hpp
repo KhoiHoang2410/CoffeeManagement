@@ -22,3 +22,4 @@ private:
 };
 
 #endif /* Products_hpp */
+
