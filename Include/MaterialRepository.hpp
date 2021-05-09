@@ -29,9 +29,9 @@ public:
     bool ClearData();
     bool RestructureData();
     
-    bool Add(string materialName, double price, int number = 1);
+    bool AddMaterial(string materialName, double price, int number = 1);
     bool ReadAllData(string fileName = "") const;
-    bool Update(string materialName, int noTaken);
+    bool UpdateStock(string materialName, int noTaken);
 };
 
 #endif /* MaterialRepository_hpp */

@@ -8,7 +8,7 @@
 #include "../Include/Materials.hpp"
 #include <iostream>
 
-bool Materials::Add(string name) {
+bool Materials::AddMaterial(string name) {
     materials.push_back(Material(name));
     return true;
 }
@@ -20,7 +20,7 @@ int Materials::GetID(string name) {
     return -1;
 }
 
-Material Materials::Get(string name) {
+Material Materials::GetMaterial(string name) {
     int id = GetID(name);
     if (id == -1) {
         cout << "Materials::Get(string)\n";
@@ -31,17 +31,24 @@ Material Materials::Get(string name) {
     return materials[id];
 }
 
-bool Materials::Update(string name, string newName) {
+bool Materials::UpdateMaterial(string name, string newName) {
     int id = GetID(name);
-    if (id == -1) return 0;
-    
+    if (id == -1) {
+        cout << "Materials::Update\n";
+        cout << "ID not found.\n";
+        return 0;
+    }
     materials[id].UpdateName(name);
     return 1;
 }
 
-bool Materials::Erase(string name) {
+bool Materials::EraseMaterial(string name) {
     int id = GetID(name);
-    if (id == -1) return 0;
+    if (id == -1) {
+        cout << "Materials::Erase\n";
+        cout << "ID not found.\n";
+        return 0;
+    }
     
     materials.erase(materials.begin() + id);
     return 1;

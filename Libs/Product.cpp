@@ -6,3 +6,21 @@
 //
 
 #include "../Include/Product.hpp"
+
+Product::Product() {
+    recipe = Recipe(ID, Name());
+}
+
+Product::Product(string productName) {
+    recipe = Recipe(ID, productName);
+}
+
+void Product::AddRecipe(vector<string> materialNames, vector<int> numbers) {
+    recipe.AddMaterial(materialNames, numbers);
+}
+
+void Product::UpdateRecipe(vector<string> materialNames, vector<int> numbers) {
+    recipe.AddMaterial(materialNames, numbers);
+}
+
+

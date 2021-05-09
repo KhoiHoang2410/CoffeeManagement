@@ -22,7 +22,7 @@ public:
     
     virtual bool CheckDuplicate(string);
     virtual string Name() const;
-    
+
     virtual void UpdateName(string);
 };
 

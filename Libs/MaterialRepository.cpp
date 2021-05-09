@@ -7,6 +7,7 @@
 
 #include <fstream>
 
+#include "../Include/ObjectManager.hpp"
 #include "../Include/MaterialRepository.hpp"
 #include "../Include/Materials.hpp"
 
@@ -26,6 +27,7 @@ bool MaterialRepository::RestructureData() {
             IDs.erase(IDs.begin() + i);
             materialRepo.erase(materialRepo.begin() + i);
             stocks.erase(stocks.begin() + i);
+            importedPrices.erase(importedPrices.begin() + i);
             importedDates.erase(importedDates.begin() + i);
             expiredDates.erase(expiredDates.begin() + i);
             
@@ -35,10 +37,11 @@ bool MaterialRepository::RestructureData() {
     return 1;
 }
 
-bool MaterialRepository::Add(string materialName, double price, int number) {
-    materialRepo.push_back(Materials::Get(materialName));
-    importedPrices.push_back(price);
+bool MaterialRepository::AddMaterial(string materialName, double price, int number) {
+    IDs.push_back(ObjectManager::GenerateNewID());
+    materialRepo.push_back(Materials::GetMaterial(materialName));
     stocks.push_back(number);
+    importedPrices.push_back(price);
     importedDates.push_back(Date());
     expiredDates.push_back(Date());
     return 1;
@@ -46,6 +49,13 @@ bool MaterialRepository::Add(string materialName, double price, int number) {
 
 bool MaterialRepository::ReadAllData(string fileName) const {
     ofstream cout(fileName);
+    
+    if (!cout.is_open()) {
+        cout << "MaterialRepository::ReadAllData\n";
+        cout << "Can not open file.\n";
+        exit(1);
+    }
+    
     for (int i=0; i<materialRepo.size(); ++i) {
         cout << "Name: " << materialRepo[i].Name() << endl;
         cout << "Price: " << importedPrices[i] << endl;
@@ -53,10 +63,11 @@ bool MaterialRepository::ReadAllData(string fileName) const {
         cout << "Imported date: " << importedDates[i] << endl;
         cout << "Expired date: " << expiredDates[i] << endl;
     }
+    cout.close();
     return 1;
 }
 
-bool MaterialRepository::Update(string materialName, int noTaken) {
+bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     for (int i=0; i<materialRepo.size(); ++i) {
         if (noTaken == 0) break;
         

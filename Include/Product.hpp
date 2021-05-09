@@ -20,9 +20,11 @@ class Product : public Item {
 private:
     Recipe recipe;
 public:
-    Product(string name);
+    Product();
+    Product(string productName);
     
-    void addMaterial(vector<string> materialNames, vector<string> numbers);
+    void AddRecipe(vector<string> materialNames, vector<int> numbers);
+    void UpdateRecipe(vector<string> materialNames, vector<int> numbers);
 };
 
 #endif /* Product_hpp */

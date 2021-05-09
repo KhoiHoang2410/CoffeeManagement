@@ -17,11 +17,12 @@ private:
     vector <int> materialID;
     vector <int> noMaterial;
 public:
-    Recipe(int ID); // check ID is in Products
+    Recipe();
+    Recipe(int ID, string productName); // check ID is in Products
     
-    void clearData();
+    void ClearData();
     
-    void addMaterial(vector<string> materialNames, vector<string> numbers);
+    bool AddMaterial(vector<string> materialNames, vector<int> numbers);
 };
 
 #endif /* Recipt_hpp */

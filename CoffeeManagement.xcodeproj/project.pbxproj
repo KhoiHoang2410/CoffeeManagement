@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD04774026484DC000458264 /* Products.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD04773E26484DC000458264 /* Products.cpp */; };
+		FD0477432648536E00458264 /* ProductRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD0477412648536E00458264 /* ProductRepository.cpp */; };
 		FD4C9CF62647F77200193892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9CF52647F77200193892 /* main.cpp */; };
 		FD4C9CFE2647F8BD00193892 /* Materials.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9CFC2647F8BD00193892 /* Materials.cpp */; };
 		FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D012647F94C00193892 /* ObjectManager.cpp */; };
@@ -32,6 +34,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD04773E26484DC000458264 /* Products.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Products.cpp; sourceTree = "<group>"; };
+		FD04773F26484DC000458264 /* Products.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Products.hpp; sourceTree = "<group>"; };
+		FD0477412648536E00458264 /* ProductRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ProductRepository.cpp; sourceTree = "<group>"; };
+		FD0477422648536E00458264 /* ProductRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProductRepository.hpp; sourceTree = "<group>"; };
 		FD4C9CF22647F77200193892 /* CoffeeManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoffeeManagement; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4C9CF52647F77200193892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FD4C9CFC2647F8BD00193892 /* Materials.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Materials.cpp; path = Libs/Materials.cpp; sourceTree = SOURCE_ROOT; };
@@ -102,6 +108,8 @@
 				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
 				FD4C9D012647F94C00193892 /* ObjectManager.cpp */,
 				FD4C9D0D2648013F00193892 /* Product.cpp */,
+				FD04773E26484DC000458264 /* Products.cpp */,
+				FD0477412648536E00458264 /* ProductRepository.cpp */,
 				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 			);
 			path = Libs;
@@ -118,6 +126,8 @@
 				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
 				FD4C9D1D2648198D00193892 /* ObjectManager.hpp */,
 				FD4C9D0E2648013F00193892 /* Product.hpp */,
+				FD04773F26484DC000458264 /* Products.hpp */,
+				FD0477422648536E00458264 /* ProductRepository.hpp */,
 				FD4C9D11264803DA00193892 /* Recipe.hpp */,
 			);
 			path = Include;
@@ -186,8 +196,10 @@
 				FD4C9D092647FB5200193892 /* MaterialRepository.cpp in Sources */,
 				FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */,
 				FD4C9CF62647F77200193892 /* main.cpp in Sources */,
+				FD0477432648536E00458264 /* ProductRepository.cpp in Sources */,
 				FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */,
 				FD4C9D25264833AC00193892 /* Material.cpp in Sources */,
+				FD04774026484DC000458264 /* Products.cpp in Sources */,
 				FD4C9D212648273B00193892 /* Helper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

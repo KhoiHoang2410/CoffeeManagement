@@ -9,7 +9,6 @@
 #include "../Include/ObjectManager.hpp"
 
 Material::Material() {
-    
 }
 
 Material::Material(string name) {
