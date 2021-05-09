@@ -14,7 +14,7 @@
 		FD4C9D092647FB5200193892 /* MaterialRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D072647FB5200193892 /* MaterialRepository.cpp */; };
 		FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0A2647FC1800193892 /* Date.cpp */; };
 		FD4C9D0F2648013F00193892 /* Products.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D0D2648013F00193892 /* Products.cpp */; };
-		FD4C9D12264803DA00193892 /* Recipt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D10264803DA00193892 /* Recipt.cpp */; };
+		FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D10264803DA00193892 /* Recipe.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +44,8 @@
 		FD4C9D0B2647FC1800193892 /* Date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
 		FD4C9D0D2648013F00193892 /* Products.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Products.cpp; sourceTree = "<group>"; };
 		FD4C9D0E2648013F00193892 /* Products.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Products.hpp; sourceTree = "<group>"; };
-		FD4C9D10264803DA00193892 /* Recipt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Recipt.cpp; sourceTree = "<group>"; };
-		FD4C9D11264803DA00193892 /* Recipt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipt.hpp; sourceTree = "<group>"; };
+		FD4C9D10264803DA00193892 /* Recipe.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Recipe.cpp; sourceTree = "<group>"; };
+		FD4C9D11264803DA00193892 /* Recipe.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Recipe.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
 				FD4C9D0D2648013F00193892 /* Products.cpp */,
-				FD4C9D10264803DA00193892 /* Recipt.cpp */,
+				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
 				FD4C9D042647FA1500193892 /* Item.cpp */,
 				FD4C9D012647F94C00193892 /* ObjectManager.cpp */,
@@ -108,7 +108,7 @@
 				FD4C9D022647F94C00193892 /* ObjectManager.hpp */,
 				FD4C9D052647FA1500193892 /* Item.hpp */,
 				FD4C9D0E2648013F00193892 /* Products.hpp */,
-				FD4C9D11264803DA00193892 /* Recipt.hpp */,
+				FD4C9D11264803DA00193892 /* Recipe.hpp */,
 			);
 			path = Include;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			files = (
 				FD4C9D0F2648013F00193892 /* Products.cpp in Sources */,
 				FD4C9D062647FA1500193892 /* Item.cpp in Sources */,
-				FD4C9D12264803DA00193892 /* Recipt.cpp in Sources */,
+				FD4C9D12264803DA00193892 /* Recipe.cpp in Sources */,
 				FD4C9CFE2647F8BD00193892 /* Materials.cpp in Sources */,
 				FD4C9D092647FB5200193892 /* MaterialRepository.cpp in Sources */,
 				FD4C9D0C2647FC1800193892 /* Date.cpp in Sources */,

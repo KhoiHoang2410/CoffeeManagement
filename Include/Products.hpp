@@ -9,7 +9,7 @@
 #define Products_hpp
 
 #include "Item.hpp"
-#include "Recipt.hpp"
+#include "Recipe.hpp"
 
 #include <vector>
 
@@ -18,7 +18,7 @@ using namespace std;
 class Products {
 private:
     vector <Item> products;
-    vector <Recipt> recipts;
+    vector <Recipe> recipts;
 };
 
 #endif /* Products_hpp */
