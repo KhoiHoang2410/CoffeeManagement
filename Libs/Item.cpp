@@ -15,7 +15,7 @@ Item::Item(string name, double price) {
 }
 
 bool Item::checkDuplicate(string name) {
-
+    return 1;
 }
 
 

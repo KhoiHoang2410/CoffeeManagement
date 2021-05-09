@@ -6,6 +6,7 @@
 //
 
 #include "../Include/Date.hpp"
+#include <ctime>
 
 Date::Date() {
     time_t now = time(0);
@@ -31,8 +32,4 @@ int Date::Month() const {
 
 int Date::Year() const {
     return this->yy;
-}
-
-int Date::Day() const {
-    return this->dd;
 }
