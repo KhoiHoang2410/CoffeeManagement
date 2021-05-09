@@ -1,13 +1,9 @@
 //
-//  main.cpp
+//  Date.cpp
 //  CoffeeManagement
 //
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include <iostream>
+#include "Date.hpp"
 
-int main() {
-    
-    return 0;
-}
