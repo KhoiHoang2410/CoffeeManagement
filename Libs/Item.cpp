@@ -13,3 +13,23 @@ Item::Item(string name, double price) {
     this->price = price;
     this->ID = ObjectManager::GenerateNewID();
 }
+
+bool Item::checkDuplicate(string name) {
+
+}
+
+
+string Item::Name() const {
+    return this->name;
+}
+
+double Item::Price() const {
+    return this->price;
+}
+
+Date Item::AddDate() const {
+    return this->addDate;
+}
+
+
+

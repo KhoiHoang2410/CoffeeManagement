@@ -20,7 +20,7 @@ private:
     Date addDate;
 public:
     Item(string, double);
-    
+    bool checkDuplicate(string name);
     string Name() const;
     double Price() const;
     Date AddDate() const;

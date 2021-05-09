@@ -8,16 +8,17 @@
 #ifndef Date_hpp
 #define Date_hpp
 
+#include<ctime>
+
 class Date {
 private:
     int dd, mm, yy;
 public:
     Date(); // get current date
-    Date(int, int, int);
-    
-    void Day() const;
-    void Month() const;
-    void Year() const;
+    Date(int day, int month, int year);
+    int Day() const;
+    int Month() const;
+    int Year() const;
 };
 
 #endif /* Date_hpp */
