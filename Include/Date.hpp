@@ -16,8 +16,8 @@ public:
     Date(int, int, int);
     
     int Day() const;
-    void Month() const;
-    void Year() const;
+    int Month() const;
+    int Year() const;
 };
 
 #endif /* Date_hpp */
