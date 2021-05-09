@@ -7,7 +7,7 @@
 
 #include "ObjectManager.hpp"
 
-int ObjectManager::generateNewID() {
+int ObjectManager::GenerateNewID() {
     return nextID++;
 }
 

@@ -11,5 +11,5 @@
 Item::Item(string name, double price) {
     this->name = name;
     this->price = price;
-    this->ID = ObjectManager::generateNewID();
+    this->ID = ObjectManager::GenerateNewID();
 }
