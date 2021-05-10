@@ -54,24 +54,6 @@ bool MaterialRepository::AddMaterialInCheckList(string materialName, double pric
     return 1;
 }
 
-bool MaterialRepository::ExportDataToFile(string fileName) const {
-    ofstream cout(fileName);
-    
-    if (!cout.is_open()) {
-        putError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
-    }
-    
-    for (int i=0; i<materialRepo.size(); ++i) {
-        cout << "Name: " << materialRepo[i].Name() << endl;
-        cout << "Price: " << importedPrices[i] << endl;
-        cout << "Stocks: " << stocks[i] << endl;
-        cout << "Imported date: " << importedDates[i] << endl;
-        cout << "Expired date: " << expiredDates[i] << endl;
-    }
-    cout.close();
-    return 1;
-}
-
 bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     for (int i=0; i<materialRepo.size(); ++i) {
         if (noTaken == 0) break;
@@ -84,11 +66,75 @@ bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     }
     
     if (noTaken != 0) {
-        putError("MaterialRepository::Update", "Error: do not have enough material", 1);
+        PutError("MaterialRepository::Update", "Error: do not have enough material", 1);
     }
     
     RestructureData();
     return 1;
 }
 
+bool MaterialRepository::ImportDataFromFile(string fileName) {
+    ifstream cin(fileName);
 
+    if (!cin.is_open()) {
+        PutError("MaterialRepository::ImportDataFromFile", "Find not Found", 1);
+    }
+
+    int n;
+    cin >> n;
+    string name;
+    int price, stock;
+    
+    for (int i=0; i<n; ++i) {
+        cin >> name;
+        cin >> price >> stock;
+
+        AddMaterialInCheckList(name, price, stock);
+    }
+
+    cin.close();
+}
+
+bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
+    ifstream cin(fileName);
+
+    if (!cin.is_open()) {
+        PutError("MaterialRepository::ImportDataFromFileToCheckList", "Find not Found", 1);
+    }
+
+    int n;
+    cin >> n;
+    string name;
+    
+    for (int i=0; i<n; ++i) {
+        cin >> name;
+
+        AddMaterialToCheckList(name);
+    }
+
+    cin.close();
+}
+
+bool MaterialRepository::ExportDataToFile(string fileName) const {
+    ofstream cout(fileName);
+    
+    if (!cout.is_open()) {
+        PutError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
+    }
+
+    OutPut(cout, "NoElement", materialRepo.size());
+    
+    for (int i=0; i<materialRepo.size(); ++i) {
+        OutPut(cout, "Name", materialRepo[i].Name());
+        OutPut(cout, "Price", importedPrices[i]);
+        OutPut(cout, "Stocks", stocks[i]);
+        OutPut(cout, "Imported_date", importedDates[i]);
+        OutPut(cout, "Expired_date", expiredDates[i]);
+    }
+    cout.close();
+    return 1;
+}
+
+bool MaterialRepository::ExportCheckListDataToFile(string fileName) {
+    return materialCheckList.ExportDataToFile(fileName);
+}

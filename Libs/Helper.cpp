@@ -14,13 +14,13 @@ string Normalize(string& source) {
     return res;
 }
 
-void putError(string classBehaviour, string log, int code) {
+void PutError(string classBehaviour, string log, int code) {
     cout << classBehaviour << endl;
     cout << log << ".\n";
     exit(code);
 }
 
-void putError(string classBehaviour, string log) {
+void PutError(string classBehaviour, string log) {
     cout << classBehaviour << endl;
     cout << log << ".\n";
 }

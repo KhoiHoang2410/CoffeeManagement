@@ -9,12 +9,24 @@
 #define Helper_h
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
-string Normalize(string&);
 
-void putError(string classBehaviour, string log);
-void putError(string classBehaviour, string log, int code);
+string Normalize(string&);
+void PutError(string classBehaviour, string log);
+void PutError(string classBehaviour, string log, int code);
+
+static bool isDebug = 1;
+
+template <typename T>
+void OutPut(ostream& cout, string title, T content) {    
+    if (isDebug) {
+        cout << title << ": ";
+    }
+    cout << content << endl;
+}
 
 #endif /* Helper_h */

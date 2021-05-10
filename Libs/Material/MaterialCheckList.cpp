@@ -13,7 +13,7 @@
 
 bool MaterialCheckList::AddMaterial(string materialName) {
     if (GetID(materialName) != -1) {
-        putError("Materials::AddMaterial", "Add existing material to check list", 1);
+        PutError("Materials::AddMaterial", "Add existing material to check list", 1);
     }
     
     materials.push_back(Material(materialName));
@@ -30,7 +30,7 @@ int MaterialCheckList::GetID(string materialName) {
 Material MaterialCheckList::GetMaterial(string materialName) {
     int id = GetID(materialName);
     if (id == -1) {
-        putError("Materials::Get", "ID not found", 1);
+        PutError("Materials::Get", "ID not found", 1);
     }
     
     return materials[id];
@@ -39,7 +39,7 @@ Material MaterialCheckList::GetMaterial(string materialName) {
 bool MaterialCheckList::UpdateMaterial(string materialName, string newName) {
     int id = GetID(materialName);
     if (id == -1) {
-        putError("Materials::Update", "ID not found");
+        PutError("Materials::Update", "ID not found");
         return 0;
     }
     materials[id].UpdateName(newName);
@@ -49,7 +49,7 @@ bool MaterialCheckList::UpdateMaterial(string materialName, string newName) {
 bool MaterialCheckList::EraseMaterial(string materialName) {
     int id = GetID(materialName);
     if (id == -1) {
-        putError("Materials::Erase", "ID not found");
+        PutError("Materials::Erase", "ID not found");
         return 0;
     }
     
@@ -58,5 +58,19 @@ bool MaterialCheckList::EraseMaterial(string materialName) {
 }
 
 bool MaterialCheckList::ExportDataToFile(string fileName) {
+    ofstream cout(fileName);
+    
+    if (!cout.is_open()) {
+        PutError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
+    }
 
+    OutPut(cout, "NoElement", materials.size());
+    
+    for (int i=0; i<materials.size(); ++i) {
+        OutPut(cout, "Name", materials[i].Name());
+    }
+
+    cout.close();
+    
+    return 1;
 }
