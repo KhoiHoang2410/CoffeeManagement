@@ -8,11 +8,11 @@
 #ifndef MaterialRepository_hpp
 #define MaterialRepository_hpp
 
-#include <vector>
-#include <string>
-
 #include "Material.hpp"
 #include "../Date.hpp"
+
+#include <vector>
+#include <string>
 
 using namespace std;
 

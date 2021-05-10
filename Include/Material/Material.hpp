@@ -14,7 +14,7 @@
 class Material : public Item {
 public:
     Material();
-    Material(string);
+    Material(string materialName);
 };
 
 #endif /* Material_hpp */

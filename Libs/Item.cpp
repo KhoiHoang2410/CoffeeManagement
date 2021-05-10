@@ -26,6 +26,6 @@ string Item::Name() const {
     return this->name;
 }
 
-void Item::UpdateName(string name) {
-    this->name = name;
+void Item::UpdateName(string newName) {
+    this->name = newName;
 }

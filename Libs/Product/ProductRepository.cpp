@@ -5,12 +5,12 @@
 //  Created by Nguyen-Khoi Hoang on 10/05/2021.
 //
 
-#include <fstream>
-
 #include "../../Include/Product/ProductRepository.hpp"
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Helper.hpp"
 #include "Products.hpp"
+
+#include <fstream>
 
 using namespace std;
 
@@ -24,8 +24,9 @@ bool ProductRepository::ClearData() {
     return 1;
 }
 
-bool ProductRepository::CalculateStock() {
-    return 0;
+bool ProductRepository::UpdateStock(vector <int> stocks) {
+    this->stocks = stocks;
+    return 1;
 }
 
 bool ProductRepository::AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers) {
@@ -38,7 +39,6 @@ bool ProductRepository::AddProductInCheckList(string productName, double price) 
     productRepo.push_back(Products::GetProduct(productName));
     importedPrices.push_back(price);
     importedDates.push_back(Date());
-    CalculateStock();
     return 1;
 }
 

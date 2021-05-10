@@ -18,12 +18,12 @@ protected:
     string name;
 public:
     Item();
-    Item(string);
+    Item(string itemName);
     
-    virtual bool CheckDuplicate(string);
+    virtual bool CheckDuplicate(string srcName);
     virtual string Name() const;
 
-    virtual void UpdateName(string);
+    virtual void UpdateName(string newName);
 };
 
 #endif /* Item_hpp */

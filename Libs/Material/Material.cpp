@@ -5,12 +5,11 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-//#include "../Include/Material.hpp"
 #include "../../Include/Material/Material.hpp"
 #include "../../Include/ObjectManager.hpp"
 
 Material::Material() {
 }
 
-Material::Material(string name) {
+Material::Material(string materialName) {
 }

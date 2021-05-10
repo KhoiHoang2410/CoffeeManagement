@@ -5,12 +5,12 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include <fstream>
-
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Material/MaterialRepository.hpp"
 #include "../../Include/Material/Materials.hpp"
 #include "../../Include/Helper.hpp"
+
+#include <fstream>
 
 bool MaterialRepository::ClearData() {
     IDs.clear();

@@ -7,6 +7,7 @@
 
 #include "../../Include/Material/Materials.hpp"
 #include "../../Include/Helper.hpp"
+
 #include <iostream>
 
 bool Materials::AddMaterial(string materialName) {

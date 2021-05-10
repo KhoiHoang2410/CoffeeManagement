@@ -16,6 +16,13 @@ private:
     MaterialRepository materialRepo;
     ProductRepository productRepo;
 public:
+    bool AddMaterialsToCheckList(string fileName);
+    bool AddProductsToCheckList(string fileName);
+    
+    bool AddNewMaterial(string fileName);
+    bool AddNewProduct(string fileName);
+    
+    bool CalculateProductStockCanBeSolve();
 };
 
 #endif /* Admin_hpp */

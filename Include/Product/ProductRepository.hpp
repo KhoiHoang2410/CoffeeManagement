@@ -27,7 +27,7 @@ public:
     ProductRepository() = default;
     
     bool ClearData();
-    bool CalculateStock();
+    bool UpdateStock(vector <int> stocks);
     
     bool AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers);
     bool AddProductInCheckList(string productName, double price);

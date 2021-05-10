@@ -2,6 +2,7 @@
 using namespace std;
 
 #include "../Include/Helper.hpp"
+
 #include <iostream>
 
 string Normalize(string& source) {
