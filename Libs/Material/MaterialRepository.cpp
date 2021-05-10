@@ -55,11 +55,11 @@ bool MaterialRepository::AddMaterialInCheckList(string materialName, double pric
     return 1;
 }
 
-bool MaterialRepository::ReadAllData(string fileName) const {
+bool MaterialRepository::ExportDataToFile(string fileName) const {
     ofstream cout(fileName);
     
     if (!cout.is_open()) {
-        putError("MaterialRepository::ReadAllData\n", "Cannot open file", 1);
+        putError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
     }
     
     for (int i=0; i<materialRepo.size(); ++i) {

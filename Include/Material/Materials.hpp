@@ -24,6 +24,8 @@ public:
     static Material GetMaterial(string materialName);
     static bool UpdateMaterial(string materialName, string newMaterialName);
     static bool EraseMaterial(string materailName);
+    
+    static bool ExportDataToFile(string fileName);
 };
 
 #endif /* Materials_hpp */

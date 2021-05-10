@@ -25,6 +25,8 @@ public:
     static Product GetProduct(int ID);
     static bool UpdateProduct(string productName, vector<string> materialNames, vector<int> numbers);
     static bool EraseProduct(string productName);
+    
+    static bool ExportDataToFile(string fileName);
 };
 
 #endif /* Products_hpp */

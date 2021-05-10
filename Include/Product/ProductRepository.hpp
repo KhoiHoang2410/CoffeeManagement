@@ -31,11 +31,16 @@ public:
     
     bool AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers);
     bool AddProductInCheckList(string productName, double price);
-    bool ReadAllData(string fileName = "") const;
     bool UpdatePrice(string materialName, double newPrice);
     bool UpdateRecipe(string productName, vector<string> materialNames, vector<int> numbers);
     
     bool EraseProduct(string productName);
+
+    bool ImportDataFromFile(string fileName);
+    bool ImportDataFromFileToCheckList(string fileName);
+    
+    bool ExportDataToFile(string fileName = "") const;
+    bool ExportCheckListDataToFile(string fileName = "");
 };
 
 #endif /* ProductRepository_hpp */

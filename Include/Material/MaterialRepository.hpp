@@ -31,8 +31,13 @@ public:
     
     bool AddMaterialToCheckList(string materialName);
     bool AddMaterialInCheckList(string materialName, double price, int number = 1);
-    bool ReadAllData(string fileName = "") const;
     bool UpdateStock(string materialName, int noTaken);
+
+    bool ImportDataFromFile(string fileName);
+    bool ImportDataFromFileToCheckList(string fileName);
+
+    bool ExportDataToFile(string fileName) const;
+    bool ExportCheckListDataToFile(string fileName = "");
 };
 
 #endif /* MaterialRepository_hpp */

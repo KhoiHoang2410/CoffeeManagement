@@ -16,11 +16,14 @@ private:
     MaterialRepository materialRepo;
     ProductRepository productRepo;
 public:
-    bool AddMaterialsToCheckList(string fileName);
-    bool AddProductsToCheckList(string fileName);
+    bool ImportMaterialsToCheckList(string fileName);
+    bool ImportProductsToCheckList(string fileName);
     
-    bool AddNewMaterial(string fileName);
-    bool AddNewProduct(string fileName);
+    bool ImportNewMaterial(string fileName);
+    bool ImportNewProduct(string fileName);
+
+    
+    bool Export
     
     bool CalculateProductStockCanBeSolve();
 };

@@ -42,11 +42,11 @@ bool ProductRepository::AddProductInCheckList(string productName, double price) 
     return 1;
 }
 
-bool ProductRepository::ReadAllData(string fileName) const {
+bool ProductRepository::ExportDataToFile(string fileName) const {
     ofstream cout (fileName);
     
     if (!cout.is_open()) {
-        putError("ProductRepository::ReadAllData", "Cannot open file", 1);
+        putError("ProductRepository::ExportDataToFile", "Cannot open file", 1);
     }
     
     for (int i=0; i<productRepo.size(); ++i) {
