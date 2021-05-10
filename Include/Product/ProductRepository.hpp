@@ -9,6 +9,7 @@
 #define ProductRepository_hpp
 
 #include "Product.hpp"
+#include "ProductCheckList.hpp"
 #include "../Date.hpp"
 
 #include <vector>
@@ -23,6 +24,7 @@ private:
     vector <int> stocks;
     vector <double> importedPrices;
     vector <Date> importedDates;
+    ProductCheckList productCheckList;
 public:
     ProductRepository() = default;
     

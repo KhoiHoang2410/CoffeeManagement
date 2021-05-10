@@ -21,9 +21,6 @@ public:
     
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
-
-    
-    bool Export
     
     bool CalculateProductStockCanBeSolve();
 };

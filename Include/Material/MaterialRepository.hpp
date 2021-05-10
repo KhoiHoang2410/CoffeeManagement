@@ -9,6 +9,7 @@
 #define MaterialRepository_hpp
 
 #include "Material.hpp"
+#include "MaterialCheckList.hpp"
 #include "../Date.hpp"
 
 #include <vector>
@@ -23,6 +24,7 @@ private:
     vector <int> stocks;
     vector <double> importedPrices;
     vector <Date> importedDates, expiredDates;
+    MaterialCheckList materialCheckList;
 public:
     MaterialRepository() = default;
     

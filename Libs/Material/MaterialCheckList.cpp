@@ -5,12 +5,13 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include "../../Include/Material/Materials.hpp"
+#include "../../Include/Material/MaterialCheckList.hpp"
 #include "../../Include/Helper.hpp"
 
 #include <iostream>
+#include <fstream>
 
-bool Materials::AddMaterial(string materialName) {
+bool MaterialCheckList::AddMaterial(string materialName) {
     if (GetID(materialName) != -1) {
         putError("Materials::AddMaterial", "Add existing material to check list", 1);
     }
@@ -19,14 +20,14 @@ bool Materials::AddMaterial(string materialName) {
     return true;
 }
 
-int Materials::GetID(string materialName) {
+int MaterialCheckList::GetID(string materialName) {
     for (int i=0; i<materials.size(); ++i)
         if (materials[i].CheckDuplicate(materialName))
             return i;
     return -1;
 }
 
-Material Materials::GetMaterial(string materialName) {
+Material MaterialCheckList::GetMaterial(string materialName) {
     int id = GetID(materialName);
     if (id == -1) {
         putError("Materials::Get", "ID not found", 1);
@@ -35,7 +36,7 @@ Material Materials::GetMaterial(string materialName) {
     return materials[id];
 }
 
-bool Materials::UpdateMaterial(string materialName, string newName) {
+bool MaterialCheckList::UpdateMaterial(string materialName, string newName) {
     int id = GetID(materialName);
     if (id == -1) {
         putError("Materials::Update", "ID not found");
@@ -45,7 +46,7 @@ bool Materials::UpdateMaterial(string materialName, string newName) {
     return 1;
 }
 
-bool Materials::EraseMaterial(string materialName) {
+bool MaterialCheckList::EraseMaterial(string materialName) {
     int id = GetID(materialName);
     if (id == -1) {
         putError("Materials::Erase", "ID not found");
@@ -56,3 +57,6 @@ bool Materials::EraseMaterial(string materialName) {
     return 1;
 }
 
+bool MaterialCheckList::ExportDataToFile(string fileName) {
+
+}

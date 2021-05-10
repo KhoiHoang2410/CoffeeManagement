@@ -7,7 +7,6 @@
 
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Material/MaterialRepository.hpp"
-#include "../../Include/Material/Materials.hpp"
 #include "../../Include/Helper.hpp"
 
 #include <fstream>
@@ -40,14 +39,14 @@ bool MaterialRepository::RestructureData() {
 
 
 bool MaterialRepository::AddMaterialToCheckList(string materialName) {
-    Materials::AddMaterial(materialName);
+    materialCheckList.AddMaterial(materialName);
     return 1;
 }
 
 
 bool MaterialRepository::AddMaterialInCheckList(string materialName, double price, int number) {
     IDs.push_back(ObjectManager::GenerateNewID());
-    materialRepo.push_back(Materials::GetMaterial(materialName));
+    materialRepo.push_back(materialCheckList.GetMaterial(materialName));
     stocks.push_back(number);
     importedPrices.push_back(price);
     importedDates.push_back(Date());

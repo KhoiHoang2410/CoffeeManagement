@@ -6,7 +6,6 @@
 //
 
 #include "../../Include/Product/ProductRepository.hpp"
-#include "../../Include/Product/Products.hpp"
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Helper.hpp"
 
@@ -30,13 +29,13 @@ bool ProductRepository::UpdateStock(vector <int> stocks) {
 }
 
 bool ProductRepository::AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers) {
-    Products::AddProduct(productName, materialNames, numbers);
+    productCheckList.AddProduct(productName, materialNames, numbers);
     return 1;
 }
 
 bool ProductRepository::AddProductInCheckList(string productName, double price) {
     IDs.push_back(ObjectManager::GenerateNewID());
-    productRepo.push_back(Products::GetProduct(productName));
+    productRepo.push_back(productCheckList.GetProduct(productName));
     importedPrices.push_back(price);
     importedDates.push_back(Date());
     return 1;
@@ -50,10 +49,10 @@ bool ProductRepository::ExportDataToFile(string fileName) const {
     }
     
     for (int i=0; i<productRepo.size(); ++i) {
-        cout << "Product name: " << productRepo[i].Name() << endl;
+        cout << "Product_name: " << productRepo[i].Name() << endl;
         cout << "Price: " << importedPrices[i] << endl;
         cout << "Stock: " << stocks[i] << endl;
-        cout << "Imported day" << importedDates[i] << endl;
+        cout << "Imported_day" << importedDates[i] << endl;
     }
     cout.close();
     return 1;
