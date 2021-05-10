@@ -8,8 +8,8 @@
 #ifndef Material_hpp
 #define Material_hpp
 
-#include "../Include/Item.hpp"
-#include "../Include/Date.hpp"
+#include "../Item.hpp"
+#include "../Date.hpp"
 
 class Material : public Item {
 public:

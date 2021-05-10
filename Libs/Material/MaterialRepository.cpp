@@ -7,9 +7,9 @@
 
 #include <fstream>
 
-#include "../Include/ObjectManager.hpp"
-#include "../Include/MaterialRepository.hpp"
-#include "../Include/Materials.hpp"
+#include "../../Include/ObjectManager.hpp"
+#include "../../Include/Material/MaterialRepository.hpp"
+#include "../../Include/Material/Materials.hpp"
 
 bool MaterialRepository::ClearData() {
     IDs.clear();

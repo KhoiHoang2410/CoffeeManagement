@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 
-#include "../Include/Material.hpp"
+#include "Material.hpp"
 
 using namespace std;
 

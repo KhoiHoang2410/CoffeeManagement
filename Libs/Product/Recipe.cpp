@@ -5,9 +5,9 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include "../Include/Recipe.hpp"
-#include "../Include/Materials.hpp"
-#include "../Include/Products.hpp"
+#include "../../Include/Product/Recipe.hpp"
+#include "../../Include/Material/Materials.hpp"
+#include "../../Include/Product/Products.hpp"
 
 Recipe::Recipe() {
     ID = -1;

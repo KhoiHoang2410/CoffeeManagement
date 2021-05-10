@@ -8,8 +8,8 @@
 #ifndef ProductRepository_hpp
 #define ProductRepository_hpp
 
-#include "../Include/Product.hpp"
-#include "../Include/Date.hpp"
+#include "Product.hpp"
+#include "../Date.hpp"
 
 #include <vector>
 #include <string>

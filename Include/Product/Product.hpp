@@ -8,8 +8,8 @@
 #ifndef Product_hpp
 #define Product_hpp
 
-#include "../Include/Item.hpp"
-#include "../Include/Recipe.hpp"
+#include "../Item.hpp"
+#include "Recipe.hpp"
 
 #include <vector>
 #include <string>

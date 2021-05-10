@@ -40,8 +40,8 @@
 		FD0477422648536E00458264 /* ProductRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProductRepository.hpp; sourceTree = "<group>"; };
 		FD4C9CF22647F77200193892 /* CoffeeManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoffeeManagement; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4C9CF52647F77200193892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		FD4C9CFC2647F8BD00193892 /* Materials.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Materials.cpp; path = Libs/Materials.cpp; sourceTree = SOURCE_ROOT; };
-		FD4C9CFD2647F8BD00193892 /* Materials.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Materials.hpp; path = Include/Materials.hpp; sourceTree = SOURCE_ROOT; };
+		FD4C9CFC2647F8BD00193892 /* Materials.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Materials.cpp; path = Libs/Material/Materials.cpp; sourceTree = SOURCE_ROOT; };
+		FD4C9CFD2647F8BD00193892 /* Materials.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Materials.hpp; path = Include/Material/Materials.hpp; sourceTree = SOURCE_ROOT; };
 		FD4C9D012647F94C00193892 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectManager.cpp; path = Libs/ObjectManager.cpp; sourceTree = SOURCE_ROOT; };
 		FD4C9D042647FA1500193892 /* Item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Item.cpp; sourceTree = "<group>"; };
 		FD4C9D052647FA1500193892 /* Item.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Item.hpp; sourceTree = "<group>"; };
@@ -71,6 +71,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD0477442648B47A00458264 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				FD4C9D24264833AC00193892 /* Material.hpp */,
+				FD4C9CFD2647F8BD00193892 /* Materials.hpp */,
+				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
+		FD0477452648B57900458264 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				FD4C9D23264833AC00193892 /* Material.cpp */,
+				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
+				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
+		FD0477462648B5A700458264 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				FD4C9D0E2648013F00193892 /* Product.hpp */,
+				FD04773F26484DC000458264 /* Products.hpp */,
+				FD0477422648536E00458264 /* ProductRepository.hpp */,
+				FD4C9D11264803DA00193892 /* Recipe.hpp */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		FD0477472648B5BA00458264 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				FD4C9D10264803DA00193892 /* Recipe.cpp */,
+				FD4C9D0D2648013F00193892 /* Product.cpp */,
+				FD04773E26484DC000458264 /* Products.cpp */,
+				FD0477412648536E00458264 /* ProductRepository.cpp */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		FD4C9CE92647F77200193892 = {
 			isa = PBXGroup;
 			children = (
@@ -100,17 +142,12 @@
 		FD4C9CFF2647F8C900193892 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				FD0477452648B57900458264 /* Material */,
+				FD0477472648B5BA00458264 /* Product */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
 				FD4C9D202648273B00193892 /* Helper.cpp */,
 				FD4C9D042647FA1500193892 /* Item.cpp */,
-				FD4C9D23264833AC00193892 /* Material.cpp */,
-				FD4C9CFC2647F8BD00193892 /* Materials.cpp */,
-				FD4C9D072647FB5200193892 /* MaterialRepository.cpp */,
 				FD4C9D012647F94C00193892 /* ObjectManager.cpp */,
-				FD4C9D0D2648013F00193892 /* Product.cpp */,
-				FD04773E26484DC000458264 /* Products.cpp */,
-				FD0477412648536E00458264 /* ProductRepository.cpp */,
-				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -118,17 +155,12 @@
 		FD4C9D002647F8D200193892 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				FD0477442648B47A00458264 /* Material */,
+				FD0477462648B5A700458264 /* Product */,
 				FD4C9D0B2647FC1800193892 /* Date.hpp */,
 				FD4C9D222648329400193892 /* Helper.hpp */,
 				FD4C9D052647FA1500193892 /* Item.hpp */,
-				FD4C9D24264833AC00193892 /* Material.hpp */,
-				FD4C9CFD2647F8BD00193892 /* Materials.hpp */,
-				FD4C9D082647FB5200193892 /* MaterialRepository.hpp */,
 				FD4C9D1D2648198D00193892 /* ObjectManager.hpp */,
-				FD4C9D0E2648013F00193892 /* Product.hpp */,
-				FD04773F26484DC000458264 /* Products.hpp */,
-				FD0477422648536E00458264 /* ProductRepository.hpp */,
-				FD4C9D11264803DA00193892 /* Recipe.hpp */,
 			);
 			path = Include;
 			sourceTree = "<group>";

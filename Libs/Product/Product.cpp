@@ -5,7 +5,7 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include "../Include/Product.hpp"
+#include "../../Include/Product/Product.hpp"
 
 Product::Product() {
     recipe = Recipe(ID, Name());

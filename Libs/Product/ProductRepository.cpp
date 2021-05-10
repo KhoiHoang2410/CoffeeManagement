@@ -7,9 +7,9 @@
 
 #include <fstream>
 
-#include "../Include/ProductRepository.hpp"
-#include "../Include/Products.hpp"
-#include "../Include/ObjectManager.hpp"
+#include "../../Include/Product/ProductRepository.hpp"
+#include "Products.hpp"
+#include "../../Include/ObjectManager.hpp"
 
 using namespace std;
 

@@ -8,7 +8,7 @@
 #ifndef Products_hpp
 #define Products_hpp
 
-#include "../Include/Product.hpp"
+#include "Product.hpp"
 
 #include <vector>
 #include <string>
