@@ -6,50 +6,52 @@
 //
 
 #include "../../Include/Material/Materials.hpp"
+#include "../../Include/Helper.hpp"
 #include <iostream>
 
-bool Materials::AddMaterial(string name) {
-    materials.push_back(Material(name));
+bool Materials::AddMaterial(string materialName) {
+    if (GetID(materialName) != -1) {
+        putError("Materials::AddMaterial", "Add existing material to check list", 1);
+    }
+    
+    materials.push_back(Material(materialName));
     return true;
 }
 
-int Materials::GetID(string name) {
+int Materials::GetID(string materialName) {
     for (int i=0; i<materials.size(); ++i)
-        if (materials[i].CheckDuplicate(name))
+        if (materials[i].CheckDuplicate(materialName))
             return i;
     return -1;
 }
 
-Material Materials::GetMaterial(string name) {
-    int id = GetID(name);
+Material Materials::GetMaterial(string materialName) {
+    int id = GetID(materialName);
     if (id == -1) {
-        cout << "Materials::Get(string)\n";
-        cout << "ID not found.\n";
-        exit(1);
+        putError("Materials::Get", "ID not found", 1);
     }
     
     return materials[id];
 }
 
-bool Materials::UpdateMaterial(string name, string newName) {
-    int id = GetID(name);
+bool Materials::UpdateMaterial(string materialName, string newName) {
+    int id = GetID(materialName);
     if (id == -1) {
-        cout << "Materials::Update\n";
-        cout << "ID not found.\n";
+        putError("Materials::Update", "ID not found");
         return 0;
     }
-    materials[id].UpdateName(name);
+    materials[id].UpdateName(newName);
     return 1;
 }
 
-bool Materials::EraseMaterial(string name) {
-    int id = GetID(name);
+bool Materials::EraseMaterial(string materialName) {
+    int id = GetID(materialName);
     if (id == -1) {
-        cout << "Materials::Erase\n";
-        cout << "ID not found.\n";
+        putError("Materials::Erase", "ID not found");
         return 0;
     }
     
     materials.erase(materials.begin() + id);
     return 1;
 }
+

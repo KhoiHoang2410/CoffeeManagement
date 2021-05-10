@@ -29,7 +29,8 @@ public:
     bool ClearData();
     bool CalculateStock();
     
-    bool AddProduct(string productName, double price);
+    bool AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers);
+    bool AddProductInCheckList(string productName, double price);
     bool ReadAllData(string fileName = "") const;
     bool UpdatePrice(string materialName, double newPrice);
     bool UpdateRecipe(string productName, vector<string> materialNames, vector<int> numbers);

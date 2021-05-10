@@ -8,8 +8,9 @@
 #include <fstream>
 
 #include "../../Include/Product/ProductRepository.hpp"
-#include "Products.hpp"
 #include "../../Include/ObjectManager.hpp"
+#include "../../Include/Helper.hpp"
+#include "Products.hpp"
 
 using namespace std;
 
@@ -27,7 +28,12 @@ bool ProductRepository::CalculateStock() {
     return 0;
 }
 
-bool ProductRepository::AddProduct(string productName, double price) {
+bool ProductRepository::AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers) {
+    Products::AddProduct(productName, materialNames, numbers);
+    return 1;
+}
+
+bool ProductRepository::AddProductInCheckList(string productName, double price) {
     IDs.push_back(ObjectManager::GenerateNewID());
     productRepo.push_back(Products::GetProduct(productName));
     importedPrices.push_back(price);
@@ -40,9 +46,7 @@ bool ProductRepository::ReadAllData(string fileName) const {
     ofstream cout (fileName);
     
     if (!cout.is_open()) {
-        cout << "ProductRepository::ReadAllData\n";
-        cout << "Can not open file.\n";
-        exit(1);
+        putError("ProductRepository::ReadAllData", "Cannot open file", 1);
     }
     
     for (int i=0; i<productRepo.size(); ++i) {
@@ -62,8 +66,7 @@ bool ProductRepository::UpdatePrice(string productName, double newPrice) {
             return 1;
         }
     
-    cout << "ProductRepository::UpdatePrice\n";
-    cout << "Can not find Product.\n";
+    putError("ProductRepository::UpdatePrice", "Cannot find Product");
     return 0;
 }
 
@@ -74,8 +77,7 @@ bool ProductRepository::UpdateRecipe(string productName, vector<string> material
             return 1;
         }
     
-    cout << "ProductRepository::UpdateRecipe\n";
-    cout << "Can not find Product.\n";
+    putError("ProductRepository::UpdateRecipe", "Cannot find Product");
     return 0;
 }
 
@@ -86,8 +88,7 @@ bool ProductRepository::EraseProduct(string productName) {
             return 1;
         }
     
-    cout << "ProductRepository::EraseProduct\n";
-    cout << "Can not find Product.\n";
+    putError("ProductRepository::EraseProduct", "Cannot find Product");
     return 0;
 }
 

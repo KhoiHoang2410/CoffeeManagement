@@ -10,6 +10,7 @@
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Material/MaterialRepository.hpp"
 #include "../../Include/Material/Materials.hpp"
+#include "../../Include/Helper.hpp"
 
 bool MaterialRepository::ClearData() {
     IDs.clear();
@@ -37,7 +38,14 @@ bool MaterialRepository::RestructureData() {
     return 1;
 }
 
-bool MaterialRepository::AddMaterial(string materialName, double price, int number) {
+
+bool MaterialRepository::AddMaterialToCheckList(string materialName) {
+    Materials::AddMaterial(materialName);
+    return 1;
+}
+
+
+bool MaterialRepository::AddMaterialInCheckList(string materialName, double price, int number) {
     IDs.push_back(ObjectManager::GenerateNewID());
     materialRepo.push_back(Materials::GetMaterial(materialName));
     stocks.push_back(number);
@@ -51,9 +59,7 @@ bool MaterialRepository::ReadAllData(string fileName) const {
     ofstream cout(fileName);
     
     if (!cout.is_open()) {
-        cout << "MaterialRepository::ReadAllData\n";
-        cout << "Can not open file.\n";
-        exit(1);
+        putError("MaterialRepository::ReadAllData\n", "Cannot open file", 1);
     }
     
     for (int i=0; i<materialRepo.size(); ++i) {
@@ -79,9 +85,7 @@ bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     }
     
     if (noTaken != 0) {
-        cout << "MaterialRepository::Update\n";
-        cout << "Error: do not have enough material.\n";
-        exit(0);
+        putError("MaterialRepository::Update", "Error: do not have enough material", 1);
     }
     
     RestructureData();

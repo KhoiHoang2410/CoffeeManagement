@@ -5,9 +5,10 @@
 //  Created by Nguyen-Khoi Hoang on 09/05/2021.
 //
 
-#include "../../Include/Product/Recipe.hpp"
 #include "../../Include/Material/Materials.hpp"
 #include "../../Include/Product/Products.hpp"
+#include "../../Include/Product/Recipe.hpp"
+#include "../../Include/Helper.hpp"
 
 Recipe::Recipe() {
     ID = -1;
@@ -15,9 +16,7 @@ Recipe::Recipe() {
 
 Recipe::Recipe(int ID, string productName) { // check ID is in Products
     if (Products::GetID(productName) != ID) {
-        cout << "Recipe::Recipe\n";
-        cout << "Product name and Product ID not match.\n";
-        exit(1);
+        putError("Recipe::Recipe", "Product name and Product ID not match", 1);
     }
     this->ID = ID;
 }

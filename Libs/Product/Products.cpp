@@ -6,10 +6,15 @@
 //
 
 #include "../../Include/Product/Products.hpp"
+#include "../../Include/Helper.hpp"
 
 #include <iostream>
 
 bool Products::AddProduct(string productName, vector<string> materialNames, vector<int> numbers) {
+    if (GetID(productName) != -1) {
+        putError("Products::AddProduct", "Add existing product to check list", 1);
+    }
+    
     products.push_back(Product(productName));
     products.back().AddRecipe(materialNames, numbers);
     return 1;
@@ -25,9 +30,7 @@ int Products::GetID(string productName) {
 Product Products::GetProduct(string productName) {
     int id = GetID(productName);
     if (id == -1) {
-        cout << "Products::GetProduct\n";
-        cout << "ID not found.\n";
-        exit(1);
+        putError("Products::GetProduct", "ID not found", 1);
     }
     return products[id];
 }
@@ -39,8 +42,7 @@ Product Products::GetProduct(int ID) {
 bool Products::UpdateProduct(string productName, vector<string> materialNames, vector<int> numbers) {
     int id = GetID(productName);
     if (id == -1) {
-        cout << "Products::UpdateProduct\n";
-        cout << "ID not found.\n";
+        putError("Products::UpdateProduct", "ID not found");
         return 0;
     }
     
@@ -51,8 +53,7 @@ bool Products::UpdateProduct(string productName, vector<string> materialNames, v
 bool Products::EraseProduct(string productName) {
     int id = GetID(productName);
     if (id == -1) {
-        cout << "Products::EraseProduct\n";
-        cout << "ID not found.\n";
+        putError("Products::EraseProduct", "ID not found");
         return 0;
     }
     

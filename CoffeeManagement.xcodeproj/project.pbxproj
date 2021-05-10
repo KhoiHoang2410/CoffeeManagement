@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FD04774026484DC000458264 /* Products.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD04773E26484DC000458264 /* Products.cpp */; };
 		FD0477432648536E00458264 /* ProductRepository.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD0477412648536E00458264 /* ProductRepository.cpp */; };
+		FD04774B2648B78600458264 /* Admin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD0477492648B78300458264 /* Admin.cpp */; };
 		FD4C9CF62647F77200193892 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9CF52647F77200193892 /* main.cpp */; };
 		FD4C9CFE2647F8BD00193892 /* Materials.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9CFC2647F8BD00193892 /* Materials.cpp */; };
 		FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD4C9D012647F94C00193892 /* ObjectManager.cpp */; };
@@ -38,6 +39,8 @@
 		FD04773F26484DC000458264 /* Products.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Products.hpp; sourceTree = "<group>"; };
 		FD0477412648536E00458264 /* ProductRepository.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ProductRepository.cpp; sourceTree = "<group>"; };
 		FD0477422648536E00458264 /* ProductRepository.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ProductRepository.hpp; sourceTree = "<group>"; };
+		FD0477492648B78300458264 /* Admin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Admin.cpp; sourceTree = "<group>"; };
+		FD04774A2648B78300458264 /* Admin.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Admin.hpp; sourceTree = "<group>"; };
 		FD4C9CF22647F77200193892 /* CoffeeManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoffeeManagement; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4C9CF52647F77200193892 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FD4C9CFC2647F8BD00193892 /* Materials.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Materials.cpp; path = Libs/Material/Materials.cpp; sourceTree = SOURCE_ROOT; };
@@ -105,10 +108,10 @@
 		FD0477472648B5BA00458264 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 				FD4C9D0D2648013F00193892 /* Product.cpp */,
 				FD04773E26484DC000458264 /* Products.cpp */,
 				FD0477412648536E00458264 /* ProductRepository.cpp */,
+				FD4C9D10264803DA00193892 /* Recipe.cpp */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			children = (
 				FD0477452648B57900458264 /* Material */,
 				FD0477472648B5BA00458264 /* Product */,
+				FD0477492648B78300458264 /* Admin.cpp */,
 				FD4C9D0A2647FC1800193892 /* Date.cpp */,
 				FD4C9D202648273B00193892 /* Helper.cpp */,
 				FD4C9D042647FA1500193892 /* Item.cpp */,
@@ -157,6 +161,7 @@
 			children = (
 				FD0477442648B47A00458264 /* Material */,
 				FD0477462648B5A700458264 /* Product */,
+				FD04774A2648B78300458264 /* Admin.hpp */,
 				FD4C9D0B2647FC1800193892 /* Date.hpp */,
 				FD4C9D222648329400193892 /* Helper.hpp */,
 				FD4C9D052647FA1500193892 /* Item.hpp */,
@@ -232,6 +237,7 @@
 				FD4C9D032647F94C00193892 /* ObjectManager.cpp in Sources */,
 				FD4C9D25264833AC00193892 /* Material.cpp in Sources */,
 				FD04774026484DC000458264 /* Products.cpp in Sources */,
+				FD04774B2648B78600458264 /* Admin.cpp in Sources */,
 				FD4C9D212648273B00193892 /* Helper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

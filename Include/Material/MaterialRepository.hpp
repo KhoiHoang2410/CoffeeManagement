@@ -29,7 +29,8 @@ public:
     bool ClearData();
     bool RestructureData();
     
-    bool AddMaterial(string materialName, double price, int number = 1);
+    bool AddMaterialToCheckList(string materialName);
+    bool AddMaterialInCheckList(string materialName, double price, int number = 1);
     bool ReadAllData(string fileName = "") const;
     bool UpdateStock(string materialName, int noTaken);
 };
