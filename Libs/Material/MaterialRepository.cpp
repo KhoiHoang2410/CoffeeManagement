@@ -93,6 +93,8 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     }
 
     cin.close();
+
+    return 1;
 }
 
 bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
@@ -113,6 +115,8 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     }
 
     cin.close();
+
+    return 1;
 }
 
 bool MaterialRepository::ExportDataToFile(string fileName) const {

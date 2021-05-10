@@ -9,17 +9,16 @@
 #define Recipt_hpp
 
 #include <vector>
+#include <string>
 
 using namespace std;
 
 class Recipe {
 private:
-    int ID; // foreign key to Products.ID
-    vector <int> materialID;
+    vector <string> materials;
     vector <int> noMaterial;
 public:
-    Recipe();
-    Recipe(int ID, string productName); // check ID is in Products
+    Recipe() = default;
     
     void ClearData();
     

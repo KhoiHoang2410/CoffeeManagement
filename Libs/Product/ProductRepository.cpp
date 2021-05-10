@@ -45,7 +45,7 @@ bool ProductRepository::ExportDataToFile(string fileName) const {
     ofstream cout (fileName);
     
     if (!cout.is_open()) {
-        putError("ProductRepository::ExportDataToFile", "Cannot open file", 1);
+        PutError("ProductRepository::ExportDataToFile", "Cannot open file", 1);
     }
     
     for (int i=0; i<productRepo.size(); ++i) {
@@ -65,7 +65,7 @@ bool ProductRepository::UpdatePrice(string productName, double newPrice) {
             return 1;
         }
     
-    putError("ProductRepository::UpdatePrice", "Cannot find Product");
+    PutError("ProductRepository::UpdatePrice", "Cannot find Product");
     return 0;
 }
 
@@ -76,7 +76,7 @@ bool ProductRepository::UpdateRecipe(string productName, vector<string> material
             return 1;
         }
     
-    putError("ProductRepository::UpdateRecipe", "Cannot find Product");
+    PutError("ProductRepository::UpdateRecipe", "Cannot find Product");
     return 0;
 }
 
@@ -87,7 +87,7 @@ bool ProductRepository::EraseProduct(string productName) {
             return 1;
         }
     
-    putError("ProductRepository::EraseProduct", "Cannot find Product");
+    PutError("ProductRepository::EraseProduct", "Cannot find Product");
     return 0;
 }
 
