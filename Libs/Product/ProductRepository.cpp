@@ -6,9 +6,9 @@
 //
 
 #include "../../Include/Product/ProductRepository.hpp"
+#include "../../Include/Product/Products.hpp"
 #include "../../Include/ObjectManager.hpp"
 #include "../../Include/Helper.hpp"
-#include "Products.hpp"
 
 #include <fstream>
 
