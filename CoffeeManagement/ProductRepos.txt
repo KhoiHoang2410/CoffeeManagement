@@ -1,0 +1,15 @@
+7
+Americano
+65000
+Pour-over
+30000
+Chai latte
+42000
+Moca
+50000
+Cappuccino
+55000
+Café au lait
+30000
+Red eye
+32000

@@ -1,0 +1,50 @@
+38
+Tea
+Coffee
+Sugar
+Chocolate powder
+Yogurt
+Oreo
+Jams
+Marmalade
+Orange
+Banana
+Mango
+Cow’s milk
+Soy milk
+Almond milk
+Coconut milk
+Non-dairy creamer
+Goat’s milk
+Vanilla
+Caramel
+Almond
+Hazelnut
+Pumpkin
+Butterscotch
+Cherry
+Chestnut
+Maple
+Peppermint
+Raspberry
+Bagels
+Donuts
+Pastries
+Energy bars
+Breakfast sandwiches
+Scones
+Biscotti
+Cookies
+Cakes
+Muffins
+White sugar
+Brown sugar
+Raw sugar
+Equal and Nutrasweet
+Splenda
+Sweet’n Low
+Maple syrup
+Honey
+Molasses
+Stevia
+
