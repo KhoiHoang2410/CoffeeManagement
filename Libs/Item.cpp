@@ -22,6 +22,10 @@ bool Item::CheckDuplicate(string name) {
     return Normalize(this->name) == Normalize(name);
 }
 
+int Item::GetID() const {
+    return ID;
+}
+
 string Item::Name() const {
     return this->name;
 }

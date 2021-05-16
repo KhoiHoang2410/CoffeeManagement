@@ -9,5 +9,19 @@
 
 
 Employee::Employee(string name, string position) : Item(name) {
+    this->position = position;
+    isWorking = 1;
+}
 
+void Employee::display(ostream& out) const {
+    out << this->GetID() << " " ;
+    out << this->Name() << " " ;
+    out << this->isWorking << " " ;
+    out << this->startWorkingDate << " " ;
+    out << this->stopWorkingDate << endl;
+}
+
+ostream& operator <<(ostream& out, const Employee& src) {
+    src.display(out);
+    return out;
 }

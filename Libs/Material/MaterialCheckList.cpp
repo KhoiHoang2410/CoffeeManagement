@@ -67,7 +67,7 @@ bool MaterialCheckList::ExportDataToFile(string fileName) {
     OutPut(cout, "NoElement", materials.size());
     
     for (int i=0; i<materials.size(); ++i) {
-        OutPut(cout, "Name", materials[i].Name());
+        cout << materials[i];
     }
 
     cout.close();

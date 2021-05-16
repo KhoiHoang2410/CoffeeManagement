@@ -10,7 +10,6 @@ using namespace std;
 
 class Menu {
 private:
-    Admin admin;
     vector <string> menuOptions, menuInputMaterial;
     void RenderFrame();
     void RenderFrameMini(int x, int y);
@@ -18,6 +17,7 @@ private:
 public:
     Menu();
     void Process();
+    Admin admin;
 };
 
 #endif

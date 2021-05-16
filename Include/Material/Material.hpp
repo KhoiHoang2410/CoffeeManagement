@@ -11,10 +11,16 @@
 #include "../Item.hpp"
 #include "../Date.hpp"
 
+#include <fstream>
+
 class Material : public Item {
 public:
     Material();
     Material(string materialName);
+
+    void display(ostream& out) const;
 };
+
+ostream& operator <<(ostream& out, const Material& src);
 
 #endif /* Material_hpp */

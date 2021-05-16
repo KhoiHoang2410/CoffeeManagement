@@ -22,6 +22,7 @@ public:
     
     virtual bool CheckDuplicate(string srcName);
     virtual string Name() const;
+    virtual int GetID() const;
 
     virtual void UpdateName(string newName);
 };

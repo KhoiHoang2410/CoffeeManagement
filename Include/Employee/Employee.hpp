@@ -24,6 +24,12 @@ private:
 public:
     Employee() = default;
     Employee(string name, string position);
+
+    void StopWorking();
+
+    void display(ostream& out) const;
 };
+
+ostream& operator <<(ostream& out, const Employee& src);
 
 #endif /* Employee_hpp */
