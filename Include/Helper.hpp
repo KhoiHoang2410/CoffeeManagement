@@ -14,7 +14,6 @@
 
 using namespace std;
 
-
 string Normalize(string&);
 void PutError(string classBehaviour, string log);
 void PutError(string classBehaviour, string log, int code);
@@ -25,8 +24,8 @@ template <typename T>
 void OutPut(ostream& cout, string title, T content) {    
     if (isDebug) {
         cout << title << ": ";
+        cout << content << endl;
     }
-    cout << content << endl;
 }
 
 #endif /* Helper_h */

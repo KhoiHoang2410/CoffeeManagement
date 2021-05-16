@@ -142,6 +142,6 @@ void Menu::Process() {
 			Switch menu
 			Display
 			
-		*/		
+		*/
 	}
 }

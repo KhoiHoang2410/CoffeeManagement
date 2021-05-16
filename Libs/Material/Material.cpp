@@ -11,5 +11,5 @@
 Material::Material() {
 }
 
-Material::Material(string materialName) {
+Material::Material(string materialName) : Item(materialName) {
 }
