@@ -46,13 +46,9 @@
 
 
 //screen: goto [x,y]
-void gotoXY(int x,int y)
-{
+void gotoXY(int x,int y) {
     printf("%c[%d;%df",0x1B,y,x);
 }
-
-
-
 
 // //screen: get [y]
 // int whereY()

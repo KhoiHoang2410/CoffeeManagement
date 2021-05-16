@@ -1,78 +1,61 @@
-﻿#include"Menu.h"
-using namespace std;
-#define RST  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
+﻿#include "Menu.h"
+#include "console.h"
 
-#define FRED(x) KRED x RST
-#define FGRN(x) KGRN x RST
-#define FYEL(x) KYEL x RST
-#define FBLU(x) KBLU x RST
-#define FMAG(x) KMAG x RST
-#define FCYN(x) KCYN x RST
-#define FWHT(x) KWHT x RST
+Menu::Menu() {
 
-#define BOLD(x) "\x1B[1m" x RST
+}
 
-#define UNDL(x) "\x1B[4m" x RST
-
-void frame()
-{
-	for (int j = 1; j <= 130; ++j)
-	{
+void Menu::RenderFrame() {
+	for (int j = 1; j <= 130; ++j) {
 		gotoXY(30 + j, 1);
-		putchar(196); //─
+		cout << "─"; //─
 		gotoXY(30 + j, 50);
-		putchar(196); //─
+		cout << "─";
 	}
+	
 	gotoXY(31, 1);
-	putchar(218); //┌
+	cout << "┌";
 	gotoXY(160, 1);
-	putchar(191); //┐
+	cout << "┐";
 	for (int j = 2; j <= 49; ++j)
 	{
 		gotoXY(31, j);
-		putchar(124); //│
+		cout << "│";
 		gotoXY(160, j);
-		putchar(124); //│
+		cout << "│";
 	}
 	gotoXY(31, 50);
-	putchar(192); //└
+	cout << "└";
 	gotoXY(160, 50);
-	putchar(217); //┘
+	cout << "┘";
 }
 
-void frameMini(int x, int y)
+void Menu::RenderFrameMini(int x, int y)
 {
 	for (int i = 1; i <= 26; ++i)
 	{
 		gotoXY(x + i, y);
-		putchar(205); //─
+		cout << "-";
 		gotoXY(x + i, y + 2);
-		putchar(205); //─
+		cout << "-";
 	}
 	gotoXY(x, y + 1);
-	putchar(186); //│
+	cout << "│";
 	gotoXY(x + 27, y + 1);
-	putchar(186); //│
+	cout << "│";
 	gotoXY(x, y);
-	putchar(201); //┌
+	cout << "┌";
 	gotoXY(x + 27, y);
-	putchar(187); //┐
+	cout << "┐";
 	gotoXY(x, y + 2);
-	putchar(200); //└
+	cout << "└";
 	gotoXY(x + 27, y + 2);
-	putchar(188); //┘
+	cout << "┘";
 }
 
-void printMenu()
+void Menu::RenderMenu()
 {
-	frame();
+	RenderFrame();
 	int a = 41, b = 3, c = 190, d = 39;
 	gotoXY(a, b);
 	cout << ( " ______     ______     ______   ______   ______     ______        ______     __  __     ______     ______     ") << endl;
@@ -110,7 +93,7 @@ void printMenu()
 
 
 	for (int i = 1; i <= 4; ++i)
-		frameMini(80, 15 + 3 * i);
+		RenderFrameMini(80, 15 + 3 * i);
 
 	/*TextColor(6);
 	gotoXY(69, 15);
@@ -147,4 +130,17 @@ void printMenu()
 
 		}
 	}*/
+}
+
+void Menu::Process() {
+	RenderMenu();
+	while (1) {
+		// Khong display 
+		/*
+			Input choose: 
+			Switch menu
+			Display
+			
+		*/		
+	}
 }
