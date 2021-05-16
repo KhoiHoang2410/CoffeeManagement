@@ -101,7 +101,8 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
-        PutError("MaterialRepository::ImportDataFromFileToCheckList", "Find not Found", 1);
+        cout << fileName << endl;
+        PutError("MaterialRepository::ImportDataFromFileToCheckList", "File not Found", 1);
     }
 
     int n;
@@ -109,7 +110,7 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     string name;
     
     for (int i=0; i<n; ++i) {
-        cin >> name;
+        getline(cin, name);
 
         AddMaterialToCheckList(name);
     }
