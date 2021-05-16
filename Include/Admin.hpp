@@ -18,10 +18,8 @@ private:
 public:
     bool ImportMaterialsToCheckList(string fileName);
     bool ImportProductsToCheckList(string fileName);
-    
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
-    
     bool CalculateProductStockCanBeSolve();
 };
 
