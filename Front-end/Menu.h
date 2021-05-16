@@ -15,7 +15,6 @@ private:
     void RenderFrame();
     void RenderFrameMini(int x, int y);
     void RenderMenu();
-
 public:
     Menu();
     void Process();

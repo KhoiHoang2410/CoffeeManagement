@@ -133,6 +133,7 @@ void Menu::RenderMenu()
 }
 
 void Menu::Process() {
+	clrscr();
 	RenderMenu();
 	while (1) {
 		// Khong display 
