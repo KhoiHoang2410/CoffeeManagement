@@ -1,9 +1,28 @@
 ﻿#include"Menu.h"
+using namespace std;
+#define RST  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
 
+#define FRED(x) KRED x RST
+#define FGRN(x) KGRN x RST
+#define FYEL(x) KYEL x RST
+#define FBLU(x) KBLU x RST
+#define FMAG(x) KMAG x RST
+#define FCYN(x) KCYN x RST
+#define FWHT(x) KWHT x RST
+
+#define BOLD(x) "\x1B[1m" x RST
+
+#define UNDL(x) "\x1B[4m" x RST
 
 void frame()
 {
-
 	for (int j = 1; j <= 130; ++j)
 	{
 		gotoXY(30 + j, 1);
@@ -54,54 +73,39 @@ void frameMini(int x, int y)
 void printMenu()
 {
 	frame();
-	Nocursortype();
 	int a = 41, b = 3, c = 190, d = 39;
-	gotoXY(a, b);
-	TextColor(15);
-	//Sleep(c);
-	cout << " ______     ______     ______   ______   ______     ______        ______     __  __     ______     ______     " << endl;
+	//gotoXY(a, b);
+	cout << ( " ______     ______     ______   ______   ______     ______        ______     __  __     ______     ______     ") << endl;
 	gotoXY(a, b + 1);
-	TextColor(9);
-	//Sleep(c);
 	cout << "/\\  ___\\   /\\  __ \\   /\\  ___\\ /\\  ___\\ /\\  ___\\   /\\  ___\\      /\\  ___\\   /\\ \\_\\ \\   /\\  __ \\   /\\  == \\ " << endl;
 	gotoXY(a, b + 2);
-	TextColor(10);
 	//Sleep(c);
 	cout << "\\ \\ \\____  \\ \\ \\/\\ \\  \\ \\  __\\ \\ \\  __\\ \\ \\  __\\   \\ \\  __\\      \\ \\___  \\  \\ \\  __ \\  \\ \\ \\/\\ \\  \\ \\  _-/    " << endl;
 	gotoXY(a, b + 3);
-	TextColor(11);
 	//Sleep(c);
 	cout << " \\ \\_____\\  \\ \\_____\\  \\ \\_\\    \\ \\_\\    \\ \\_____\\  \\ \\_____\\     \\/\\_____\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\      " << endl;
 	gotoXY(a, b + 4);
-	TextColor(12);
 	//Sleep(c);
 	cout << "  \\/_____/   \\/_____/   \\/_/     \\/_/     \\/_____/   \\/_____/      \\/_____/   \\/_/\\/_/   \\/_____/   \\/_/      ";
 	gotoXY(d, b + 5);
-	TextColor(13);
 	//Sleep(c);
 	cout << " _____ ______   ________  ________   ________  ________  _______   _____ ______   _______   ________   _________   ";
 	gotoXY(d, b + 6);
-	TextColor(14);
 	//Sleep(c);
 	cout << "|\\   _ \\  _   \\|\\   __  \\|\\   ___  \\|\\   __  \\|\\   ____\\|\\  ___ \\ |\\   _ \\  _   \\|\\  ___ \\ |\\   ___  \\|\\___   ___\\ " << endl;
 	gotoXY(d, b + 7);
-	TextColor(15);
 	//Sleep(c);
 	cout << "\\ \\  \\\\\\__\\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\ \\  \\|\\  \\ \\  \\___|\\ \\   __/|\\ \\  \\\\\\__\\ \\  \\ \\   __/|\\ \\  \\\\ \\  \\|___ \\  \\_| " << endl;
 	gotoXY(d, b + 8);
-	TextColor(13);
 	//Sleep(c);
 	cout << " \\ \\  \\\\|__| \\  \\ \\   __  \\ \\  \\\\ \\  \\ \\   __  \\ \\  \\  __\\ \\  \\_|/_\\ \\  \\\\|__| \\  \\ \\  \\_|/_\\ \\  \\\\ \\  \\   \\ \\  \\  " << endl;
 	gotoXY(d, b + 9);
-	TextColor(11);
 	//Sleep(c);
 	cout << "  \\ \\__\\    \\ \\__\\ \\__\\ \\__\\ \\__\\\\ \\__\\ \\__\\ \\__\\ \\_______\\ \\_______\\ \\__\\    \\ \\__\\ \\_______\\ \\__\\\\ \\__\\   \\ \\__\\" << endl;
 	gotoXY(d, b + 10);
-	TextColor(14);
 	//Sleep(c);
 	cout << "   \\|__|     \\|__|\\|__|\\|__|\\|__| \\|__|\\|__|\\|__|\\|_______|\\|_______|\\|__|     \\|__|\\|_______|\\|__| \\|__|    \\|__|" << endl;
 	//Sleep(c);
-	TextColor(8);
 
 
 
