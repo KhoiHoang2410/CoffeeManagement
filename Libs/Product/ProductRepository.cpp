@@ -91,4 +91,53 @@ bool ProductRepository::EraseProduct(string productName) {
     return 0;
 }
 
+bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
+    ifstream cin(fileName);
+
+    if (!cin.is_open()) {
+        PutError("ProductRepository::ImportDataFromFileToCheckList", "File not Found", 1);
+    }
+
+    int n;
+    cin >> n;
+    string productName, materialName;
+    int m, p;
+    vector<string> materialNames;
+    vector<int> materialNumbers;
+    for(int i; i < n; i++){
+        getline(cin, productName);
+        cin>>m;
+        for(int i=0; i<m; i++){
+            getline(cin, materialName);
+            cin>>p;
+            materialNames.push_back(materialName);
+            materialNumbers.push_back(p);
+        }
+        AddProductToCheckList(productName,materialNames,materialNumbers);
+    }
+    cin.close();
+
+    return 1;
+}
+
+bool ProductRepository::ImportDataFromFile(string fileName){
+    ifstream cin(fileName);
+
+    if (!cin.is_open()) {
+        PutError("ProductRepository::ImportDataFromFile", "File not Found", 1);
+    }
+
+    int n;
+    cin >> n;
+    string name;
+    int price;
+    for(int i; i < n; i++){
+       getline(cin, name);
+       cin>>price;
+       AddProductInCheckList(name, price);
+    }
+    cin.close();
+
+    return 1;
+}
 
