@@ -1,12 +1,59 @@
-11
-Americano
-Pour-over
-Chai latte
-Moca
-Cappuccino
+5
 Café au lait
+6
+Banana
+2
+Mango
+3
+Cow’s milk
+2
+Soy milk
+4
+Almond milk
+7
+Coconut milk
+1
 Espresso
+4
+Maple
+4
+Peppermint
+6
+Raspberry
+4
+Bagels
+2
 Macchiato
+5
+Energy bars
+2
+Breakfast sandwiches
+4
+Scones
+6
+Biscotti
+1
+Cookies
+3
 Latte
+2
+White sugar
+4
+Brown sugar
+2
 Breve
-Red eye
+7
+Equal and Nutrasweet
+2
+Splenda
+3
+Sweet’n Low
+2
+Maple syrup
+2
+Honey
+1
+Molasses
+4
+Stevia
+6

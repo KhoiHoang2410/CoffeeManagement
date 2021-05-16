@@ -135,7 +135,9 @@ void Menu::RenderMenu()
 void Menu::Process() {
 	clrscr();
 	RenderMenu();
+	// admin.ImportMaterialsToCheckList("MaterialsChecklist")
 	while (1) {
+
 		// Khong display 
 		/*
 			Input choose: 
