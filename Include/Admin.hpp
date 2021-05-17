@@ -10,11 +10,13 @@
 
 #include "Material/MaterialRepository.hpp"
 #include "Product/ProductRepository.hpp"
+#include "Employee/EmployeeRepository.hpp"
 
 class Admin {
 private:
     MaterialRepository materialRepo;
     ProductRepository productRepo;
+    EmployeeRepository employeeRepo;
 public:
     bool ImportMaterialsToCheckList(string fileName);
     bool ImportProductsToCheckList(string fileName);

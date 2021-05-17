@@ -28,6 +28,8 @@ public:
     void StopWorking();
 
     void display(ostream& out) const;
+
+    string Position() const;
 };
 
 ostream& operator <<(ostream& out, const Employee& src);

@@ -16,7 +16,15 @@ class EmployeeRepository {
 private:
     vector <Employee> employeeRepo;
 public:
-    
+    EmployeeRepository() = default;
+
+    void AddEmployee(string name, string position);
+    void ExportEmployee(string name) const;
+    void EraseEmployee(string name);
+    Employee GetEmployee(string name);
+    bool ImportDataFromFile(string fileName);
+
+    int getID(string name);
 };
 
 #endif /* EmployeeRepository_hpp */

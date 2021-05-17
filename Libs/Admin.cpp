@@ -40,5 +40,5 @@ bool Admin::ExportProductRepository() const {
 }
 
 bool Admin::CalculateProductStockCanBeSolve() {
-    productRepo.UpdateStock(vector<int>(productRepo.Size()));
+    return productRepo.UpdateStock(vector<int>(productRepo.Size()));
 }

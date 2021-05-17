@@ -21,6 +21,10 @@ void Employee::display(ostream& out) const {
     out << this->stopWorkingDate << endl;
 }
 
+string Employee::Position() const {
+    return this->position;
+}
+
 ostream& operator <<(ostream& out, const Employee& src) {
     src.display(out);
     return out;
