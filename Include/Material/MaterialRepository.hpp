@@ -38,8 +38,8 @@ public:
     bool ImportDataFromFile(string fileName);
     bool ImportDataFromFileToCheckList(string fileName);
 
-    bool ExportDataToFile(string fileName) const;
-    bool ExportCheckListDataToFile(string fileName = "");
+    bool ExportData() const;
+    bool ExportCheckListData() const;
 };
 
 #endif /* MaterialRepository_hpp */

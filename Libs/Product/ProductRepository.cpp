@@ -41,20 +41,14 @@ bool ProductRepository::AddProductInCheckList(string productName, double price) 
     return 1;
 }
 
-bool ProductRepository::ExportDataToFile(string fileName) const {
-    ofstream cout (fileName);
-    
-    if (!cout.is_open()) {
-        PutError("ProductRepository::ExportDataToFile", "Cannot open file", 1);
-    }
-    
+bool ProductRepository::ExportData() const {
     for (int i=0; i<productRepo.size(); ++i) {
         cout << "Product_name: " << productRepo[i].Name() << endl;
         cout << "Price: " << importedPrices[i] << endl;
         cout << "Stock: " << stocks[i] << endl;
         cout << "Imported_day" << importedDates[i] << endl;
     }
-    cout.close();
+    
     return 1;
 }
 

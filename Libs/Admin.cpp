@@ -22,3 +22,19 @@ bool Admin::ImportNewMaterial(string fileName){
 bool Admin::ImportNewProduct(string fileName){
     return productRepo.ImportDataFromFile(fileName);
 }
+
+bool Admin::ExportCheckListMaterial() const {
+    return materialRepo.ExportCheckListData();
+}
+
+bool Admin::ExportMaterialRepository() const {
+
+}
+
+bool Admin::ExportCheckListProduct() const {
+
+}
+
+bool Admin::ExportProductRepository() const {
+
+}

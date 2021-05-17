@@ -108,26 +108,25 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     int n;
     cin >> n;
     string name;
+    getline(cin, name);
+
+    OutPut(cout, "MaterialRepository::ImportDataFromFileToCheckList", 
+                "Start import with " + to_string(n) + " elements");
     
     for (int i=0; i<n; ++i) {
         getline(cin, name);
-
         AddMaterialToCheckList(name);
     }
 
     cin.close();
 
+    OutPut(cout, "MaterialRepository::ImportDataFromFileToCheckList", "Import success");
+
     return 1;
 }
 
-bool MaterialRepository::ExportDataToFile(string fileName) const {
-    ofstream cout(fileName);
-    
-    if (!cout.is_open()) {
-        PutError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
-    }
-
-    OutPut(cout, "NoElement", materialRepo.size());
+bool MaterialRepository::ExportData() const {
+    OutPut(cout, "MaterialRepository::ExportData", "Number of material: " + to_string(materialRepo.size()));
     
     for (int i=0; i<materialRepo.size(); ++i) {
         OutPut(cout, "Name", materialRepo[i].Name());
@@ -136,10 +135,12 @@ bool MaterialRepository::ExportDataToFile(string fileName) const {
         OutPut(cout, "Imported_date", importedDates[i]);
         OutPut(cout, "Expired_date", expiredDates[i]);
     }
-    cout.close();
+
+    OutPut(cout, "MaterialRepository::ExportData", "Import success");
+
     return 1;
 }
 
-bool MaterialRepository::ExportCheckListDataToFile(string fileName) {
-    return materialCheckList.ExportDataToFile(fileName);
+bool MaterialRepository::ExportCheckListData() const {
+    return materialCheckList.ExportData();
 }

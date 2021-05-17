@@ -23,8 +23,11 @@ static bool isDebug = 1;
 template <typename T>
 void OutPut(ostream& cout, string title, T content) {    
     if (isDebug) {
-        cout << title << ": ";
+        cout << endl;
+        cout << "----------------------------" << endl;
+        cout << title << endl;
         cout << content << endl;
+        cout << "----------------------------" << endl;
     }
 }
 

@@ -20,6 +20,12 @@ public:
     bool ImportProductsToCheckList(string fileName);
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
+
+    bool ExportCheckListMaterial() const;
+    bool ExportMaterialRepository() const;
+    bool ExportCheckListProduct() const;
+    bool ExportProductRepository() const;
+    
     bool CalculateProductStockCanBeSolve();
 };
 

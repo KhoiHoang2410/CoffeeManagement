@@ -11,6 +11,7 @@ using namespace std;
 
 int main() {
     Menu a;
-    a.admin.ImportMaterialsToCheckList("MaterialsChecklist.txt");
+    a.admin.ImportMaterialsToCheckList("MaterialsCheckList.txt");
+    a.admin.ExportCheckListMaterial();
     return 0;
 }

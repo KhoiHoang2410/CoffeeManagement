@@ -25,7 +25,7 @@ public:
     bool UpdateMaterial(string materialName, string newMaterialName);
     bool EraseMaterial(string materailName);
     
-    bool ExportDataToFile(string fileName);
+    bool ExportData() const;
 };
 
 #endif /* MaterialCheckList_hpp */

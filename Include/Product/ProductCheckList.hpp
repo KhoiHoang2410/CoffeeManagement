@@ -26,7 +26,7 @@ public:
     bool UpdateProduct(string productName, vector<string> materialNames, vector<int> numbers);
     bool EraseProduct(string productName);
     
-    bool ExportDataToFile(string fileName);
+    bool ExportData() const;
 };
 
 #endif /* ProductCheckList_hpp */

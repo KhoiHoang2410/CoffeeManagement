@@ -57,20 +57,14 @@ bool MaterialCheckList::EraseMaterial(string materialName) {
     return 1;
 }
 
-bool MaterialCheckList::ExportDataToFile(string fileName) {
-    ofstream cout(fileName);
-    
-    if (!cout.is_open()) {
-        PutError("MaterialRepository::ExportDataToFile\n", "Cannot open file", 1);
-    }
-
-    OutPut(cout, "NoElement", materials.size());
+bool MaterialCheckList::ExportData() const {
+    OutPut(cout, "MaterialCheckList::ExportData", "Number of material: " + to_string(materials.size()));
     
     for (int i=0; i<materials.size(); ++i) {
         cout << materials[i];
     }
 
-    cout.close();
+    OutPut(cout, "MaterialCheckList::ExportData", "Export success");
     
     return 1;
 }

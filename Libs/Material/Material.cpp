@@ -15,7 +15,7 @@ Material::Material(string materialName) : Item(materialName) {
 }
 
 void Material::display(ostream& out) const {
-    out << this->Name() << endl;
+    out << this->GetID() << " " << this->Name() << endl;
 }
 
 ostream& operator <<(ostream& out, const Material& src) {
