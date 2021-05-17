@@ -30,7 +30,7 @@ int MaterialCheckList::GetID(string materialName) {
 Material MaterialCheckList::GetMaterial(string materialName) {
     int id = GetID(materialName);
     if (id == -1) {
-        PutError("Materials::Get", "ID not found", 1);
+        PutError("Materials::GetMaterial", "ID not found: " + materialName, 1);
     }
     
     return materials[id];
@@ -58,13 +58,13 @@ bool MaterialCheckList::EraseMaterial(string materialName) {
 }
 
 bool MaterialCheckList::ExportData() const {
-    OutPut(cout, "MaterialCheckList::ExportData", "Number of material: " + to_string(materials.size()));
+    OutPut( "MaterialCheckList::ExportData", "Number of material: " + to_string(materials.size()));
     
     for (int i=0; i<materials.size(); ++i) {
         cout << materials[i];
     }
 
-    OutPut(cout, "MaterialCheckList::ExportData", "Export success");
+    OutPut( "MaterialCheckList::ExportData", "Export success");
     
     return 1;
 }

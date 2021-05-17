@@ -30,7 +30,7 @@ int ProductCheckList::GetID(string productName) {
 Product ProductCheckList::GetProduct(string productName) {
     int id = GetID(productName);
     if (id == -1) {
-        PutError("Products::GetProduct", "ID not found", 1);
+        PutError("Products::GetProduct", "ID not found: " + productName, 1);
     }
     return products[id];
 }
@@ -58,5 +58,21 @@ bool ProductCheckList::EraseProduct(string productName) {
     }
     
     products.erase(products.begin() + id);
+    return 1;
+}
+
+bool ProductCheckList::ExportData() const {
+    OutPut("ProductCheckList::ExportData", "Start Export " + to_string(products.size()));
+
+    for (int i=0; i<products.size(); ++i) {
+        cout << "ID: " << products[i].GetID() << endl;
+        cout << "Name: " << products[i].Name() << endl;
+        cout << "Recipe:" << endl;
+        products[i].DisplayRecipe();
+        cout << endl;
+    }
+
+    OutPut("ProductCheckList::ExportData", "Export success");
+
     return 1;
 }

@@ -84,15 +84,22 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     cin >> n;
     string name;
     int price, stock;
+
+
+    OutPut( "MaterialRepository::ImportDataFromFile", "Start import "
+            + to_string(n));
     
     for (int i=0; i<n; ++i) {
-        cin >> name;
+        getline(cin, name);
+        getline(cin, name);
         cin >> price >> stock;
 
         AddMaterialInCheckList(name, price, stock);
     }
 
     cin.close();
+
+    OutPut( "MaterialRepository::ImportDataFromFile", "Import success");
 
     return 1;
 }
@@ -110,9 +117,9 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     string name;
     getline(cin, name);
 
-    OutPut(cout, "MaterialRepository::ImportDataFromFileToCheckList", 
-                "Start import with " + to_string(n) + " elements");
-    
+    OutPut( "MaterialRepository::ImportDataFromFileToCheckList", "Start import "
+                + to_string(n));
+
     for (int i=0; i<n; ++i) {
         getline(cin, name);
         AddMaterialToCheckList(name);
@@ -120,23 +127,26 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
 
     cin.close();
 
-    OutPut(cout, "MaterialRepository::ImportDataFromFileToCheckList", "Import success");
+    OutPut( "MaterialRepository::ImportDataFromFileToCheckList", "Import success");
 
     return 1;
 }
 
 bool MaterialRepository::ExportData() const {
-    OutPut(cout, "MaterialRepository::ExportData", "Number of material: " + to_string(materialRepo.size()));
+    OutPut( "MaterialRepository::ExportData", "Number of material: " + to_string(materialRepo.size()));
     
     for (int i=0; i<materialRepo.size(); ++i) {
-        OutPut(cout, "Name", materialRepo[i].Name());
-        OutPut(cout, "Price", importedPrices[i]);
-        OutPut(cout, "Stocks", stocks[i]);
-        OutPut(cout, "Imported_date", importedDates[i]);
-        OutPut(cout, "Expired_date", expiredDates[i]);
+        cout << "ID: " << IDs[i] << endl;
+        cout << "Name: " << materialRepo[i].Name() << endl;
+        cout << "Price: " << importedPrices[i] << endl;
+        cout << "Stocks: " << stocks[i] << endl;
+        cout << "Imported_date: " << importedDates[i] << endl;
+        cout << "Expired_date: " << expiredDates[i] << endl;
+
+        cout << endl;
     }
 
-    OutPut(cout, "MaterialRepository::ExportData", "Import success");
+    OutPut( "MaterialRepository::ExportData", "Export success");
 
     return 1;
 }

@@ -21,3 +21,9 @@ bool Recipe::AddMaterial(vector<string> materialNames, vector<int> numbers) {
     this->noMaterial = numbers;
     return 1;
 }
+
+void Recipe::Display() const {
+    for (int i=0; i<materials.size(); ++i) {
+        cout << materials[i] << " : " << noMaterial[i] << endl;
+    }
+}

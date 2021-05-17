@@ -13,8 +13,8 @@ Date::Date() {
     time_t now = time(0);
     tm* ltm = localtime(&now);
     this->dd = ltm->tm_mday;
-    this->mm = ltm->tm_mon;
-    this->yy = ltm->tm_year;
+    this->mm = ltm->tm_mon + 1;
+    this->yy = ltm->tm_year + 1900;
 }
 
 Date::Date(int day, int month, int year) {
@@ -36,7 +36,7 @@ int Date::Year() const {
 }
 
 void Date::Output(ostream& out) const {
-    out << dd << " " << mm << " " << yy << endl;
+    out << dd << " " << mm << " " << yy;
 }
 
 ostream& operator <<(ostream& out, const Date& src) {

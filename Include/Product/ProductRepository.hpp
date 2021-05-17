@@ -43,6 +43,8 @@ public:
     
     bool ExportData() const;
     bool ExportCheckListData() const;
+
+    int Size();
 };
 
 #endif /* ProductRepository_hpp */

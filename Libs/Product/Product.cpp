@@ -14,3 +14,7 @@ void Product::AddRecipe(vector<string> materialNames, vector<int> numbers) {
 void Product::UpdateRecipe(vector<string> materialNames, vector<int> numbers) {
     recipe.AddMaterial(materialNames, numbers);
 }
+
+void Product::DisplayRecipe() const {
+    recipe.Display();
+}

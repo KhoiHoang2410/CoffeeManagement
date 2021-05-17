@@ -21,7 +21,7 @@ void PutError(string classBehaviour, string log, int code);
 static bool isDebug = 1;
 
 template <typename T>
-void OutPut(ostream& cout, string title, T content) {    
+void OutPut(string title, T content) {    
     if (isDebug) {
         cout << endl;
         cout << "----------------------------" << endl;

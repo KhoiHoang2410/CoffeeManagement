@@ -28,13 +28,17 @@ bool Admin::ExportCheckListMaterial() const {
 }
 
 bool Admin::ExportMaterialRepository() const {
-
+    return materialRepo.ExportData();
 }
 
 bool Admin::ExportCheckListProduct() const {
-
+    return productRepo.ExportCheckListData();
 }
 
 bool Admin::ExportProductRepository() const {
+    return productRepo.ExportData();
+}
 
+bool Admin::CalculateProductStockCanBeSolve() {
+    productRepo.UpdateStock(vector<int>(productRepo.Size()));
 }

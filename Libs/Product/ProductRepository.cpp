@@ -41,17 +41,6 @@ bool ProductRepository::AddProductInCheckList(string productName, double price) 
     return 1;
 }
 
-bool ProductRepository::ExportData() const {
-    for (int i=0; i<productRepo.size(); ++i) {
-        cout << "Product_name: " << productRepo[i].Name() << endl;
-        cout << "Price: " << importedPrices[i] << endl;
-        cout << "Stock: " << stocks[i] << endl;
-        cout << "Imported_day" << importedDates[i] << endl;
-    }
-    
-    return 1;
-}
-
 bool ProductRepository::UpdatePrice(string productName, double newPrice) {
     for (int i=0; i<productRepo.size(); ++i)
         if (productRepo[i].CheckDuplicate(productName)) {
@@ -98,10 +87,17 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
     int m, p;
     vector<string> materialNames;
     vector<int> materialNumbers;
-    for(int i; i < n; i++){
+    
+    OutPut("ProductRepository::ImportDataFromFileToCheckList", "Start import "
+            + to_string(n));
+    
+    for(int i=0; i < n; i++){
         getline(cin, productName);
+        getline(cin, productName);
+
         cin>>m;
         for(int i=0; i<m; i++){
+            getline(cin, materialName);
             getline(cin, materialName);
             cin>>p;
             materialNames.push_back(materialName);
@@ -110,6 +106,8 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
         AddProductToCheckList(productName,materialNames,materialNumbers);
     }
     cin.close();
+
+    OutPut("ProductRepository::ImportDataFromFileToCheckList", "Import success");
 
     return 1;
 }
@@ -125,13 +123,44 @@ bool ProductRepository::ImportDataFromFile(string fileName){
     cin >> n;
     string name;
     int price;
-    for(int i; i < n; i++){
+
+    OutPut("ProductRepository::ImportDataFromFile", "Start import " + to_string(n));
+
+    for(int i=0; i < n; i++){
+       getline(cin, name);
        getline(cin, name);
        cin>>price;
        AddProductInCheckList(name, price);
     }
+
     cin.close();
+
+    OutPut("ProductRepository::ImportDataFromFile", "Import success");
 
     return 1;
 }
 
+bool ProductRepository::ExportData() const {
+    OutPut("ProductRepository::ExportData", "Start export " + to_string(productRepo.size()));
+
+    for (int i=0; i<productRepo.size(); ++i) {
+        cout << "ID: " << IDs[i] << endl;
+        cout << "Product_name: " << productRepo[i].Name() << endl;
+        cout << "Price: " << importedPrices[i] << endl;
+        cout << "Stock: " << stocks[i] << endl;
+        cout << "Imported_day: " << importedDates[i] << endl;
+        cout << endl;
+    }
+
+    OutPut("ProductRepository::ExportData", "Export success " + to_string(productRepo.size()));
+    
+    return 1;
+}
+
+bool ProductRepository::ExportCheckListData() const {
+    return productCheckList.ExportData();
+}
+
+int ProductRepository::Size() {
+    return productRepo.size();
+}

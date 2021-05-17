@@ -23,6 +23,8 @@ public:
     void ClearData();
     
     bool AddMaterial(vector<string> materialNames, vector<int> numbers);
+
+    void Display() const;
 };
 
 #endif /* Recipt_hpp */
