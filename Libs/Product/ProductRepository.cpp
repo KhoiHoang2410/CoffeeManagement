@@ -14,17 +14,28 @@
 using namespace std;
 
 bool ProductRepository::ClearData() {
-    IDs.clear();
+    ID.clear();
     productRepo.clear();
-    stocks.clear();
-    importedPrices.clear();
-    importedDates.clear();
+    stock.clear();
+    capitalCost.clear();
+    importedDate.clear();
     
     return 1;
 }
 
-bool ProductRepository::UpdateStock(vector <int> stocks) {
-    this->stocks = stocks;
+bool ProductRepository::UpdateCapitalCostAndStock(vector <pair<double, int> > src) {
+    if (src.size() != productRepo.size()) { 
+        PutError("ProductRepository::UpdateCapitalCostAndStock", "Invalid input data", 1);
+    }
+
+    stock.resize(src.size());
+    capitalCost.resize(src.size());
+
+    for (int i=0; i<src.size(); ++i) {
+        capitalCost[i] = src[i].first;
+        stock[i] = src[i].second;
+    }
+
     return 1;
 }
 
@@ -33,18 +44,18 @@ bool ProductRepository::AddProductToCheckList(string productName, vector<string>
     return 1;
 }
 
-bool ProductRepository::AddProductInCheckList(string productName, double price) {
-    IDs.push_back(ObjectManager::GenerateNewID());
+bool ProductRepository::AddProductFromCheckList(string productName, double price) {
+    ID.push_back(ObjectManager::GenerateNewID());
     productRepo.push_back(productCheckList.GetProduct(productName));
-    importedPrices.push_back(price);
-    importedDates.push_back(Date());
+    sellPrice.push_back(price);
+    importedDate.push_back(Date());
     return 1;
 }
 
 bool ProductRepository::UpdatePrice(string productName, double newPrice) {
     for (int i=0; i<productRepo.size(); ++i)
         if (productRepo[i].CheckDuplicate(productName)) {
-            importedPrices[i] = newPrice;
+            sellPrice[i] = newPrice;
             return 1;
         }
     
@@ -82,12 +93,13 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
     }
 
     int n;
-    cin >> n;
     string productName, materialName;
     int m, p;
     vector<string> materialNames;
     vector<int> materialNumbers;
     
+    cin >> n;
+
     OutPut("ProductRepository::ImportDataFromFileToCheckList", "Start import "
             + to_string(n));
     
@@ -96,14 +108,18 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
         getline(cin, productName);
 
         cin>>m;
-        for(int i=0; i<m; i++){
+        for(int j=0; j<m; j++){
             getline(cin, materialName);
             getline(cin, materialName);
             cin>>p;
             materialNames.push_back(materialName);
             materialNumbers.push_back(p);
         }
+
         AddProductToCheckList(productName,materialNames,materialNumbers);
+
+        materialNames.clear();
+        materialNumbers.clear();
     }
     cin.close();
 
@@ -130,7 +146,7 @@ bool ProductRepository::ImportDataFromFile(string fileName){
        getline(cin, name);
        getline(cin, name);
        cin>>price;
-       AddProductInCheckList(name, price);
+       AddProductFromCheckList(name, price);
     }
 
     cin.close();
@@ -144,11 +160,12 @@ bool ProductRepository::ExportData() const {
     OutPut("ProductRepository::ExportData", "Start export " + to_string(productRepo.size()));
 
     for (int i=0; i<productRepo.size(); ++i) {
-        cout << "ID: " << IDs[i] << endl;
+        cout << "ID: " << ID[i] << endl;
         cout << "Product_name: " << productRepo[i].Name() << endl;
-        cout << "Price: " << importedPrices[i] << endl;
-        cout << "Stock: " << stocks[i] << endl;
-        cout << "Imported_day: " << importedDates[i] << endl;
+        cout << "Capital cost: " << capitalCost[i] << endl;
+        cout << "Price: " << sellPrice[i] << endl;
+        cout << "Stock: " << stock[i] << endl;
+        cout << "Imported_day: " << importedDate[i] << endl;
         cout << endl;
     }
 
@@ -163,4 +180,12 @@ bool ProductRepository::ExportCheckListData() const {
 
 int ProductRepository::Size() {
     return productRepo.size();
+}
+
+vector<vector<pair<string, int> > > ProductRepository::GetListMaterialForEachProduct() {
+    vector<vector<pair<string, int> > > res;
+    for (int i=0; i<productRepo.size(); ++i) {
+        res.push_back(productRepo[i].GetDetailMaterial());
+    }
+    return res;
 }

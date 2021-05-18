@@ -12,7 +12,7 @@
 
 bool ProductCheckList::AddProduct(string productName, vector<string> materialNames, vector<int> numbers) {
     if (GetID(productName) != -1) {
-        PutError("Products::AddProduct", "Add existing product to check list", 1);
+        PutError("Products::AddProduct", "Add existing product to check list: " + productName, 1);
     }
     
     products.push_back(Product(productName));

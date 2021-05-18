@@ -25,6 +25,8 @@ public:
     Product GetProduct(int ID);
     bool UpdateProduct(string productName, vector<string> materialNames, vector<int> numbers);
     bool EraseProduct(string productName);
+
+    bool CheckExist(string name);
     
     bool ExportData() const;
 };

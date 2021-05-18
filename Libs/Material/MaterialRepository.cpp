@@ -12,24 +12,24 @@
 #include <fstream>
 
 bool MaterialRepository::ClearData() {
-    IDs.clear();
+    ID.clear();
     materialRepo.clear();
-    stocks.clear();
-    importedDates.clear();
-    expiredDates.clear();
+    stock.clear();
+    importedDate.clear();
+    expiredDate.clear();
     
     return 1;
 }
 
 bool MaterialRepository::RestructureData() {
     for (int i=0; i<materialRepo.size(); ++i) {
-        if (stocks[i] == 0) {
-            IDs.erase(IDs.begin() + i);
+        if (stock[i] == 0) {
+            ID.erase(ID.begin() + i);
             materialRepo.erase(materialRepo.begin() + i);
-            stocks.erase(stocks.begin() + i);
-            importedPrices.erase(importedPrices.begin() + i);
-            importedDates.erase(importedDates.begin() + i);
-            expiredDates.erase(expiredDates.begin() + i);
+            stock.erase(stock.begin() + i);
+            importedPrice.erase(importedPrice.begin() + i);
+            importedDate.erase(importedDate.begin() + i);
+            expiredDate.erase(expiredDate.begin() + i);
             
             --i;
         }
@@ -45,12 +45,12 @@ bool MaterialRepository::AddMaterialToCheckList(string materialName) {
 
 
 bool MaterialRepository::AddMaterialInCheckList(string materialName, double price, int number) {
-    IDs.push_back(ObjectManager::GenerateNewID());
+    ID.push_back(ObjectManager::GenerateNewID());
     materialRepo.push_back(materialCheckList.GetMaterial(materialName));
-    stocks.push_back(number);
-    importedPrices.push_back(price);
-    importedDates.push_back(Date());
-    expiredDates.push_back(Date());
+    stock.push_back(number);
+    importedPrice.push_back(price);
+    importedDate.push_back(Date());
+    expiredDate.push_back(Date());
     return 1;
 }
 
@@ -59,8 +59,8 @@ bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
         if (noTaken == 0) break;
         
         if (materialRepo[i].CheckDuplicate(materialName)) {
-            int tmp = min(stocks[i], noTaken);
-            stocks[i] -= tmp;
+            int tmp = min(stock[i], noTaken);
+            stock[i] -= tmp;
             noTaken -= tmp;
         }
     }
@@ -136,12 +136,12 @@ bool MaterialRepository::ExportData() const {
     OutPut( "MaterialRepository::ExportData", "Number of material: " + to_string(materialRepo.size()));
     
     for (int i=0; i<materialRepo.size(); ++i) {
-        cout << "ID: " << IDs[i] << endl;
+        cout << "ID: " << ID[i] << endl;
         cout << "Name: " << materialRepo[i].Name() << endl;
-        cout << "Price: " << importedPrices[i] << endl;
-        cout << "Stocks: " << stocks[i] << endl;
-        cout << "Imported_date: " << importedDates[i] << endl;
-        cout << "Expired_date: " << expiredDates[i] << endl;
+        cout << "Price: " << importedPrice[i] << endl;
+        cout << "Stocks: " << stock[i] << endl;
+        cout << "Imported_date: " << importedDate[i] << endl;
+        cout << "Expired_date: " << expiredDate[i] << endl;
 
         cout << endl;
     }
@@ -153,4 +153,70 @@ bool MaterialRepository::ExportData() const {
 
 bool MaterialRepository::ExportCheckListData() const {
     return materialCheckList.ExportData();
+}
+
+
+vector<int> MaterialRepository::GetIDsForThisMaterial(string name) {
+    vector<int> res;
+    for (int i=0; i<materialRepo.size(); ++i)
+        if (materialRepo[i].CheckDuplicate(name)) {
+            res.push_back(i);
+        }
+    return res;
+}
+
+int MaterialRepository::CalcPriceForAllMaterial(string name) {
+    vector<int> IDs = GetIDsForThisMaterial(name);
+    if (IDs.size() == 0) {
+        PutError("MaterialRepository::CalcPriceForAllMaterial", "Material not existed");
+        return -1;
+    }
+
+    int res = 0;
+
+    for (int i=0; i<IDs.size(); ++i) {
+        res += stock[IDs[i]] * importedPrice[IDs[i]];
+    }
+    return res;
+}
+
+int MaterialRepository::GetStock(string name) {
+    vector<int> IDs = GetIDsForThisMaterial(name);
+    if (IDs.size() == 0) {
+        PutError("MaterialRepository::GetStock", "Material not imported: " + name);
+        return 0;
+    }
+    
+    int res = 0;
+
+    for (int i=0; i<IDs.size(); ++i)
+        res += stock[IDs[i]];
+    return res;
+}
+
+pair<double, int> MaterialRepository::GetCapitalCostAndStock(vector<pair<string, int> > src) {
+    double avgPrice = 0;
+    int stock = INT_MAX;
+
+    for (int i=0; i<src.size(); ++i) {
+        if (!materialCheckList.GetID(src[i].first)) {
+            PutError("MaterialRepository::GetCapitalCostAndStock", "Material: " + src[i].first + " not exist", 1);
+        }
+        
+        if (GetStock(src[i].first) < src[i].second) 
+            return make_pair(-1, 0);
+
+        avgPrice += CalcPriceForAllMaterial(src[i].first) / double(GetStock(src[i].first));
+        stock = min(stock, GetStock(src[i].first) / src[i].second);
+    }
+
+    return make_pair(avgPrice, stock);
+}
+
+vector<pair<double, int> > MaterialRepository::GetCapitalCostAndStock(vector<vector<pair<string, int> > > src) {
+    vector<pair<double, int> > res;
+    for (int i=0; i<src.size(); ++i) {
+        res.push_back(GetCapitalCostAndStock(src[i]));
+    }
+    return res;
 }
