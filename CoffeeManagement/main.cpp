@@ -21,7 +21,7 @@ int main() {
     // a.admin.ExportCheckListProduct();
 
     a.admin.ImportNewProduct("ProductRepos.txt");
-    a.admin.CalculateProductStockCanBeSolve();
+    a.admin.CalculateProductStockAndCapitalCost();
     a.admin.ExportProductRepository();
     return 0;
 }

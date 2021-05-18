@@ -206,7 +206,7 @@ pair<double, int> MaterialRepository::GetCapitalCostAndStock(vector<pair<string,
         if (GetStock(src[i].first) < src[i].second) 
             return make_pair(-1, 0);
 
-        avgPrice += CalcPriceForAllMaterial(src[i].first) / double(GetStock(src[i].first));
+        avgPrice += CalcPriceForAllMaterial(src[i].first) / double(GetStock(src[i].first)) * src[i].second;
         stock = min(stock, GetStock(src[i].first) / src[i].second);
     }
 

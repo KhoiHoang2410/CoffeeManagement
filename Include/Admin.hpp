@@ -28,7 +28,7 @@ public:
     bool ExportCheckListProduct() const;
     bool ExportProductRepository() const;
     
-    bool CalculateProductStockCanBeSolve();
+    bool CalculateProductStockAndCapitalCost();
 };
 
 #endif /* Admin_hpp */
