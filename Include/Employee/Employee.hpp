@@ -21,6 +21,7 @@ private:
     Date startWorkingDate, stopWorkingDate;
     bool isWorking;
     string position;
+    int salary;
 public:
     Employee() = default;
     Employee(string name, string position);
@@ -30,6 +31,8 @@ public:
     void display(ostream& out) const;
 
     string Position() const;
+
+    void UpdateSalary(int newSalary);
 };
 
 ostream& operator <<(ostream& out, const Employee& src);

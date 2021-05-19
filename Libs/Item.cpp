@@ -11,6 +11,7 @@
 
 Item::Item() {
     this->ID = ObjectManager::GenerateNewID();
+    this->name = "";
 }
 
 Item::Item(string name) {

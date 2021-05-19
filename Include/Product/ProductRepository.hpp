@@ -23,6 +23,7 @@ private:
     vector <Product> productRepo;
     vector <int> stocks;
     vector <double> importedPrices;
+    vector <double> salePrice;
     vector <Date> importedDates;
     ProductCheckList productCheckList;
 public:

@@ -20,7 +20,7 @@ public:
 
     void AddEmployee(string name, string position);
     void ExportEmployee(string name) const;
-    void EraseEmployee(string name);
+     void EraseEmployee(string name);
     Employee GetEmployee(string name);
     bool ImportDataFromFile(string fileName);
 
