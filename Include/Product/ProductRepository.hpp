@@ -21,16 +21,9 @@ class ProductRepository {
 private:
     vector <int> ID;
     vector <Product> productRepo;
-<<<<<<< HEAD
-    vector <int> stocks;
-    vector <double> importedPrices;
-    vector <double> salePrice;
-    vector <Date> importedDates;
-=======
     vector <int> stock;
     vector <double> capitalCost, sellPrice;
     vector <Date> importedDate;
->>>>>>> 2a5c537af9b4fef01893c728e0cccbd620710b2b
     ProductCheckList productCheckList;
 public:
     ProductRepository() = default;
