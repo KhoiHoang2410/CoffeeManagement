@@ -27,3 +27,11 @@ void Recipe::Display() const {
         cout << materials[i] << " : " << noMaterial[i] << endl;
     }
 }
+
+vector<pair<string, int> > Recipe::GetDetailMaterial() {
+    vector<pair<string, int> > res;
+    for (int i=0; i<materials.size(); ++i) {
+        res.push_back(make_pair(materials[i], noMaterial[i]));
+    }
+    return res;
+}

@@ -1,5 +1,12 @@
-#ifndef _Menu_h_
-#define _Menu_h_
+//
+//  Menu.hpp
+//  CoffeeManagement
+//
+//  Created by Nguyen-Khoi Hoang on 19/05/2021.
+//
+
+#ifndef Menu_hpp
+#define Menu_hpp
 
 #include "../Include/Admin.hpp"
 
@@ -11,13 +18,10 @@ using namespace std;
 class Menu {
 private:
     vector <string> menuOptions, menuInputMaterial;
-    void RenderFrame();
-    void RenderFrameMini(int x, int y);
-    void RenderMenu();
 public:
     Menu();
     void Process();
     Admin admin;
 };
 
-#endif
+#endif /* Menu_hpp */

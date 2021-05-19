@@ -27,6 +27,8 @@ public:
     void UpdateRecipe(vector<string> materialNames, vector<int> numbers);
 
     void DisplayRecipe() const;
+
+    vector<pair<string, int> > GetDetailMaterial();
 };
 
 #endif /* Product_hpp */

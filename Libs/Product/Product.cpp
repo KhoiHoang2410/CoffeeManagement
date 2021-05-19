@@ -18,3 +18,7 @@ void Product::UpdateRecipe(vector<string> materialNames, vector<int> numbers) {
 void Product::DisplayRecipe() const {
     recipe.Display();
 }
+
+vector<pair<string, int> > Product::GetDetailMaterial() {
+    return recipe.GetDetailMaterial();
+}

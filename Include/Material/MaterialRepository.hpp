@@ -19,11 +19,11 @@ using namespace std;
 
 class MaterialRepository {
 private:
-    vector <int> IDs;
+    vector <int> ID;
     vector <Material> materialRepo;
-    vector <int> stocks;
-    vector <double> importedPrices;
-    vector <Date> importedDates, expiredDates;
+    vector <int> stock;
+    vector <double> importedPrice;
+    vector <Date> importedDate, expiredDate;
     MaterialCheckList materialCheckList;
 public:
     MaterialRepository() = default;
@@ -32,7 +32,7 @@ public:
     bool RestructureData();
     
     bool AddMaterialToCheckList(string materialName);
-    bool AddMaterialInCheckList(string materialName, double price, int number = 1);
+    bool AddMaterialInCheckList(string materialName, double cost, int number = 1);
     bool UpdateStock(string materialName, int noTaken);
 
     bool ImportDataFromFile(string fileName);
@@ -40,6 +40,15 @@ public:
 
     bool ExportData() const;
     bool ExportCheckListData() const;
+
+    vector<pair<double, int> > GetCapitalCostAndStock(vector<vector<pair<string, int> > > src);
+    pair<double, int> GetCapitalCostAndStock(vector<pair<string, int> > src);
+
+    int CalcPriceForAllMaterial(string name);
+
+    vector<int> GetIDsForThisMaterial(string name);
+
+    int GetStock(string name);
 };
 
 #endif /* MaterialRepository_hpp */

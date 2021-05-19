@@ -25,6 +25,8 @@ public:
     bool AddMaterial(vector<string> materialNames, vector<int> numbers);
 
     void Display() const;
+
+    vector<pair<string, int> > GetDetailMaterial();
 };
 
 #endif /* Recipt_hpp */

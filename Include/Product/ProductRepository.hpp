@@ -19,21 +19,27 @@ using namespace std;
 
 class ProductRepository {
 private:
-    vector <int> IDs;
+    vector <int> ID;
     vector <Product> productRepo;
+<<<<<<< HEAD
     vector <int> stocks;
     vector <double> importedPrices;
     vector <double> salePrice;
     vector <Date> importedDates;
+=======
+    vector <int> stock;
+    vector <double> capitalCost, sellPrice;
+    vector <Date> importedDate;
+>>>>>>> 2a5c537af9b4fef01893c728e0cccbd620710b2b
     ProductCheckList productCheckList;
 public:
     ProductRepository() = default;
     
     bool ClearData();
-    bool UpdateStock(vector <int> stocks);
+    bool UpdateCapitalCostAndStock(vector <pair<double, int> > stocks);
     
     bool AddProductToCheckList(string productName, vector<string> materialNames, vector<int> numbers);
-    bool AddProductInCheckList(string productName, double price);
+    bool AddProductFromCheckList(string productName, double price);
     bool UpdatePrice(string materialName, double newPrice);
     bool UpdateRecipe(string productName, vector<string> materialNames, vector<int> numbers);
     
@@ -46,6 +52,8 @@ public:
     bool ExportCheckListData() const;
 
     int Size();
+
+    vector<vector<pair<string, int> > > GetListMaterialForEachProduct();
 };
 
 #endif /* ProductRepository_hpp */

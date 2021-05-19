@@ -39,6 +39,8 @@ bool Admin::ExportProductRepository() const {
     return productRepo.ExportData();
 }
 
-bool Admin::CalculateProductStockCanBeSolve() {
-    return productRepo.UpdateStock(vector<int>(productRepo.Size()));
+bool Admin::CalculateProductStockAndCapitalCost() {
+    vector<vector<pair<string, int> > > list = productRepo.GetListMaterialForEachProduct(); // vector<vector<Material, int> >
+    vector<pair<double, int> > res = materialRepo.GetCapitalCostAndStock(list); // vector <double, int>
+    return productRepo.UpdateCapitalCostAndStock(res);
 }
