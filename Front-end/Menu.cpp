@@ -95,9 +95,7 @@ void Menu::RenderLoadDataScreen() {
 }
 
 void Menu::RenderSaveDataScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderImportNewMaterialScreen() {
@@ -129,48 +127,42 @@ void Menu::RenderImportNewProductScreen() {
 }
 
 void Menu::RenderAllMaterialRepositoryScreen() {
+    ClearScreen();
     admin.ExportMaterialRepository();
     RenderWaitingSentence();
 }
 
 void Menu::RenderAllProductRepositoryScreen() {
     admin.CalculateProductStockAndCapitalCost();
+
+    ClearScreen();
     admin.ExportProductRepository();
     RenderWaitingSentence();
 }
 
 void Menu::RenderStatusMaterialScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderStatusProductScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderAllEmployeeScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderStatusEmployeeScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderSaleScreen() {
-    ClearScreen();
-    cout << "Nice to meet you <3";
-    exit(0);
+    RenderExitScreen();
 }
 
 void Menu::RenderExitScreen() {
     ClearScreen();
     cout << "Nice to meet you <3";
+    RenderWaitingSentence();
     exit(0);
 }
