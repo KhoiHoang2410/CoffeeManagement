@@ -18,7 +18,7 @@ string Normalize(string&);
 void PutError(string classBehaviour, string log);
 void PutError(string classBehaviour, string log, int code);
 
-static bool isDebug = 1;
+static bool isDebug = 0;
 
 template <typename T>
 void OutPut(string title, T content) {    
