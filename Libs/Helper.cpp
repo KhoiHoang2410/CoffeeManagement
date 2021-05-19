@@ -1,9 +1,27 @@
 #include <string>
+#include <vector>
+#include <dirent.h>
 using namespace std;
 
 #include "../Include/Helper.hpp"
 
 #include <iostream>
+
+vector <string> GetListFile(string dir) {
+    DIR *dp;
+    
+    if((dp  = opendir(dir.c_str())) == NULL) {
+        PutError("GetListFile", "", 1);
+    }
+    
+    vector <string> files;
+    struct dirent *dirp;
+    while ((dirp = readdir(dp)) != NULL) {
+        files.push_back(string(dirp->d_name));
+    }
+    closedir(dp);
+    return files;
+}
 
 string Normalize(string& source) {
     string res = "";
@@ -40,4 +58,9 @@ bool IsInRange(string x, int l, int r) {
     pair<bool, int> tmp = StringToInt(x);
     if (!tmp.first) return false;
     return (l <= tmp.second && tmp.second <= r);
+}
+
+bool IsHiddenFile(string file) {
+    if (file[0] == '.') return false;
+    return true;
 }

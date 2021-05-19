@@ -7,11 +7,11 @@
 
 #include "../Include/Admin.hpp"
 
-bool Admin::ImportMaterialsToCheckList(string fileName){
+bool Admin::ImportMaterialToCheckList(string fileName){
     return materialRepo.ImportDataFromFileToCheckList(fileName);
 }
 
-bool Admin::ImportProductsToCheckList(string fileName){
+bool Admin::ImportProductToCheckList(string fileName){
     return productRepo.ImportDataFromFileToCheckList(fileName);
 }
 

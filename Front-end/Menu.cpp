@@ -13,7 +13,7 @@
 using namespace std;
 
 Menu::Menu() {
-    ifstream cin("MenuScreen.txt");
+    ifstream cin("Data/Menu/MenuScreen.txt");
     if (!cin.is_open()) 
         PutError("Menu::Menu", "File not found", 1);
 
@@ -77,21 +77,34 @@ void Menu::RenderWaitingSentence() {
 
 void Menu::RenderLoadDataScreen() {
     ClearScreen();
-    string str;
-
-    cout << "Material check list file: ";
-    getline(cin, str);
-
-    if (!admin.ImportMaterialsToCheckList(str)) RenderNotice("File not found");
-    else RenderNotice("Import success");
-
-    cout << "Product check list file: ";
-    getline(cin, str);
-
-    if (!admin.ImportProductsToCheckList(str)) RenderNotice("File not found");
-    else RenderNotice("Import success");
-
+    vector<string> listFile = GetListFile("Data/MaterialCheckList");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile(listFile[i])) continue;
+        admin.ImportMaterialToCheckList("Data/MaterialCheckList/" + listFile[i]);
+    }
+    listFile = GetListFile("Data/ProductCheckList");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile(listFile[i])) continue;
+        admin.ImportProductToCheckList("Data/MaterialCheckList/" + listFile[i]);
+    }
+    cout << "Import success";
     RenderWaitingSentence();
+
+    // string str;
+
+    // cout << "Material check list file: ";
+    // getline(cin, str);
+
+    // if (!admin.ImportMaterialsToCheckList(str)) RenderNotice("File not found");
+    // else RenderNotice("Import success");
+
+    // cout << "Product check list file: ";
+    // getline(cin, str);
+
+    // if (!admin.ImportProductsToCheckList(str)) RenderNotice("File not found");
+    // else RenderNotice("Import success");
+
+    // RenderWaitingSentence();
 }
 
 void Menu::RenderSaveDataScreen() {
@@ -100,29 +113,35 @@ void Menu::RenderSaveDataScreen() {
 
 void Menu::RenderImportNewMaterialScreen() {
     ClearScreen();
-    string str;
+    vector<string> listFile = GetListFile("Data/ImportMaterial");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile("Data/ImportMaterial" + listFile[i])) continue;
+        admin.ImportNewMaterial(listFile[i]);
+    }
 
-    cout << "Material file: ";
-    getline(cin, str);
-
-    if (!admin.ImportNewMaterial(str)) RenderNotice("File not found");
-    else RenderNotice("Import success");
-    
+    cout << "Import success";
     RenderWaitingSentence();
+    // string str;
+
+    // cout << "Material file: ";
+    // getline(cin, str);
+
+    // if (!admin.ImportNewMaterial(str)) RenderNotice("File not found");
+    // else RenderNotice("Import success");
+    
+    // RenderWaitingSentence();
 }
 
 void Menu::RenderImportNewProductScreen() {
     ClearScreen();
-    string str;
-
-    cout << "Product file: ";
-    getline(cin, str);
-
-    if (!admin.ImportNewProduct(str)) RenderNotice("File not found");
-    else RenderNotice("Import success");
-
+    vector<string> listFile = GetListFile("Data/ImportProduct");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile(listFile[i])) continue;
+        admin.ImportNewProduct("Data/ImportProduct" + listFile[i]);
+    }
     admin.CalculateProductStockAndCapitalCost();
-    
+
+    cout << "Import success";
     RenderWaitingSentence();
 }
 

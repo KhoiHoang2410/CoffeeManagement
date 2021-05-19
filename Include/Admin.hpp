@@ -18,8 +18,8 @@ private:
     ProductRepository productRepo;
     EmployeeRepository employeeRepo;
 public:
-    bool ImportMaterialsToCheckList(string fileName);
-    bool ImportProductsToCheckList(string fileName);
+    bool ImportMaterialToCheckList(string fileName);
+    bool ImportProductToCheckList(string fileName);
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
 

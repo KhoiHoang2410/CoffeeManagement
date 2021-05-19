@@ -19,6 +19,8 @@ void PutError(string classBehaviour, string log);
 void PutError(string classBehaviour, string log, int code);
 bool IsInRange(string x, int l, int r);
 pair<bool, int> StringToInt(string x);
+vector <string> GetListFile(string dir);
+bool IsHiddenFile(string file);
 
 static bool isDebug = 0;
 
