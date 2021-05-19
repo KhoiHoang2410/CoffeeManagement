@@ -89,7 +89,8 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
-        PutError("ProductRepository::ImportDataFromFileToCheckList", "File not Found", 1);
+        PutError("ProductRepository::ImportDataFromFileToCheckList", "File not Found");
+        return false;
     }
 
     int n;
@@ -132,7 +133,8 @@ bool ProductRepository::ImportDataFromFile(string fileName){
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
-        PutError("ProductRepository::ImportDataFromFile", "File not Found", 1);
+        PutError("ProductRepository::ImportDataFromFile", "File not Found");
+        return 0;
     }
 
     int n;

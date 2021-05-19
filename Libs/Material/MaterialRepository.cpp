@@ -77,7 +77,8 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
-        PutError("MaterialRepository::ImportDataFromFile", "Find not Found", 1);
+        PutError("MaterialRepository::ImportDataFromFile", "File not Found");
+        return false;
     }
 
     int n;
@@ -108,8 +109,8 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
-        cout << fileName << endl;
-        PutError("MaterialRepository::ImportDataFromFileToCheckList", "File not Found", 1);
+        PutError("MaterialRepository::ImportDataFromFileToCheckList", "File not Found");
+        return false;
     }
 
     int n;
@@ -197,7 +198,7 @@ int MaterialRepository::GetStock(string name) {
 pair<double, int> MaterialRepository::GetCapitalCostAndStock(vector<pair<string, int> > src) {
     double avgPrice = 0;
     int stock = INT_MAX;
-
+ 
     for (int i=0; i<src.size(); ++i) {
         if (!materialCheckList.GetID(src[i].first)) {
             PutError("MaterialRepository::GetCapitalCostAndStock", "Material: " + src[i].first + " not exist", 1);

@@ -5,6 +5,9 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "utility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "locale": "cpp",
+        "string": "cpp",
+        "*.tcc": "cpp"
     }
 }

@@ -6,11 +6,171 @@
 //
 
 #include "Menu.hpp"
+#include "../Include/Helper.hpp"
+
+#include <fstream>
+#include <iostream>
+using namespace std;
 
 Menu::Menu() {
+    ifstream cin("MenuScreen.txt");
+    if (!cin.is_open()) 
+        PutError("Menu::Menu", "File not found", 1);
 
+    int n; string str;
+    cin >> n;
+
+    OutPut("Menu::Menu", "Start import");
+    getline(cin, str);
+    for (int i=0; i<n; ++i) {
+        getline(cin, str);
+        menuOptions.push_back(str);
+    }
+    OutPut("Menu::Menu", "Import success");
+}
+
+void Menu::ClearScreen() {
+    system("clear");
+}
+
+void Menu::RenderTitle() {
+    cout << "COFFEE MANAGER";
+    cout << endl << endl << endl << endl << endl;
+}
+
+void Menu::RenderChooseOption(int id, string title) {
+    cout << id << ". " << title << endl;
+}
+
+void Menu::RenderMenuScreen() {
+    ClearScreen();
+    RenderTitle();
+    for (int i=0; i<menuOptions.size(); ++i)
+        RenderChooseOption(i + 1, menuOptions[i]);
+    cout << endl << endl << endl;
+    cout << "Input option: ";
 }
 
 void Menu::Process() {
-	
+	RenderMenuScreen();
+    string option;
+    
+    while (1) {
+        getline(cin, option);
+        while (!IsInRange(option, 1, menuOptions.size())) {
+            RenderMenuScreen();
+            getline(cin, option);
+        }
+        subMenuScreen[StringToInt(option).second - 1]();
+        RenderMenuScreen();
+    }
+}
+
+void Menu::RenderNotice(string title) {
+    cout << endl << endl << title << endl << endl;
+}
+
+void Menu::RenderWaitingSentence() {
+    cout << endl << endl << "Press any button to continue";
+    getchar();
+}
+
+void Menu::RenderLoadDataScreen() {
+    ClearScreen();
+    string str;
+
+    cout << "Material check list file: ";
+    getline(cin, str);
+
+    if (!admin.ImportMaterialsToCheckList(str)) RenderNotice("File not found");
+    else RenderNotice("Import success");
+
+    cout << "Product check list file: ";
+    getline(cin, str);
+
+    if (!admin.ImportProductsToCheckList(str)) RenderNotice("File not found");
+    else RenderNotice("Import success");
+
+    RenderWaitingSentence();
+}
+
+void Menu::RenderSaveDataScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderImportNewMaterialScreen() {
+    ClearScreen();
+    string str;
+
+    cout << "Material file: ";
+    getline(cin, str);
+
+    if (!admin.ImportNewMaterial(str)) RenderNotice("File not found");
+    else RenderNotice("Import success");
+    
+    RenderWaitingSentence();
+}
+
+void Menu::RenderImportNewProductScreen() {
+    ClearScreen();
+    string str;
+
+    cout << "Product file: ";
+    getline(cin, str);
+
+    if (!admin.ImportNewProduct(str)) RenderNotice("File not found");
+    else RenderNotice("Import success");
+
+    admin.CalculateProductStockAndCapitalCost();
+    
+    RenderWaitingSentence();
+}
+
+void Menu::RenderAllMaterialRepositoryScreen() {
+    admin.ExportMaterialRepository();
+    RenderWaitingSentence();
+}
+
+void Menu::RenderAllProductRepositoryScreen() {
+    admin.CalculateProductStockAndCapitalCost();
+    admin.ExportProductRepository();
+    RenderWaitingSentence();
+}
+
+void Menu::RenderStatusMaterialScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderStatusProductScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderAllEmployeeScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderStatusEmployeeScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderSaleScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
+}
+
+void Menu::RenderExitScreen() {
+    ClearScreen();
+    cout << "Nice to meet you <3";
+    exit(0);
 }

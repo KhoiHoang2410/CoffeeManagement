@@ -15,13 +15,42 @@
 
 using namespace std;
 
+
 class Menu {
 private:
-    vector <string> menuOptions, menuInputMaterial;
+    vector <string> menuOptions;
+    static inline vector<string> menuLoadData;
+
+    static void RenderLoadDataScreen();
+    static void RenderSaveDataScreen();
+    static void RenderImportNewMaterialScreen();
+    static void RenderImportNewProductScreen();
+    static void RenderAllMaterialRepositoryScreen();
+    static void RenderAllProductRepositoryScreen();
+    static void RenderStatusMaterialScreen();
+    static void RenderStatusProductScreen();
+    static void RenderAllEmployeeScreen();
+    static void RenderStatusEmployeeScreen();
+    static void RenderSaleScreen();
+    static void RenderExitScreen();
+
+    static void ClearScreen();
+    static void RenderNotice(string title);
+
+    static void RenderWaitingSentence();
+
+    void (*subMenuScreen[12])() = {RenderLoadDataScreen, RenderSaveDataScreen, RenderImportNewMaterialScreen
+                            , RenderImportNewProductScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
+                            , RenderStatusMaterialScreen, RenderStatusProductScreen, RenderAllEmployeeScreen
+                            , RenderStatusEmployeeScreen, RenderSaleScreen, RenderExitScreen};
+
+    void RenderMenuScreen();
+    void RenderTitle();
+    void RenderChooseOption(int id, string title);
 public:
     Menu();
     void Process();
-    Admin admin;
+    static inline Admin admin;
 };
 
 #endif /* Menu_hpp */

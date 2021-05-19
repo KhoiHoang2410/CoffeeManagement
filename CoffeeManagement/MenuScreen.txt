@@ -1,0 +1,13 @@
+12
+Load data
+Save data
+Import new material
+Import new product
+All material repository
+All product repository
+Status material
+Status product
+All employee
+Status employee
+Sale
+Exit

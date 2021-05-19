@@ -21,6 +21,23 @@ void PutError(string classBehaviour, string log, int code) {
 }
 
 void PutError(string classBehaviour, string log) {
-    cout << classBehaviour << endl;
-    cout << log << ".\n";
+    if (isDebug) {
+        cout << classBehaviour << endl;
+        cout << log << ".\n";
+    }
+}
+
+pair<bool, int> StringToInt(string x) {
+    int res = 0;
+    for (int i=0; i<x.size(); ++i) {
+        if ('0' <= x[i] && x[i] <= '9') (res *= 10) += x[i] - '0';
+        else return make_pair(false, -1);
+    }
+    return make_pair(true, res);
+}
+
+bool IsInRange(string x, int l, int r) {
+    pair<bool, int> tmp = StringToInt(x);
+    if (!tmp.first) return false;
+    return (l <= tmp.second && tmp.second <= r);
 }
