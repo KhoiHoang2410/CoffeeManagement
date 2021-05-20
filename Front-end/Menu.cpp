@@ -27,19 +27,9 @@ Menu::Menu() {
         menuOptions.push_back(str);
     }
     OutPut("Menu::Menu", "Import success");
-}
-
-void Menu::ClearScreen() {
-    system("clear");
-}
-
-void Menu::RenderTitle() {
-    cout << "COFFEE MANAGER";
-    cout << endl << endl << endl << endl << endl;
-}
-
-void Menu::RenderChooseOption(int id, string title) {
-    cout << id << ". " << title << endl;
+    RenderLoadDataScreen();
+    RenderImportNewMaterialScreen();
+    RenderImportNewProductScreen();
 }
 
 void Menu::RenderMenuScreen() {
@@ -66,15 +56,6 @@ void Menu::Process() {
     }
 }
 
-void Menu::RenderNotice(string title) {
-    cout << endl << endl << title << endl << endl;
-}
-
-void Menu::RenderWaitingSentence() {
-    cout << endl << endl << "Press any button to continue";
-    getchar();
-}
-
 void Menu::RenderLoadDataScreen() {
     ClearScreen();
     vector<string> listFile = GetListFile("Data/MaterialCheckList");
@@ -82,18 +63,16 @@ void Menu::RenderLoadDataScreen() {
         if (IsHiddenFile(listFile[i])) continue;
         RenderNotice("Import file: Data/MaterialCheckList/" + listFile[i]);
         if (!admin.ImportMaterialToCheckList("Data/MaterialCheckList/" + listFile[i])) 
-            RenderNotice("Import failed.");
+            RenderNotice("Import failed");
         else RenderNotice("Import success");
     }
-
-    cout << endl;
 
     listFile = GetListFile("Data/ProductCheckList");
     for (int i=0; i<listFile.size(); ++i) {
         if (IsHiddenFile(listFile[i])) continue;
         RenderNotice("Import file: Data/ProductCheckList/" + listFile[i]);
         if (!admin.ImportProductToCheckList("Data/ProductCheckList/" + listFile[i])) 
-            RenderNotice("Import failed.");
+            RenderNotice("Import failed");
         else RenderNotice("Import success");
     }
     RenderWaitingSentence();
@@ -110,7 +89,7 @@ void Menu::RenderImportNewMaterialScreen() {
         if (IsHiddenFile(listFile[i])) continue;
         RenderNotice("Import file: Data/ImportMaterial/" + listFile[i]);
         if (!admin.ImportNewMaterial("Data/ImportMaterial/" + listFile[i])) 
-            RenderNotice("Import failed.");
+            RenderNotice("Import failed");
         else RenderNotice("Import success");
         
     }
@@ -171,4 +150,26 @@ void Menu::RenderExitScreen() {
     cout << "Nice to meet you <3";
     RenderWaitingSentence();
     exit(0);
+}
+
+void Menu::RenderNotice(string title) {
+    cout << endl << endl << title << endl << endl;
+}
+
+void Menu::RenderWaitingSentence() {
+    cout << endl << endl << "Press any button to continue";
+    getchar();
+}
+
+void Menu::ClearScreen() {
+    system("clear");
+}
+
+void Menu::RenderTitle() {
+    cout << "COFFEE MANAGER";
+    cout << endl << endl << endl << endl << endl;
+}
+
+void Menu::RenderChooseOption(int id, string title) {
+    cout << id << ". " << title << endl;
 }

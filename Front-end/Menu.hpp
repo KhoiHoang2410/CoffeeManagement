@@ -36,16 +36,15 @@ private:
 
     static void ClearScreen();
     static void RenderNotice(string title);
+    static void RenderTitle();
 
     static void RenderWaitingSentence();
 
-    void (*subMenuScreen[12])() = {RenderLoadDataScreen, RenderSaveDataScreen, RenderImportNewMaterialScreen
-                            , RenderImportNewProductScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
+    void (*subMenuScreen[12])() = {RenderSaveDataScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
                             , RenderStatusMaterialScreen, RenderStatusProductScreen, RenderAllEmployeeScreen
                             , RenderStatusEmployeeScreen, RenderSaleScreen, RenderExitScreen};
 
     void RenderMenuScreen();
-    void RenderTitle();
     void RenderChooseOption(int id, string title);
 public:
     Menu();
