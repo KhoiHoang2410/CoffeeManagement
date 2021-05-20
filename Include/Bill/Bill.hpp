@@ -24,14 +24,14 @@ private:
     vector <int> price;
     vector <int> amount;
 public:
-    Bill();
+    Bill(string employeeName);
 
-    void AsignEmployee(string employeeName);
-    void Add(string productName, int price);
-    void EraseProduct(string productName);
-    void EraseProduct(int id);
+    void AddProduct(string productName, int price);
+    void RemoveProduct(string productName, int amount = 1);
+    void RemoveProduct(int id, int amount = 1);
+    void ExportData();
     int Total();
-    int NoProduct();
+    int Size();
 };
 
 #endif /* Bill_hpp */

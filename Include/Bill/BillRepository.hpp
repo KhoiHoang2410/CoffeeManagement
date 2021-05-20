@@ -14,12 +14,15 @@ class BillRepository {
 private:
     vector <Bill> billRepository;
 public:
+    BillRepository() = default;
+
     void Create(string employeeName);
     void AddItem(string productName, int price);
     void RemoveAnItemFromBill(int id);
 
-    void ExportAllBill();
-    void ShowBill(int id);
+    void ExportPriceLastBill();
+    void ExportLastBill();
+    void ExportAllData();
     
     int Size();
 };
