@@ -87,7 +87,7 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     int price, stock;
 
 
-    OutPut( "MaterialRepository::ImportDataFromFile", "Start import "
+    OutPut( "MaterialRepository::ImportDataFromFile", fileName + " " 
             + to_string(n));
     
     for (int i=0; i<n; ++i) {
@@ -118,7 +118,7 @@ bool MaterialRepository::ImportDataFromFileToCheckList(string fileName) {
     string name;
     getline(cin, name);
 
-    OutPut( "MaterialRepository::ImportDataFromFileToCheckList", "Start import "
+    OutPut( "MaterialRepository::ImportDataFromFileToCheckList", fileName + " "
                 + to_string(n));
 
     for (int i=0; i<n; ++i) {

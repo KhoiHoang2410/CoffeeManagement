@@ -8,6 +8,7 @@
         "iostream": "cpp",
         "locale": "cpp",
         "string": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "ostream": "cpp"
     }
 }

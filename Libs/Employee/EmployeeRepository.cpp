@@ -35,7 +35,7 @@ bool EmployeeRepository::ImportDataFromFile(string fileName) {
     string name, position;
     getline(cin, name);
 
-    OutPut("EmployeeRepository::ImportDataFromFile", "Start import " + to_string(n));
+    OutPut("EmployeeRepository::ImportDataFromFile", fileName + " " + to_string(n));
 
     for(int i=0; i < n; i++){
        getline(cin, name);

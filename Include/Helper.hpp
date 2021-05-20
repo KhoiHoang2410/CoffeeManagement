@@ -22,7 +22,7 @@ pair<bool, int> StringToInt(string x);
 vector <string> GetListFile(string dir);
 bool IsHiddenFile(string file);
 
-static bool isDebug = 0;
+static bool isDebug = 1;
 
 template <typename T>
 void OutPut(string title, T content) {    

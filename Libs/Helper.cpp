@@ -61,6 +61,6 @@ bool IsInRange(string x, int l, int r) {
 }
 
 bool IsHiddenFile(string file) {
-    if (file[0] == '.') return false;
-    return true;
+    if (file[0] == '.' || file[1] == '.') return true;
+    return false;
 }

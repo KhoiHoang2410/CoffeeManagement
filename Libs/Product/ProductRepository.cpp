@@ -101,7 +101,7 @@ bool ProductRepository::ImportDataFromFileToCheckList(string fileName){
     
     cin >> n;
 
-    OutPut("ProductRepository::ImportDataFromFileToCheckList", "Start import "
+    OutPut("ProductRepository::ImportDataFromFileToCheckList", fileName + " " 
             + to_string(n));
     
     for(int i=0; i < n; i++){
@@ -142,7 +142,7 @@ bool ProductRepository::ImportDataFromFile(string fileName){
     string name;
     int price;
 
-    OutPut("ProductRepository::ImportDataFromFile", "Start import " + to_string(n));
+    OutPut("ProductRepository::ImportDataFromFile", fileName + " " + to_string(n));
 
     for(int i=0; i < n; i++){
        getline(cin, name);
