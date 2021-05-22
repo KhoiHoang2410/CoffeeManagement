@@ -21,7 +21,10 @@ private:
 public:
     bool AddMaterial(string materialName);
     int GetID(string materialName);
+    bool IsExisting(int materialID);
+    Material GetMaterial(int materialID);
     Material GetMaterial(string materialName);
+
     bool UpdateMaterial(string materialName, string newMaterialName);
     bool EraseMaterial(string materailName);
     

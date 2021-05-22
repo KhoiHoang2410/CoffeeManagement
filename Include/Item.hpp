@@ -20,7 +20,8 @@ public:
     Item();
     Item(string itemName);
     
-    virtual bool CheckDuplicate(string srcName);
+    virtual bool CheckDuplicateByName(string srcName);
+    virtual bool CheckDuplicateByID(int srcID);
     virtual string Name() const;
     virtual int GetID() const;
 

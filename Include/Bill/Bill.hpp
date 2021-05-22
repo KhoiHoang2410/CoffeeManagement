@@ -21,12 +21,13 @@ private:
     string employeeName;
     vector <int> IDs;
     vector <string> productName;
-    vector <int> price;
+    vector <double> price;
     vector <int> amount;
 public:
     Bill(string employeeName);
+    Bill(string employeeName, vector<string> productName, vector<double> price, vector<int> amount);
 
-    void AddProduct(string productName, int price);
+    void AddProduct(string productName, double price);
     void RemoveProduct(string productName, int amount = 1);
     void RemoveProduct(int id, int amount = 1);
     void ExportData();

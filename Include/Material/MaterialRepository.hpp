@@ -49,6 +49,10 @@ public:
     vector<int> GetIDsForThisMaterial(string name);
 
     int GetStock(string name);
+    int GetStock(int ID);
+
+    bool IsExisting(string materialName);
+
 };
 
 #endif /* MaterialRepository_hpp */

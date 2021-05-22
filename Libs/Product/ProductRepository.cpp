@@ -54,7 +54,7 @@ bool ProductRepository::AddProductFromCheckList(string productName, double price
 
 bool ProductRepository::UpdatePrice(string productName, double newPrice) {
     for (int i=0; i<productRepo.size(); ++i)
-        if (productRepo[i].CheckDuplicate(productName)) {
+        if (productRepo[i].CheckDuplicateByName(productName)) {
             sellPrice[i] = newPrice;
             return 1;
         }
@@ -65,7 +65,7 @@ bool ProductRepository::UpdatePrice(string productName, double newPrice) {
 
 bool ProductRepository::UpdateRecipe(string productName, vector<string> materialNames, vector<int> numbers) {
     for (int i=0; i<productRepo.size(); ++i)
-        if (productRepo[i].CheckDuplicate(productName)) {
+        if (productRepo[i].CheckDuplicateByName(productName)) {
             productRepo[i].UpdateRecipe(materialNames, numbers);
             return 1;
         }
@@ -76,7 +76,7 @@ bool ProductRepository::UpdateRecipe(string productName, vector<string> material
 
 bool ProductRepository::EraseProduct(string productName) {
     for (int i=0; i<productRepo.size(); ++i)
-        if (productRepo[i].CheckDuplicate(productName)) {
+        if (productRepo[i].CheckDuplicateByName(productName)) {
             productRepo.erase(productRepo.begin() + i);
             return 1;
         }

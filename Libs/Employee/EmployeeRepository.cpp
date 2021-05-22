@@ -65,6 +65,6 @@ Employee EmployeeRepository::GetEmployee(string name) {
 
 int EmployeeRepository::getID(string name) {
     for (int i=0; i<employeeRepo.size(); ++i)
-        if (employeeRepo[i].CheckDuplicate(name)) return i;
+        if (employeeRepo[i].CheckDuplicateByName(name)) return i;
     return -1;
 }

@@ -16,13 +16,19 @@ private:
 public:
     BillRepository() = default;
 
-    void Create(string employeeName);
-    void AddItem(string productName, int price);
+    void AddBill(string employeeName, vector<string> productName, vector<double> price, vector<int> amount);
+
+    void CreateBill(string employeeName);
+    void AddItemToBill(string productName, int price);
     void RemoveAnItemFromBill(int id);
 
     void ExportPriceLastBill();
     void ExportLastBill();
     void ExportAllData();
+
+    bool ImportDataFromFile(string fileName);
+
+    void removeBill(int id);
     
     int Size();
 };

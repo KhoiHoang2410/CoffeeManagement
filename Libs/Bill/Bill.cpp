@@ -11,7 +11,7 @@ Bill::Bill(string employeeName) {
     this->employeeName = employeeName;
 }
 
-void Bill::AddProduct(string productName, int price) {
+void Bill::AddProduct(string productName, double price) {
     for (int i=0; i<this->productName.size(); ++i)
         if (this->productName[i] == productName) {
             this->amount[i] += 1;

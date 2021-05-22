@@ -22,7 +22,7 @@ bool ProductCheckList::AddProduct(string productName, vector<string> materialNam
 
 int ProductCheckList::GetID(string productName) {
     for (int i=0; i<products.size(); ++i)
-        if (products[i].CheckDuplicate(productName))
+        if (products[i].CheckDuplicateByName(productName))
             return i;
     return -1;
 }

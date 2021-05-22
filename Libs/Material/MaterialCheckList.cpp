@@ -22,7 +22,7 @@ bool MaterialCheckList::AddMaterial(string materialName) {
 
 int MaterialCheckList::GetID(string materialName) {
     for (int i=0; i<materials.size(); ++i)
-        if (materials[i].CheckDuplicate(materialName))
+        if (materials[i].CheckDuplicateByName(materialName))
             return i;
     return -1;
 }

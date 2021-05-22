@@ -19,8 +19,12 @@ Item::Item(string name) {
     this->name = name;
 }
 
-bool Item::CheckDuplicate(string name) {
+bool Item::CheckDuplicateByName(string name) {
     return Normalize(this->name) == Normalize(name);
+}
+
+bool Item::CheckDuplicateByID(int srcID) {
+    return this->ID = srcID;
 }
 
 int Item::GetID() const {

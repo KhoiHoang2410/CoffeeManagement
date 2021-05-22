@@ -58,7 +58,7 @@ bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     for (int i=0; i<materialRepo.size(); ++i) {
         if (noTaken == 0) break;
         
-        if (materialRepo[i].CheckDuplicate(materialName)) {
+        if (materialRepo[i].CheckDuplicateByName(materialName)) {
             int tmp = min(stock[i], noTaken);
             stock[i] -= tmp;
             noTaken -= tmp;
@@ -160,7 +160,7 @@ bool MaterialRepository::ExportCheckListData() const {
 vector<int> MaterialRepository::GetIDsForThisMaterial(string name) {
     vector<int> res;
     for (int i=0; i<materialRepo.size(); ++i)
-        if (materialRepo[i].CheckDuplicate(name)) {
+        if (materialRepo[i].CheckDuplicateByName(name)) {
             res.push_back(i);
         }
     return res;
