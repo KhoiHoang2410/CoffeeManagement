@@ -24,13 +24,15 @@ private:
     static void RenderLoadDataScreen();
     static void RenderImportNewMaterialScreen();
     static void RenderImportNewProductScreen();
-    static void RenderImportEmployee();
+    static void RenderImportEmployeeScreen();
+    static void RenderImportBillScreen();
     
     static void RenderSaveDataScreen();
 
     static void RenderAllMaterialRepositoryScreen();
     static void RenderAllProductRepositoryScreen();
-    static void RenderAllEmployeeScreen();
+    static void RenderAllEmployeeRepositoryScreen();
+    static void RenderAllBillRepositoryScreen();
 
     static void RenderStatusMaterialScreen();
     static void RenderStatusProductScreen();
@@ -45,9 +47,9 @@ private:
 
     static void RenderWaitingSentence();
 
-    void (*subMenuScreen[9])() = {RenderSaveDataScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
-                            , RenderAllEmployeeScreen, RenderStatusMaterialScreen, RenderStatusProductScreen
-                            , RenderStatusEmployeeScreen, RenderSaleScreen, RenderExitScreen};
+    void (*subMenuScreen[10])() = {RenderSaveDataScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
+                            , RenderAllEmployeeRepositoryScreen, RenderAllBillRepositoryScreen, RenderStatusMaterialScreen
+                            , RenderStatusProductScreen, RenderStatusEmployeeScreen, RenderSaleScreen, RenderExitScreen};
 
     void RenderMenuScreen();
     void RenderChooseOption(int id, string title);

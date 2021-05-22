@@ -11,24 +11,28 @@
 #include "Material/MaterialRepository.hpp"
 #include "Product/ProductRepository.hpp"
 #include "Employee/EmployeeRepository.hpp"
+#include "Bill/BillRepository.hpp"
 
 class Admin {
 private:
     MaterialRepository materialRepo;
     ProductRepository productRepo;
     EmployeeRepository employeeRepo;
+    BillRepository billRepo;
 public:
     bool ImportMaterialToCheckList(string fileName);
     bool ImportProductToCheckList(string fileName);
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
     bool ImportEmployee(string fileName);
+    bool ImportBill(string fileName);
 
     bool ExportCheckListMaterial() const;
     bool ExportMaterialRepository() const;
     bool ExportCheckListProduct() const;
     bool ExportProductRepository() const;
     bool ExportEmployeeRepository() const;
+    bool ExportBillRepository() const;
 
     bool CalculateProductStockAndCapitalCost();
 };

@@ -30,9 +30,9 @@ public:
     void AddProduct(string productName, double price);
     void RemoveProduct(string productName, int amount = 1);
     void RemoveProduct(int id, int amount = 1);
-    void ExportData();
-    int Total();
-    int Size();
+    void ExportData() const;
+    int Total() const;
+    int Size() const;
 };
 
 #endif /* Bill_hpp */

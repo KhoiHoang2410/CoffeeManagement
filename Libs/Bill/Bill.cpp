@@ -9,6 +9,17 @@
 
 Bill::Bill(string employeeName) {
     this->employeeName = employeeName;
+    this->exportDate = Date();
+}
+
+Bill::Bill(string employeeName, vector<string> productName, vector<double> price, vector<int> amount) {
+    this->employeeName = employeeName;
+    this->productName = productName;
+    this->price = price;
+    this->amount = amount;
+    this->exportDate = Date();
+    for (int i=0;i<productName.size(); ++i)
+        IDs.push_back(i+1);
 }
 
 void Bill::AddProduct(string productName, double price) {
@@ -43,7 +54,7 @@ void Bill::RemoveProduct(int id, int amount) {
     }
 }
 
-int Bill::Total() {
+int Bill::Total() const {
     int res = 0;
     for (int i=0; i<productName.size(); ++i) {
         res += price[i] * amount[i];
@@ -51,15 +62,22 @@ int Bill::Total() {
     return res;
 }
 
-int Bill::Size() {
+int Bill::Size() const {
     return productName.size();
 }
 
-void Bill::ExportData() {
-    cout << "Bill ID: " << GetID();
-    for (int i=0; i<productName.size(); ++i) {
-        cout << "Product name: " << productName[i] << endl;
-        cout << "Price: " << price[i] << endl;
-        cout << "Amount: " << amount[i] << endl;
+void Bill::ExportData() const {
+    cout << "Bill ID: " << GetID() << endl;
+    cout << "Employee name: " << employeeName << endl;
+    // for (int i=0; i<productName.size(); ++i) {
+    //     cout << "Date create: " << exportDate << endl;
+    //     cout << "Product name: " << productName[i] << endl;
+    //     cout << "Price: " << price[i] << endl;
+    //     cout << "Amount: " << amount[i] << endl;
+    // }
+
+    for (int i=0; i<IDs.size(); ++i) {
+        cout << "ID: " << IDs[i] << " - Product name: " << productName[i] << " - Amount: " << amount[i] 
+            << " - Price: " << price[i] << endl;
     }
 }

@@ -7,20 +7,24 @@
 
 #include "../Include/Admin.hpp"
 
-bool Admin::ImportMaterialToCheckList(string fileName){
+bool Admin::ImportMaterialToCheckList(string fileName) {
     return materialRepo.ImportDataFromFileToCheckList(fileName);
 }
 
-bool Admin::ImportProductToCheckList(string fileName){
+bool Admin::ImportProductToCheckList(string fileName) {
     return productRepo.ImportDataFromFileToCheckList(fileName);
 }
 
-bool Admin::ImportNewMaterial(string fileName){
+bool Admin::ImportNewMaterial(string fileName) {
     return materialRepo.ImportDataFromFile(fileName);
 }
 
-bool Admin::ImportNewProduct(string fileName){
+bool Admin::ImportNewProduct(string fileName) {
     return productRepo.ImportDataFromFile(fileName);
+}
+
+bool Admin::ImportBill(string fileName) {
+    return billRepo.ImportDataFromFile(fileName);
 }
 
 bool Admin::ExportCheckListMaterial() const {
@@ -37,6 +41,10 @@ bool Admin::ExportCheckListProduct() const {
 
 bool Admin::ExportProductRepository() const {
     return productRepo.ExportData();
+}
+
+bool Admin::ExportBillRepository() const {
+    return billRepo.ExportAllData();
 }
 
 bool Admin::CalculateProductStockAndCapitalCost() {

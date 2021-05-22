@@ -30,7 +30,8 @@ Menu::Menu() {
     RenderLoadDataScreen();
     RenderImportNewMaterialScreen();
     RenderImportNewProductScreen();
-    RenderImportEmployee();
+    RenderImportEmployeeScreen();
+    RenderImportBillScreen();
 }
 
 void Menu::RenderMenuScreen() {
@@ -97,6 +98,19 @@ void Menu::RenderImportNewMaterialScreen() {
     RenderWaitingSentence();
 }
 
+void Menu::RenderImportBillScreen() {
+    ClearScreen();
+    vector<string> listFile = GetListFile("Data/ImportBill");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile(listFile[i])) continue;
+        RenderNotice("Import file: Data/ImportBill/" + listFile[i]);
+        if (!admin.ImportBill("Data/ImportBill/" + listFile[i]))
+            RenderNotice("Import failed.");
+        else RenderNotice("Import success");
+    }
+    RenderWaitingSentence();
+}
+
 void Menu::RenderImportNewProductScreen() {
     ClearScreen();
     vector<string> listFile = GetListFile("Data/ImportProduct");
@@ -118,6 +132,12 @@ void Menu::RenderAllMaterialRepositoryScreen() {
     RenderWaitingSentence();
 }
 
+void Menu::RenderAllBillRepositoryScreen() {
+    ClearScreen();
+    admin.ExportBillRepository();
+    RenderWaitingSentence();
+}
+
 void Menu::RenderAllProductRepositoryScreen() {
     admin.CalculateProductStockAndCapitalCost();
 
@@ -134,7 +154,7 @@ void Menu::RenderStatusProductScreen() {
     RenderExitScreen();
 }
 
-void Menu::RenderAllEmployeeScreen() {
+void Menu::RenderAllEmployeeRepositoryScreen() {
     ClearScreen();
     admin.ExportEmployeeRepository();
     RenderWaitingSentence();
@@ -178,7 +198,7 @@ void Menu::RenderChooseOption(int id, string title) {
     cout << id << ". " << title << endl;
 }
 
-void Menu::RenderImportEmployee() {
+void Menu::RenderImportEmployeeScreen() {
     ClearScreen();
     vector<string> listFile = GetListFile("Data/ImportEmployee");
     for (int i=0; i<listFile.size(); ++i) {

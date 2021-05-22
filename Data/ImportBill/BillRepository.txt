@@ -1,10 +1,24 @@
+4
+Khoi Hoang
 1
 Cafe au lait
 1
 50000
+Quang Vo
+1
 Cafe au lait
 1
 50000
+Quang Pham
+1
 Cafe au lait
 1
 50000
+Long
+2
+Espresso
+2
+45000
+Macchiato
+3
+55000

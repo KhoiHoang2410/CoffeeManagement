@@ -22,9 +22,9 @@ public:
     void AddItemToBill(string productName, int price);
     void RemoveAnItemFromBill(int id);
 
-    void ExportPriceLastBill();
-    void ExportLastBill();
-    void ExportAllData();
+    void ExportPriceLastBill() const;
+    void ExportLastBill() const;
+    bool ExportAllData() const;
 
     bool ImportDataFromFile(string fileName);
 

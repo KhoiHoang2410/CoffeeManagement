@@ -29,19 +29,20 @@ void BillRepository::RemoveAnItemFromBill(int id) {
     billRepository.back().RemoveProduct(id);
 }
 
-void BillRepository::ExportPriceLastBill() {
+void BillRepository::ExportPriceLastBill() const {
     billRepository.back().Total();
 }
 
-void BillRepository::ExportLastBill() {
+void BillRepository::ExportLastBill() const {
     billRepository.back().ExportData();
 }
 
-void BillRepository::ExportAllData() {
+bool BillRepository::ExportAllData() const {
     for (int i=0; i<billRepository.size(); ++i) {
         billRepository[i].ExportData();
         cout << endl;
     }
+    return 1;
 }
 
 int BillRepository::Size() {
@@ -58,28 +59,37 @@ bool BillRepository::ImportDataFromFile(string fileName) {
     vector <string> productNames;
     vector <int> amounts;
     vector <double> prices;
-    int n, amount; double price; 
+    int n, m, amount; double price; 
     string employee, productName;
 
-    getline(cin, employee);
     cin >> n;
     OutPut("BillRepository::ImportDataFromFile", fileName + " " + to_string(n));
 
     for(int i=0; i < n; i++) {
-        getline(cin, productName);
-        getline(cin, productName);
+        getline(cin, employee);
+        getline(cin, employee);
+        cin >> m;
+        for (int j=0; j < m; ++j) {
+            getline(cin, productName);
+            getline(cin, productName);
 
-        cin >> price >> amount;
+            cin >> amount >> price;
 
-        productNames.push_back(productName);
-        prices.push_back(price);
-        amounts.push_back(amount);
+            productNames.push_back(productName);
+            prices.push_back(price);
+            amounts.push_back(amount);
+        }
+
+        AddBill(employee, productNames, prices, amounts);
+
+        productNames.clear();
+        prices.clear();
+        amounts.clear();
     }
 
     cin.close();
 
-    AddBill(employee, productNames, prices, amounts);
-
+    
     OutPut("BillRepository::ImportDataFromFile", "Import success");
 
     return 1;
