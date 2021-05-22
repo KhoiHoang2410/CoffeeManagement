@@ -44,3 +44,6 @@ ostream& operator <<(ostream& out, const Date& src) {
     return out;
 }
 
+Date Date::Diffrence(Date src) {
+    return Date(dd - src.dd, mm - src.mm, yy - src.yy);
+}

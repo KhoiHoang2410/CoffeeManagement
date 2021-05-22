@@ -23,6 +23,8 @@ public:
     int Day() const;
     int Month() const;
     int Year() const;
+
+    Date Diffrence(Date src);
     
     void Output(ostream&) const ;
 };

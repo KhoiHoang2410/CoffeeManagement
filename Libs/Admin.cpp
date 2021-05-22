@@ -44,3 +44,11 @@ bool Admin::CalculateProductStockAndCapitalCost() {
     vector<pair<double, int> > res = materialRepo.GetCapitalCostAndStock(list); // vector <double, int>
     return productRepo.UpdateCapitalCostAndStock(res);
 }
+
+bool Admin::ImportEmployee(string fileName) {
+    return employeeRepo.ImportDataFromFile(fileName);
+}
+
+bool Admin::ExportEmployeeRepository() const {
+    return employeeRepo.ExportEmployeeData();
+}

@@ -2,9 +2,9 @@
 Save data
 All material repository
 All product repository
+All employee
 Status material
 Status product
-All employee
 Status employee
 Sale
 Exit

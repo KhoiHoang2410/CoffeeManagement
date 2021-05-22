@@ -8,19 +8,21 @@
 #include "../../Include/Employee/EmployeeRepository.hpp"
 #include "../../Include/Helper.hpp"
 
-void EmployeeRepository::AddEmployee(string name, string position) {
-    employeeRepo.push_back(Employee(name, position));
+void EmployeeRepository::AddEmployee(string name, string position, int salary) {
+    employeeRepo.push_back(Employee(name, position, salary));
 }
 
-void EmployeeRepository::ExportEmployee(string name) const {
+bool EmployeeRepository::ExportEmployeeData() const {
     OutPut("EmployeeRepository::ExportEmployee", "Start export " + to_string(employeeRepo.size()));
+    
     for (int i=0; i<employeeRepo.size(); ++i) {
-        cout << "ID: " << employeeRepo[i].GetID() << endl;
-        cout << "Name: " << employeeRepo[i].Name() << endl;
-        cout << "Position: " << employeeRepo[i].Position() << endl;
+        employeeRepo[i].ExportData();
+        cout << endl;
     }
 
     OutPut("EmployeeRepository::ExportEmployee", "Export success");
+
+    return 1;
 }
 
 bool EmployeeRepository::ImportDataFromFile(string fileName) {
@@ -30,17 +32,18 @@ bool EmployeeRepository::ImportDataFromFile(string fileName) {
         PutError("EmployeeRepository::ImportDataFromFile", "File not Found", 1);
     }
 
-    int n;
+    int n, salary;
     cin >> n;
     string name, position;
-    getline(cin, name);
 
     OutPut("EmployeeRepository::ImportDataFromFile", fileName + " " + to_string(n));
 
     for(int i=0; i < n; i++){
        getline(cin, name);
+       getline(cin, name);
        getline(cin, position);
-       AddEmployee(name, position);
+       cin >> salary;
+       AddEmployee(name, position, salary);
     }
 
     cin.close();

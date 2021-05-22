@@ -22,12 +22,14 @@ public:
     bool ImportProductToCheckList(string fileName);
     bool ImportNewMaterial(string fileName);
     bool ImportNewProduct(string fileName);
+    bool ImportEmployee(string fileName);
 
     bool ExportCheckListMaterial() const;
     bool ExportMaterialRepository() const;
     bool ExportCheckListProduct() const;
     bool ExportProductRepository() const;
-    
+    bool ExportEmployeeRepository() const;
+
     bool CalculateProductStockAndCapitalCost();
 };
 

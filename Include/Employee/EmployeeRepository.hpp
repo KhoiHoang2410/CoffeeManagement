@@ -18,11 +18,12 @@ private:
 public:
     EmployeeRepository() = default;
 
-    void AddEmployee(string name, string position);
-    void ExportEmployee(string name) const;
-     void EraseEmployee(string name);
+    void AddEmployee(string name, string position, int salary);
+    bool ExportEmployeeData() const;
+    void EraseEmployee(string name);
     Employee GetEmployee(string name);
     bool ImportDataFromFile(string fileName);
+    void ExportData();
 
     int getID(string name);
 };

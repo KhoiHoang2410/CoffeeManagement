@@ -1,0 +1,31 @@
+10
+Khoi Hoang
+Back-end Internship
+1000
+Di Huynh
+Back-end Internship
+1000
+Quang Vo
+Back-end Junior
+5000
+Quang Pham
+DevOps Senior
+7000
+Vinh
+Front-end Senior
+7000
+Vu Nguyen
+Back-end Senior
+7000
+Huy Du
+Back-end Junior
+4000
+Khai
+Back-end Senior
+9000
+Vy
+Back-end Junior
+5000
+Long
+Leader
+10000

@@ -22,15 +22,20 @@ private:
     static inline vector<string> menuLoadData;
 
     static void RenderLoadDataScreen();
-    static void RenderSaveDataScreen();
     static void RenderImportNewMaterialScreen();
     static void RenderImportNewProductScreen();
+    static void RenderImportEmployee();
+    
+    static void RenderSaveDataScreen();
+
     static void RenderAllMaterialRepositoryScreen();
     static void RenderAllProductRepositoryScreen();
+    static void RenderAllEmployeeScreen();
+
     static void RenderStatusMaterialScreen();
     static void RenderStatusProductScreen();
-    static void RenderAllEmployeeScreen();
     static void RenderStatusEmployeeScreen();
+
     static void RenderSaleScreen();
     static void RenderExitScreen();
 
@@ -40,8 +45,8 @@ private:
 
     static void RenderWaitingSentence();
 
-    void (*subMenuScreen[12])() = {RenderSaveDataScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
-                            , RenderStatusMaterialScreen, RenderStatusProductScreen, RenderAllEmployeeScreen
+    void (*subMenuScreen[9])() = {RenderSaveDataScreen, RenderAllMaterialRepositoryScreen, RenderAllProductRepositoryScreen
+                            , RenderAllEmployeeScreen, RenderStatusMaterialScreen, RenderStatusProductScreen
                             , RenderStatusEmployeeScreen, RenderSaleScreen, RenderExitScreen};
 
     void RenderMenuScreen();

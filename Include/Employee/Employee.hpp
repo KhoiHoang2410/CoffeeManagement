@@ -13,6 +13,7 @@
 #include "../Item.hpp"
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -23,16 +24,15 @@ private:
     string position;
     int salary;
 public:
-    Employee() = default;
-    Employee(string name, string position);
+    Employee(string name, string position, int salary, Date startDate = Date());
 
     void StopWorking();
 
-    void display(ostream& out) const;
+    void Display(ostream& out) const;
 
     string Position() const;
 
-    void UpdateSalary(int newSalary);
+    void ExportData() const;
 };
 
 ostream& operator <<(ostream& out, const Employee& src);
