@@ -69,15 +69,10 @@ int Bill::Size() const {
 void Bill::ExportData() const {
     cout << "Bill ID: " << GetID() << endl;
     cout << "Employee name: " << employeeName << endl;
-    // for (int i=0; i<productName.size(); ++i) {
-    //     cout << "Date create: " << exportDate << endl;
-    //     cout << "Product name: " << productName[i] << endl;
-    //     cout << "Price: " << price[i] << endl;
-    //     cout << "Amount: " << amount[i] << endl;
-    // }
 
     for (int i=0; i<IDs.size(); ++i) {
         cout << "ID: " << IDs[i] << " - Product name: " << productName[i] << " - Amount: " << amount[i] 
             << " - Price: " << price[i] << endl;
     }
+    cout << "Total: " << Total() << endl;
 }

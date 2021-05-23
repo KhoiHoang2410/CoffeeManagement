@@ -180,13 +180,12 @@ void Menu::RenderNotice(string title) {
 }
 
 void Menu::RenderWaitingSentence() {
-    cout << endl << endl << "Press any button to continue";
+    cout << endl << endl << "Press enter to continue";
     getchar();
 }
 
 void Menu::ClearScreen() {
-    printf("\033c");
-    // system("clear");
+    system("clear && printf '\e[3J'");
 }
 
 void Menu::RenderTitle() {
