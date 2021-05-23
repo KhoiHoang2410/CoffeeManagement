@@ -34,6 +34,7 @@ public:
     bool AddMaterialToCheckList(string materialName);
     bool AddMaterialInCheckList(string materialName, double cost, int number, int expiredInDay);
     bool UpdateStock(string materialName, int noTaken);
+    void UpdateStock(pair<vector<string>, vector<int> >);
 
     bool ImportDataFromFile(string fileName);
     bool ImportDataFromFileToCheckList(string fileName);

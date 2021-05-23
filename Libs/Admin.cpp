@@ -5,6 +5,7 @@
 //  Created by Nguyen-Khoi Hoang on 10/05/2021.
 //
 
+#include <tuple>
 #include "../Include/Admin.hpp"
 
 bool Admin::ImportMaterialToCheckList(string fileName) {
@@ -24,16 +25,15 @@ bool Admin::ImportNewProduct(string fileName) {
 }
 
 bool Admin::ImportBill(string fileName) {
-    pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > > 
-            tmp = billRepo.ImportDataFromFile(fileName);
+    auto tmp = billRepo.ImportDataFromFile(fileName);
     
-    if (!employeeRepo.IsExist(tmp.first.first)) return false;
+    if (!employeeRepo.IsExist(get<0>(tmp))) return false;
 
-    for (int i=0; i<tmp.first.second.size(); ++i)
-        if (!productRepo.IsExist(tmp.first.second[i])) return false;
+    for (int i=0; i<get<1>(tmp).size(); ++i)
+        if (!productRepo.IsExist(get<1>(tmp)[i])) return false;
     
-    for (int i=0; i<tmp.first.first.size(); ++i) {
-        billRepo.AddBill(tmp.first.first[i], tmp.first.second[i], tmp.second.second[i], tmp.second.first[i]);
+    for (int i=0; i<get<0>(tmp).size(); ++i) {
+        billRepo.AddBill(get<0>(tmp)[i], get<1>(tmp)[i], get<3>(tmp)[i], get<2>(tmp)[i]);
     }
     return 1;
 }
@@ -70,4 +70,20 @@ bool Admin::ImportEmployee(string fileName) {
 
 bool Admin::ExportEmployeeRepository() const {
     return employeeRepo.ExportEmployeeData();
+}
+
+pair<bool, string> Admin::GetEmployee(string name) {
+    if (!employeeRepo.IsExist(name)) return make_pair(0, "");
+    return make_pair(1, name);
+}
+
+tuple<bool, string, double> Admin::GetProduct(string name) {
+    if (!productRepo.IsExist(name)) return make_tuple(0, "", 0);
+    return make_tuple(1, name, productRepo.GetPrice(name));
+}
+
+void Admin::AddBill(Bill bill) {
+    materialRepo.UpdateStock(productRepo.GetDetailMaterial(bill.GetDetailProduct()));
+    CalculateProductStockAndCapitalCost();
+    billRepo.AddBill(bill);
 }

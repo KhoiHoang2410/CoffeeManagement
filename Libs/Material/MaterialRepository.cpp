@@ -72,6 +72,11 @@ bool MaterialRepository::UpdateStock(string materialName, int noTaken) {
     return 1;
 }
 
+void MaterialRepository::UpdateStock(pair<vector<string>, vector<int> > src) {
+    for (int i=0; i<src.first.size(); ++i)
+        UpdateStock(src.first[i], src.second[i]);
+}
+
 bool MaterialRepository::ImportDataFromFile(string fileName) {
     ifstream cin(fileName);
 

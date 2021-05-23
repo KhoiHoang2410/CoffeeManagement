@@ -8,6 +8,7 @@
 #include "Menu.hpp"
 #include "../Include/Helper.hpp"
 
+#include <tuple>
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -179,7 +180,48 @@ void Menu::RenderStatusEmployeeScreen() {
 }
 
 void Menu::RenderSaleScreen() {
-    RenderExitScreen();
+    // RenderExitScreen();
+    string str, choose;
+    ClearScreen();
+    cout << "Enter employee name: ";
+    getline(cin, str);
+    if (!admin.GetEmployee(str).first) {
+        return;
+    }
+
+    Bill bill(str);
+    while (1) {
+        ClearScreen();
+        bill.ExportData();
+
+        cout << "Do you want to add more item(1/0): ";
+        getline(cin, choose);
+        while (!IsInRange(choose, 0, 1)) {
+            ClearScreen();
+            bill.ExportData();
+            cout << "Do you want to add more item(1/0): ";
+            getline(cin, choose);
+        }
+
+        if (StringToInt(choose).second == 1) {
+            ClearScreen();
+            cout << "Enter product name: ";
+            getline(cin, str);
+            auto product = admin.GetProduct(str);
+            while (get<0>(product) == false) {
+                ClearScreen();
+                cout << "(You enter wrong) Enter product name: ";
+                getline(cin, str);
+                product = admin.GetProduct(str);
+            }
+            bill.AddProduct(get<1>(product), get<2>(product));
+        }
+
+        else {
+            if (bill.Size() != 0) admin.AddBill(bill);
+            return;
+        }
+    }
 }
 
 void Menu::RenderExitScreen() {

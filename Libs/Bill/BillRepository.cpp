@@ -8,6 +8,7 @@
 #include "../../Include/Bill/BillRepository.hpp"
 #include "../../Include/Helper.hpp"
 
+#include <tuple>
 #include <fstream>
 #include <iostream>
 
@@ -49,8 +50,7 @@ int BillRepository::Size() {
     return billRepository.size();
 }
 
-pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > >
-        BillRepository::ImportDataFromFile(string fileName) {
+tuple<vector<string>, vector<vector<string> >, vector<vector<int> >, vector<vector<double> > > BillRepository::ImportDataFromFile(string fileName) {
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
@@ -94,5 +94,9 @@ pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, 
     
     OutPut("BillRepository::ImportDataFromFile", "Import success");
 
-    return make_pair(make_pair(employeeNames, productNames), make_pair(amounts, prices));
+    return make_tuple(employeeNames, productNames, amounts, prices);
+}
+
+void BillRepository::AddBill(Bill bill) {
+    billRepository.push_back(bill);
 }

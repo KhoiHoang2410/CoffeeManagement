@@ -16,6 +16,7 @@ private:
 public:
     BillRepository() = default;
 
+    void AddBill(Bill bill);
     void AddBill(string employeeName, vector<string> productName, vector<double> price, vector<int> amount);
 
     void CreateBill(string employeeName);
@@ -26,11 +27,10 @@ public:
     void ExportLastBill() const;
     bool ExportAllData() const;
 
-    pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > >
-            ImportDataFromFile(string fileName);
+    tuple<vector<string>, vector<vector<string> >, vector<vector<int> >, vector<vector<double> > > ImportDataFromFile(string fileName);
 
     void removeBill(int id);
-    
+
     int Size();
 };
 

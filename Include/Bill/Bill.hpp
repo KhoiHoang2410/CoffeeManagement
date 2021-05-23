@@ -27,6 +27,7 @@ public:
     Bill(string employeeName);
     Bill(string employeeName, vector<string> productName, vector<double> price, vector<int> amount);
 
+    pair<vector<string>, vector<int> > GetDetailProduct();
     void AddProduct(string productName, double price);
     void RemoveProduct(string productName, int amount = 1);
     void RemoveProduct(int id, int amount = 1);

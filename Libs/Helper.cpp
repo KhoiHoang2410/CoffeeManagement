@@ -57,6 +57,13 @@ pair<bool, int> StringToInt(string x) {
 bool IsInRange(string x, int l, int r) {
     pair<bool, int> tmp = StringToInt(x);
     if (!tmp.first) return false;
+
+    if (l == -1) {
+        if (r == -1) return true;
+        return tmp.second <= r;
+    }
+    if (r == -1) return tmp.second >= l;
+
     return (l <= tmp.second && tmp.second <= r);
 }
 

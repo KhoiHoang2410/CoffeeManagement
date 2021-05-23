@@ -1,4 +1,4 @@
-/.vs
+/.vscode
 CoffeeManagement.sln
 CoffeeManagement.vcxproj*
 /x64

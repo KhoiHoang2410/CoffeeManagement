@@ -28,9 +28,12 @@ void Bill::AddProduct(string productName, double price) {
             this->amount[i] += 1;
             return;
         }
-    
+
+    if (IDs.empty()) IDs.push_back(1);
+    else this->IDs.push_back(IDs.back() + 1);    
     this->productName.push_back(productName);
     this->price.push_back(price);
+    this->amount.push_back(1);
 }
 
 void Bill::RemoveProduct(string productName, int amount) {
@@ -75,4 +78,8 @@ void Bill::ExportData() const {
             << " - Price: " << price[i] << endl;
     }
     cout << "Total: " << Total() << endl;
+}
+
+pair<vector<string>, vector<int> > Bill::GetDetailProduct() {
+    return make_pair(productName, amount);
 }

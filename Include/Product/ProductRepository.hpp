@@ -47,9 +47,14 @@ public:
     bool IsExist(string productName);
     bool IsExist(vector<string> productNames);
 
+    double GetPrice(string productName);
+
+    pair<vector<string>, vector<int> > GetDetailMaterial(pair<vector<string>, vector<int> >);
+
     int Size();
 
     vector<vector<pair<string, int> > > GetListMaterialForEachProduct();
+    vector<pair<string, int> > GetDetailMaterial(string name);
 };
 
 #endif /* ProductRepository_hpp */

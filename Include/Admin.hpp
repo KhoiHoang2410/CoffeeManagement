@@ -34,6 +34,10 @@ public:
     bool ExportEmployeeRepository() const;
     bool ExportBillRepository() const;
 
+    pair<bool, string> GetEmployee(string name);
+    tuple<bool, string, double> GetProduct(string name);
+    void AddBill(Bill bill);
+
     bool CalculateProductStockAndCapitalCost();
 };
 

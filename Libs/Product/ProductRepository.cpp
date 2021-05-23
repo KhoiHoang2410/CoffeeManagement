@@ -194,7 +194,10 @@ vector<vector<pair<string, int> > > ProductRepository::GetListMaterialForEachPro
 
 bool ProductRepository::IsExist(string productName) {
     for (int i=0; i<productRepo.size(); ++i) {
-        if (productRepo[i].CheckDuplicateByName(productName)) return 1;
+        if (productRepo[i].CheckDuplicateByName(productName)) {
+            if (stock[i] > 0) return 1;
+            return 0;
+        }
     }
     return 0;
 }
@@ -204,4 +207,44 @@ bool ProductRepository::IsExist(vector<string> productNames) {
         if (!IsExist(productNames[i])) return 0;
     }
     return 1;
+}
+
+double ProductRepository::GetPrice(string productName) {
+    for (int i=0; i<productRepo.size(); ++i) {
+        if (productRepo[i].CheckDuplicateByName(productName)) return sellPrice[i];
+    }
+    PutError("ProductRepository::GetPrice", "Product not exist", 1);
+}
+
+vector<pair<string, int> > ProductRepository::GetDetailMaterial(string name) {
+    for (int i=0; i<productRepo.size(); ++i)
+        if (productRepo[i].CheckDuplicateByName(name)) 
+            return productRepo[i].GetDetailMaterial();
+    PutError("ProductRepository::GetDetailMaterial", "Do not find material", 1);
+}
+
+pair<vector<string>, vector<int> > ProductRepository::GetDetailMaterial(pair<vector<string>, vector<int> > src) {
+    vector<string> materials;
+    vector<int> amounts;
+    for (int i=0;i<src.first.size(); ++i) {
+        vector<pair<string, int> > tmp = GetDetailMaterial(src.first[i]);
+        for (int j=0; j<tmp.size(); ++j) {
+            materials.push_back(tmp[j].first);
+            amounts.push_back(tmp[j].second);
+        }
+    }
+
+    for (int i=0; i<materials.size(); ++i) {
+        for (int j=i+1; j<materials.size(); ++j) {
+            if (materials[i] == materials[j]) {
+                amounts[i] += amounts[j];
+                materials.erase(materials.begin() + j);
+                amounts.erase(amounts.begin() + j);
+                
+                --j;
+            }
+        }
+    }
+
+    return make_pair(materials, amounts);
 }
