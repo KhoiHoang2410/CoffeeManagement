@@ -194,12 +194,12 @@ void Menu::RenderSaleScreen() {
         ClearScreen();
         bill.ExportData();
 
-        cout << "Do you want to add more item(1/0): ";
+        cout << "Do you want to add more item(0/1/2): ";
         getline(cin, choose);
-        while (!IsInRange(choose, 0, 1)) {
+        while (!IsInRange(choose, 0, 2)) {
             ClearScreen();
             bill.ExportData();
-            cout << "Do you want to add more item(1/0): ";
+            cout << "Do you want to add more item(0/1/2): ";
             getline(cin, choose);
         }
 
@@ -217,8 +217,11 @@ void Menu::RenderSaleScreen() {
             bill.AddProduct(get<1>(product), get<2>(product));
         }
 
-        else {
+        else if (StringToInt(choose).second == 0){
             if (bill.Size() != 0) admin.AddBill(bill);
+            return;
+        }
+        else {
             return;
         }
     }
