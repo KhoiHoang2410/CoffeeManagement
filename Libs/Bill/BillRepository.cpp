@@ -49,16 +49,18 @@ int BillRepository::Size() {
     return billRepository.size();
 }
 
-bool BillRepository::ImportDataFromFile(string fileName) {
+pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > >
+        BillRepository::ImportDataFromFile(string fileName) {
     ifstream cin(fileName);
 
     if (!cin.is_open()) {
         PutError("BillRepository::ImportDataFromFile", "File not Found", 1);
     }
 
-    vector <string> productNames;
-    vector <int> amounts;
-    vector <double> prices;
+    vector<vector<string> > productNames;
+    vector<vector<int> > amounts;
+    vector<vector<double> > prices;
+    vector<string> employeeNames;
     int n, m, amount; double price; 
     string employee, productName;
 
@@ -69,22 +71,22 @@ bool BillRepository::ImportDataFromFile(string fileName) {
         getline(cin, employee);
         getline(cin, employee);
         cin >> m;
+
+        employeeNames.push_back(employee);
+        productNames.push_back(vector<string>());
+        amounts.push_back(vector<int>());
+        prices.push_back(vector<double>());
+
         for (int j=0; j < m; ++j) {
             getline(cin, productName);
             getline(cin, productName);
 
             cin >> amount >> price;
 
-            productNames.push_back(productName);
-            prices.push_back(price);
-            amounts.push_back(amount);
+            productNames.back().push_back(productName);
+            prices.back().push_back(price);
+            amounts.back().push_back(amount);
         }
-
-        AddBill(employee, productNames, prices, amounts);
-
-        productNames.clear();
-        prices.clear();
-        amounts.clear();
     }
 
     cin.close();
@@ -92,5 +94,5 @@ bool BillRepository::ImportDataFromFile(string fileName) {
     
     OutPut("BillRepository::ImportDataFromFile", "Import success");
 
-    return 1;
+    return make_pair(make_pair(employeeNames, productNames), make_pair(amounts, prices));
 }

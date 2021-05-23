@@ -44,6 +44,9 @@ public:
     bool ExportData() const;
     bool ExportCheckListData() const;
 
+    bool IsExist(string productName);
+    bool IsExist(vector<string> productNames);
+
     int Size();
 
     vector<vector<pair<string, int> > > GetListMaterialForEachProduct();

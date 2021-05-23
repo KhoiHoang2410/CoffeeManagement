@@ -68,3 +68,17 @@ int EmployeeRepository::getID(string name) {
         if (employeeRepo[i].CheckDuplicateByName(name)) return i;
     return -1;
 }
+
+bool EmployeeRepository::IsExist(string employeeName) {
+    for (int i=0; i<employeeRepo.size(); ++i) {
+        if (employeeRepo[i].CheckDuplicateByName(employeeName)) return 1;
+    }
+    return 0;
+}
+
+bool EmployeeRepository::IsExist(vector<string> employeeNames) {
+    for (int i=0; i<employeeNames.size(); ++i) {
+        if (!IsExist(employeeNames[i])) return 0;
+    }
+    return 1;
+}

@@ -25,6 +25,9 @@ public:
     bool ImportDataFromFile(string fileName);
     void ExportData();
 
+    bool IsExist(string employeeName);
+    bool IsExist(vector<string> employeeNames);
+
     int getID(string name);
 };
 

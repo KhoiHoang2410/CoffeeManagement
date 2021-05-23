@@ -24,7 +24,18 @@ bool Admin::ImportNewProduct(string fileName) {
 }
 
 bool Admin::ImportBill(string fileName) {
-    return billRepo.ImportDataFromFile(fileName);
+    pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > > 
+            tmp = billRepo.ImportDataFromFile(fileName);
+    
+    if (!employeeRepo.IsExist(tmp.first.first)) return false;
+
+    for (int i=0; i<tmp.first.second.size(); ++i)
+        if (!productRepo.IsExist(tmp.first.second[i])) return false;
+    
+    for (int i=0; i<tmp.first.first.size(); ++i) {
+        billRepo.AddBill(tmp.first.first[i], tmp.first.second[i], tmp.second.second[i], tmp.second.first[i]);
+    }
+    return 1;
 }
 
 bool Admin::ExportCheckListMaterial() const {

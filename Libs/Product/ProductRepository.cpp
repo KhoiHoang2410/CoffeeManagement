@@ -191,3 +191,17 @@ vector<vector<pair<string, int> > > ProductRepository::GetListMaterialForEachPro
     }
     return res;
 }
+
+bool ProductRepository::IsExist(string productName) {
+    for (int i=0; i<productRepo.size(); ++i) {
+        if (productRepo[i].CheckDuplicateByName(productName)) return 1;
+    }
+    return 0;
+}
+
+bool ProductRepository::IsExist(vector<string> productNames) {
+    for (int i=0; i<productNames.size(); ++i) {
+        if (!IsExist(productNames[i])) return 0;
+    }
+    return 1;
+}

@@ -26,7 +26,8 @@ public:
     void ExportLastBill() const;
     bool ExportAllData() const;
 
-    bool ImportDataFromFile(string fileName);
+    pair<pair<vector<string>, vector<vector<string> > >, pair<vector<vector<int> >, vector<vector<double> > > >
+            ImportDataFromFile(string fileName);
 
     void removeBill(int id);
     
