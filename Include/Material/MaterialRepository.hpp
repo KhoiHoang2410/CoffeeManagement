@@ -32,7 +32,7 @@ public:
     bool RestructureData();
     
     bool AddMaterialToCheckList(string materialName);
-    bool AddMaterialInCheckList(string materialName, double cost, int number = 1);
+    bool AddMaterialInCheckList(string materialName, double cost, int number, int expiredInDay);
     bool UpdateStock(string materialName, int noTaken);
 
     bool ImportDataFromFile(string fileName);

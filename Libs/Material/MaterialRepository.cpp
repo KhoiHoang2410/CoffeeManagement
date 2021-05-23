@@ -43,14 +43,13 @@ bool MaterialRepository::AddMaterialToCheckList(string materialName) {
     return 1;
 }
 
-
-bool MaterialRepository::AddMaterialInCheckList(string materialName, double price, int number) {
+bool MaterialRepository::AddMaterialInCheckList(string materialName, double price, int number, int expiredInDay) {
     ID.push_back(ObjectManager::GenerateNewID());
     materialRepo.push_back(materialCheckList.GetMaterial(materialName));
     stock.push_back(number);
     importedPrice.push_back(price);
     importedDate.push_back(Date());
-    expiredDate.push_back(Date());
+    expiredDate.push_back(Date() + Date(expiredInDay, 0, 0));
     return 1;
 }
 
@@ -84,8 +83,7 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     int n;
     cin >> n;
     string name;
-    int price, stock;
-
+    int price, stock, expiredInDay;
 
     OutPut( "MaterialRepository::ImportDataFromFile", fileName + " " 
             + to_string(n));
@@ -93,9 +91,9 @@ bool MaterialRepository::ImportDataFromFile(string fileName) {
     for (int i=0; i<n; ++i) {
         getline(cin, name);
         getline(cin, name);
-        cin >> price >> stock;
+        cin >> price >> stock >> expiredInDay;
 
-        AddMaterialInCheckList(name, price, stock);
+        AddMaterialInCheckList(name, price, stock, expiredInDay);
     }
 
     cin.close();

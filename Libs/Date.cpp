@@ -21,6 +21,21 @@ Date::Date(int day, int month, int year) {
     this->dd = day;
     this->mm = month;
     this->yy = year;
+
+    NormalizeData();
+}
+
+void Date::NormalizeData() {
+    mm += dd / 30;
+    dd = max(1, dd % 30);
+    yy += (mm - 1) / 12;
+    mm = max(1, (mm - 1) % 12 + 1);
+    
+    if (mm == 2) {
+        if (dd >= 29) {
+            dd = 28;
+        }
+    }
 }
 
 int Date::Day() const {
@@ -46,4 +61,8 @@ ostream& operator <<(ostream& out, const Date& src) {
 
 Date Date::Diffrence(Date src) {
     return Date(dd - src.dd, mm - src.mm, yy - src.yy);
+}
+
+Date Date::operator+(Date src) {
+    return Date(dd + src.dd, mm + src.mm, yy + src.yy);
 }

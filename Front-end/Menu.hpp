@@ -21,7 +21,7 @@ private:
     vector <string> menuOptions;
     static inline vector<string> menuLoadData;
 
-    static void RenderLoadDataScreen();
+    static void RenderImportCheckListScreen();
     static void RenderImportNewMaterialScreen();
     static void RenderImportNewProductScreen();
     static void RenderImportEmployeeScreen();
@@ -39,6 +39,7 @@ private:
     static void RenderStatusEmployeeScreen();
 
     static void RenderSaleScreen();
+    
     static void RenderExitScreen();
 
     static void ClearScreen();

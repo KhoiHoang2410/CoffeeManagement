@@ -27,7 +27,7 @@ Menu::Menu() {
         menuOptions.push_back(str);
     }
     OutPut("Menu::Menu", "Import success");
-    RenderLoadDataScreen();
+    RenderImportCheckListScreen();
     RenderImportNewMaterialScreen();
     RenderImportNewProductScreen();
     RenderImportEmployeeScreen();
@@ -58,7 +58,11 @@ void Menu::Process() {
     }
 }
 
-void Menu::RenderLoadDataScreen() {
+void Menu::RenderSaveDataScreen() {
+    RenderExitScreen();
+}
+
+void Menu::RenderImportCheckListScreen() {
     ClearScreen();
     vector<string> listFile = GetListFile("Data/MaterialCheckList");
     for (int i=0; i<listFile.size(); ++i) {
@@ -78,10 +82,6 @@ void Menu::RenderLoadDataScreen() {
         else RenderNotice("Import success");
     }
     RenderWaitingSentence();
-}
-
-void Menu::RenderSaveDataScreen() {
-    RenderExitScreen();
 }
 
 void Menu::RenderImportNewMaterialScreen() {
@@ -126,6 +126,20 @@ void Menu::RenderImportNewProductScreen() {
     RenderWaitingSentence();
 }
 
+void Menu::RenderImportEmployeeScreen() {
+    ClearScreen();
+    vector<string> listFile = GetListFile("Data/ImportEmployee");
+    for (int i=0; i<listFile.size(); ++i) {
+        if (IsHiddenFile(listFile[i])) continue;
+        RenderNotice("Import file: Data/ImportEmployee/" + listFile[i]);
+        if (!admin.ImportEmployee("Data/ImportEmployee/" + listFile[i])) 
+            RenderNotice("Import failed");
+        else RenderNotice("Import success");
+        
+    }
+    RenderWaitingSentence();
+}
+
 void Menu::RenderAllMaterialRepositoryScreen() {
     ClearScreen();
     admin.ExportMaterialRepository();
@@ -146,18 +160,18 @@ void Menu::RenderAllProductRepositoryScreen() {
     RenderWaitingSentence();
 }
 
+void Menu::RenderAllEmployeeRepositoryScreen() {
+    ClearScreen();
+    admin.ExportEmployeeRepository();
+    RenderWaitingSentence();
+}
+
 void Menu::RenderStatusMaterialScreen() {
     RenderExitScreen();
 }
 
 void Menu::RenderStatusProductScreen() {
     RenderExitScreen();
-}
-
-void Menu::RenderAllEmployeeRepositoryScreen() {
-    ClearScreen();
-    admin.ExportEmployeeRepository();
-    RenderWaitingSentence();
 }
 
 void Menu::RenderStatusEmployeeScreen() {
@@ -195,18 +209,4 @@ void Menu::RenderTitle() {
 
 void Menu::RenderChooseOption(int id, string title) {
     cout << id << ". " << title << endl;
-}
-
-void Menu::RenderImportEmployeeScreen() {
-    ClearScreen();
-    vector<string> listFile = GetListFile("Data/ImportEmployee");
-    for (int i=0; i<listFile.size(); ++i) {
-        if (IsHiddenFile(listFile[i])) continue;
-        RenderNotice("Import file: Data/ImportEmployee/" + listFile[i]);
-        if (!admin.ImportEmployee("Data/ImportEmployee/" + listFile[i])) 
-            RenderNotice("Import failed");
-        else RenderNotice("Import success");
-        
-    }
-    RenderWaitingSentence();
 }

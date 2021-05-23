@@ -23,10 +23,12 @@ public:
     int Day() const;
     int Month() const;
     int Year() const;
-
+    void NormalizeData();
     Date Diffrence(Date src);
     
     void Output(ostream&) const ;
+
+    Date operator+(Date src);
 };
 
 ostream& operator <<(ostream&, const Date&);

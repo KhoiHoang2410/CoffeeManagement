@@ -2,96 +2,128 @@
 Goat’s milk
 20000
 400
+60
 Vanilla
 30000
 400
+60
 Caramel
 100000
 400
+60
 Almond
 90000
 400
+60
 Coffee
 90000
 400
+60
 Sugar
 10000
 400
+60
 Chocolate powder
 90000
 400
+60
 Yogurt
 10000
 400
+60
 Banana
 1000
 400
+60
 Maple
 1000
 400
+60
 Energy bars
 1000
 400
+60
 White sugar
 2000
 400
+60
 Equal and Nutrasweet
 2000
 400
+60
 Mango
 2000
 400
+60
 Peppermint
 2000
 400
+60
 Breakfast sandwiches
 2000
 400
+60
 Brown sugar
 2000
 400
+60
 Splenda
 2000
 400
+60
 Cow’s milk
 4000
 400
+60
 Raspberry
 4000
 400
+60
 Scones
 4000
 400
+60
 Sweet’n Low
 4000
 400
+60
 Soy milk
 4000
 400
+60
 Bagels
 4000
 400
+60
 Biscotti
 4000
 400
+60
 Maple syrup
 4000
 400
+60
 Almond milk
 4000
 400
+60
 Cookies
 4000
 400
+60
 Honey
 4000
 400
+60
 Coconut milk
 4000
 400
+60
 Molasses
 4000
 400
+60
 Stevia
 4000
 400
+60
